@@ -12,3 +12,4 @@ yarn-error.log
 .idea
 .code
 .vscode
+./docker/mysql/var/*
