@@ -20,6 +20,8 @@ services:
     environment:
       MYSQL_DATABASE: 'suricato_nparts'
     restart: always
+    volumes:
+      - dbdata:/var/lib/mysql
     ports:
       - '3307:3306'
     networks:
@@ -40,3 +42,6 @@ services:
 networks:
   db:
     driver: bridge
+
+volumes:
+  dbdata:
