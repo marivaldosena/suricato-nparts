@@ -15,8 +15,17 @@ services:
 
   db:
     image: mysql
-    command: --default-authentication-plugin=mysql_native_password
+    command: >
+      --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_DATABASE: 'suricato_nparts'
     restart: always
+    ports:
+      - '3306:3306'
+    volumes:
+      - './docker/mysql:/var/lib/mysql'
+    networks:
+      - db
     env_file:
       - '.env'
 
@@ -25,3 +34,11 @@ services:
     restart: always
     ports:
       - '8080:8080'
+    links:
+      - db
+    networks:
+      - db
+
+networks:
+  db:
+    driver: bridge
