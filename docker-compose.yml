@@ -11,7 +11,7 @@ services:
     links:
       - db
     env_file:
-      - '.env'
+      - 'docker.env'
 
   db:
     image: mysql
@@ -21,13 +21,11 @@ services:
       MYSQL_DATABASE: 'suricato_nparts'
     restart: always
     volumes:
-      - dbdata:/var/lib/mysql
+      - 'dbdata:/var/lib/mysql'
     ports:
       - '3307:3306'
-    networks:
-      - db
     env_file:
-      - '.env'
+      - 'docker.env'
 
   adminer:
     image: adminer
@@ -36,12 +34,6 @@ services:
       - '8080:8080'
     links:
       - db
-    networks:
-      - db
-
-networks:
-  db:
-    driver: bridge
 
 volumes:
   dbdata:
