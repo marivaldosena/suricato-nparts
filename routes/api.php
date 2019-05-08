@@ -19,3 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/users', 'UsuarioController@create');
 Route::post('/users/login', 'UsuarioController@login');
+Route::post('/users/login/recuperar', 'UsuarioController@recuperarSenha');

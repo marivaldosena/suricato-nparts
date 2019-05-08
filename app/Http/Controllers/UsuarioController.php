@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\RecuperarSenhaMail;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 class UsuarioController extends Controller
@@ -52,5 +54,21 @@ class UsuarioController extends Controller
                 return response(['status' => 'Usuário não encontrado.'], 401);
             }
         }
+    }
+
+    /**
+     * Envia um e-mail de recuperação com link.
+     *
+     * @param Request $request
+     * @return json
+     */
+    public function recuperarSenha(Request $request)
+    {
+        //TODO: Refatorar o código e redefinir senha.
+        $usuario = User::where('email', $request->get('email'))->first();
+
+        Mail::to($usuario->email)->send(new RecuperarSenhaMail($usuario, 'linkDeRecuperacao'));
+
+        return response(['status' => 'E-mail com link de recuperação foi enviado.'], 200);
     }
 }

@@ -2,11 +2,18 @@
 
 namespace Tests\Unit;
 
+use App\Mail\RecuperarSenhaMail;
+use App\User;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
+
 class GerenciarUsuariosTest extends TestCase
 {
+    public $usuario;
+
     /**
      * Testa a criação de um usuário com dados válidos.
      *
@@ -57,5 +64,19 @@ class GerenciarUsuariosTest extends TestCase
         $response->assertJson(['status' => 'Usuário não encontrado.']);
 
         $response->assertStatus(401);
+    }
+
+    public function testRecuperarSenha()
+    {
+        $this->assertDatabaseHas('users', [
+           'email' => 'ze.ninguem@email.com'
+        ]);
+
+        $usuario = User::where('email', 'ze.ninguem@email.com')->first();
+        $link = 'teste';
+
+        Mail::fake();
+
+        Mail::assertNothingSent();
     }
 }

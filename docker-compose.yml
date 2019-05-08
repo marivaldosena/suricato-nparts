@@ -27,6 +27,21 @@ services:
     env_file:
       - 'docker.env'
 
+  dbtest:
+    image: mysql
+    restart: always
+    command: >
+      --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: 'teste'
+      MYSQL_PASSWORD: 'teste'
+      MYSQL_USER: 'root'
+      MYSQL_DATABASE: 'suricato_testing'
+    volumes:
+      - 'dbtestdata:/var/lib/mysql'
+    ports:
+      - '3308:3306'
+
   adminer:
     image: adminer
     restart: always
@@ -34,6 +49,8 @@ services:
       - '8080:8080'
     links:
       - db
+      - dbtest
 
 volumes:
   dbdata:
+  dbtestdata:
