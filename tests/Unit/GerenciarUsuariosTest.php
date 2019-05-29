@@ -61,7 +61,7 @@ class GerenciarUsuariosTest extends TestCase
             'senha' => 'teste@'
         ]);
 
-        $response->assertJson(['status' => 'Usuário não encontrado.']);
+        $response->assertJson(['status' => 'Login ou senha incorreta.']);
 
         $response->assertStatus(401);
     }

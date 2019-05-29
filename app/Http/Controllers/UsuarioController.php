@@ -51,7 +51,7 @@ class UsuarioController extends Controller
 
                 return $usuario;
             } else {
-                return response(['status' => 'Usuário não encontrado.'], 401);
+                return response(['status' => 'Login ou senha incorreta.'], 401);
             }
         }
     }
