@@ -17,7 +17,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/users', 'UsuarioController@create');
+Route::post('/users', 'UsuarioController@createUsuario');
 Route::post('/users/login', 'UsuarioController@login');
 Route::post('/users/login/recuperar', 'UsuarioController@recuperarSenha');
 Route::get('/anuncios', 'AnuncioController@index');

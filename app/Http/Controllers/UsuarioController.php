@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Validator;
 use App\Mail\RecuperarSenhaMail;
 use App\User;
 use Illuminate\Http\Request;
@@ -19,8 +20,42 @@ class UsuarioController extends Controller
      * @param Request $request
      * @return User
      */
-    public function create(Request $request)
+    public function createUsuario(Request $request)
     {
+        // Regras de validação
+        $formato_senha = '/^[a-z.]*(?=.{3,})(?=.{1,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%@]).*$/';
+        $regras = [
+            'email' => 'required|email',
+            'senha' => 'required|min:6|regex:'.$formato_senha,
+            'nome' => 'required|min:3',
+        ];
+
+        // Mensagens descritivas dos erros
+        $mensagens = [
+            'email.required' => 'E-mail é obrigatório.',
+            'email.email' => 'E-mail em formato inválido.',
+            'senha.required' => 'Senha é obrigatória.',
+            'senha.min' => 'Senha deve conter pelo menos :min caracteres.',
+            'senha.regex' => 'Senha deve conter letras, números e caracteres especiais válidos.',
+            'nome.required' => 'Nome é obrigatório.',
+            'nome.min' => 'Nome deve conter pelos menos :min caracteres.'
+        ];
+
+        $validator = Validator::make($request->all(), $regras, $mensagens);
+        
+        if ($validator->fails()) {
+            return response(['status' => ['errors' => $validator->errors()]], 401);
+        }
+        
+        $exists = User::where('email', $request->get('email'))->first();
+        
+        if ($exists) {
+            return response(['status' => 'E-mail já está sendo utilizado.'], 401);
+        }
+        /*
+         * TODO: Criar perfis diferentes para cliente pessoa
+         * física, jurídica e administrador.
+         */
         $usuario = new User;
         $usuario->name = $request->get('nome');
         $usuario->email = $request->get('email');
@@ -30,7 +65,7 @@ class UsuarioController extends Controller
         $usuario->expires_at = now()->addMinutes(env('TOKEN_LIFE_SPAN', 30));
         $usuario->save();
 
-        return $usuario;
+        return response(['status' => 'Cadastro efetuado com sucesso.'], 201);
     }
 
     /**
