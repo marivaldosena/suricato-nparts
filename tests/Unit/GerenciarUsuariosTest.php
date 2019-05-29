@@ -66,6 +66,7 @@ class GerenciarUsuariosTest extends TestCase
         $response->assertStatus(401);
     }
 
+    // TODO: Incluir mensagem descritiva.
     public function testRecuperarSenha()
     {
         $this->assertDatabaseHas('users', [
@@ -78,5 +79,18 @@ class GerenciarUsuariosTest extends TestCase
         Mail::fake();
 
         Mail::assertNothingSent();
+    }
+
+    // TODO: Incluir mensagem descritiva.
+    public function testAlterarDadosCadastrais()
+    {
+        $response = $this->json('POST', '/api/users/alterar-dados', [
+            'email' => 'ze.ninguem@email.com',
+            'senha' => 'teste@1',
+            'novaSenha' => 'teste@2',
+            'nome' => 'Zé Mané',
+        ]);
+
+        $response->assertStatus(200);
     }
 }

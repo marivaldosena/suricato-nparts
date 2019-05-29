@@ -78,18 +78,14 @@ class UsuarioController extends Controller
      */
     public function login(Request $request)
     {
-        $usuario = $this->encontrarUsuario($request->get('email'));
+        $usuario = $this->validarCredenciais(
+            $request->get('email'), $request->get('senha')
+        );
 
         if ($usuario) {
-            if (Hash::check($request->get('senha'),$usuario->password)) {
-                $usuario->token = Str::uuid();
-                $usuario->expires_at = now()->addMinutes(env('TOKEN_LIFE_SPAN', 30));
-                $usuario->save();
-
-                return $usuario;
-            } else {
-                return response(['status' => 'Login ou senha incorreta.'], 401);
-            }
+            return $usuario;
+        } else {
+            return response(['status' => 'Login ou senha incorreta.'], 401);
         }
     }
 
@@ -109,8 +105,49 @@ class UsuarioController extends Controller
         return response(['status' => 'E-mail com link de recuperação foi enviado.'], 200);
     }
 
-    private function encontrarUsuario($email)
+    // TODO: Inserir mensagem descritiva.
+    public function alterarDadosCadastrais(Request $request)
+    {
+        $usuario = $this->validarCredenciais(
+            $request->get('email'), $request->get('senha')
+        );
+
+        if ($usuario) {
+            try {
+                $usuario->password = Hash::make($request->get('novaSenha'));
+                $usuario->name = $request->get('nome');
+                $usuario->save();
+
+                return response($usuario, 200);
+            } catch (Exception $e) {
+                log($e->getMessage());
+                return response(['status' => 'Não foi possível alterar os dados, tente novamente.'], 500);
+            }
+        } else {
+            return response(['status' => 'Dados incorretos.'], 401);
+        }
+    }
+
+    // TODO: Inserir mensagem descritiva.
+    private function encontrarUsuario(string $email)
     {
         return User::where('email', $email)->first();
+    }
+
+    // TODO: Inserir mensagem descritiva.
+    private function validarCredenciais(string $email, string $senha)
+    {
+        $usuario = $this->encontrarUsuario($email);
+
+        // FIXME: Refatorar a alteração de token, data de expiração para o model.
+        if ($usuario && Hash::check($senha, $usuario->password)) {
+            $usuario->token = Str::uuid();
+            $usuario->expires_at = now()->addMinutes(env('TOKEN_LIFE_SPAN', 30));
+            $usuario->save();
+
+            return $usuario;
+        } else {
+            return null;
+        }
     }
 }

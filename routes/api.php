@@ -17,7 +17,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// /users
 Route::post('/users', 'UsuarioController@createUsuario');
 Route::post('/users/login', 'UsuarioController@login');
 Route::post('/users/login/recuperar', 'UsuarioController@recuperarSenha');
+Route::post('/users/alterar-dados', 'UsuarioController@alterarDadosCadastrais');
+
+// /anuncios
 Route::get('/anuncios', 'AnuncioController@index');
