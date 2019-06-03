@@ -13,15 +13,35 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
+//
+//// /users
+//Route::post('/users', 'UsuarioController@createUsuario');
+//Route::post('/users/login', 'UsuarioController@login');
+//Route::post('/users/login/recuperar', 'UsuarioController@recuperarSenha');
+//Route::post('/users/alterar-dados', 'UsuarioController@alterarDadosCadastrais');
+//
+//// /anuncios
+//Route::get('/anuncios', 'AnuncioController@index');
+
+Route::group([
+
+    'middleware' => 'api',
+
+], function ($router) {
+
+    Route::post('login', 'AuthController@login');
+    Route::post('logout', 'AuthController@logout');
+    Route::post('refresh', 'AuthController@refresh');
+
+
+    Route::group(['middleware' => 'auth:api'], function(){
+        Route::get('me', 'AuthController@me');
+        Route::get('posts', function(){
+            return \App\Post::where('user_id', auth()->id())->get();
+        });
+    });
+
 });
-
-// /users
-Route::post('/users', 'UsuarioController@createUsuario');
-Route::post('/users/login', 'UsuarioController@login');
-Route::post('/users/login/recuperar', 'UsuarioController@recuperarSenha');
-Route::post('/users/alterar-dados', 'UsuarioController@alterarDadosCadastrais');
-
-// /anuncios
-Route::get('/anuncios', 'AnuncioController@index');

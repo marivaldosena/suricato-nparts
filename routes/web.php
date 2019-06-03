@@ -12,3 +12,7 @@
 */
 
 Route::get('/', 'UsuarioController@create');
+
+Route::get('test', function(){
+    echo bcrypt('123456');
+});
