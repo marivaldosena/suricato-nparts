@@ -36,7 +36,7 @@ class AuthController extends Controller
             }
 
             if (!$token = auth()->attempt($credentials)) {
-                return response()->json(['message' => __('login.unauthenticated')], 401);
+                return response()->json(['message' => __('login.invalid.password')], 401);
             }
 
             return $this->respondWithToken($token);
