@@ -32,16 +32,16 @@ class AuthController extends Controller
             $user = User::where('email', $credentials['email'])->first();
 
             if(!$user){
-                return response()->json(['message' => 'Invalid username.'], 404);
+                return response()->json(['message' => __('login.invalid.user')], 404);
             }
 
             if (!$token = auth()->attempt($credentials)) {
-                return response()->json(['message' => 'Unauthenticated'], 401);
+                return response()->json(['message' => __('login.unauthenticated')], 401);
             }
 
             return $this->respondWithToken($token);
         }else{
-            return response()->json(['message' => 'Email and password is required'], 400);
+            return response()->json(['message' => __('login.required.both')], 400);
         }
     }
 
@@ -93,7 +93,7 @@ class AuthController extends Controller
     {
         auth()->logout();
 
-        return response()->json(['message' => 'Successfully logged out']);
+        return response()->json(['message' => __('login.logout')]);
     }
 
     /**
