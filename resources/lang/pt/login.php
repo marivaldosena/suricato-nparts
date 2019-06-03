@@ -1,13 +1,13 @@
 <?php
 
 return [
-    'unauthenticated' => 'Unauthenticated.',
+    'unauthenticated' => 'Não Autenticado.',
     'invalid' => [
-        'user' => 'Invalid username.',
-        'password' => 'Invalid password.',
+        'user' => 'Usuário inválido.',
+        'password' => 'Senha inválida.',
     ],
     'required' => [
-        'both' => 'Email and password is required.'
+        'both' => 'Email e Senha são campos obrigatórios.'
     ],
-    'logout' => 'Successfully logged out.',
+    'logout' => 'Logout realizado com sucesso.',
 ];
