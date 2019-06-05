@@ -35,13 +35,11 @@ Route::group([
     Route::post('login', 'AuthController@login');
     Route::post('logout', 'AuthController@logout');
     Route::post('refresh', 'AuthController@refresh');
+    Route::get('advertisements', 'Api\\AdvertisementController@index');
 
 
     Route::group(['middleware' => 'auth:api'], function(){
         Route::get('me', 'AuthController@me');
-        Route::get('posts', function(){
-            return \App\Post::where('user_id', auth()->id())->get();
-        });
     });
 
 });

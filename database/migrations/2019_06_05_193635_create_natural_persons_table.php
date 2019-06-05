@@ -9,7 +9,6 @@ class CreateNaturalPersonsTable extends Migration {
 	public function up()
 	{
 		Schema::create('natural_persons', function(Blueprint $table) {
-			$table->increments('id');
 			$table->integer('customer_id')->primary()->unsigned();
 			$table->string('cpf', 11)->unique();
 			$table->string('rg', 14)->nullable();

@@ -9,7 +9,6 @@ class CreateLegalPersonsTable extends Migration {
 	public function up()
 	{
 		Schema::create('legal_persons', function(Blueprint $table) {
-			$table->increments('id');
 			$table->integer('customer_id')->primary()->unsigned();
 			$table->string('cnpj', 14)->unique();
 			$table->string('company_name', 200);
