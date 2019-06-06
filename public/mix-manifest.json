@@ -1,0 +1,14 @@
+{
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
+    "/dashboard.js": "/dashboard.js",
+    "/dashboard.index.js": "/dashboard.index.js",
+    "/jobs.js": "/jobs.js",
+    "/jobs.create.js": "/jobs.create.js",
+    "/jobs.index.js": "/jobs.index.js",
+    "/login.js": "/login.js",
+    "/settings.js": "/settings.js",
+    "/users.js": "/users.js",
+    "/vendors~dashboard.js": "/vendors~dashboard.js",
+    "/vendors~login.js": "/vendors~login.js"
+}
