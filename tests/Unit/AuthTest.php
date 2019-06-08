@@ -58,6 +58,36 @@ class AuthTest extends TestCase
     }
 
     /**
+     * Testa login de usuário com usuário e/ou senha inválidos.
+     *
+     * @return void
+     */
+    public function testLoginUsuarioSenhaInvalida()
+    {
+        $url = '/api/login';
+
+        /* Usuário inexistente. */
+        $invalidUserResponse = $this->json('POST', $url, [
+            'email' => 'email@invalido.com',
+            'password' => 'tantofaz',
+        ]);
+
+        $invalidUserResponse->assertJson(['message' => __('login.invalid.user')]);
+
+        $invalidUserResponse->assertStatus(404);
+
+        /* Senha inválida. */
+        $response = $this->json('POST', $url, [
+            'email' => $this->usuario['email'],
+            'password' => 'teste@'
+        ]);
+
+        $response->assertJson(['message' => __('login.invalid.password')]);
+
+        $response->assertStatus(401);
+    }
+
+    /**
      * Teste exclusão de usuário válido.
      */
     public function testExcluirUsuario()
@@ -76,23 +106,6 @@ class AuthTest extends TestCase
 
         $response->assertStatus(204);
     }
-
-    /**
-     * Testa login de usuário com senha inválida.
-     *
-     * @return void
-     */
-    /* public function testLoginUsuarioSenhaInvalida()
-    {
-        $response = $this->json('POST', '/api/users/login', [
-            'email' => 'ze.ninguem@email.com',
-            'senha' => 'teste@'
-        ]);
-
-        $response->assertJson(['status' => 'Login ou senha incorreta.']);
-
-        $response->assertStatus(401);
-    } */
 
     // TODO: Incluir mensagem descritiva.
     /* public function testRecuperarSenha()
