@@ -12,9 +12,6 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class AuthTest extends TestCase
 {
-    use RefreshDatabase;
-    use DatabaseMigrations;
-
     public $usuario;
 
     /**
@@ -40,19 +37,40 @@ class AuthTest extends TestCase
      *
      * @return void
      */
-    /* public function testLoginUsuario()
+    public function testLoginUsuario()
     {
-        $response = $this->json('POST', '/api/users/login', [
+        $response = $this->json('POST', '/api/login', [
             'email' => 'ze.ninguem@email.com',
-            'senha' => 'teste@1'
+            'password' => 'teste@1'
         ]);
 
-        $response->assertJsonStructure([
-            'email', 'name', 'token'
+        $response->assertJson([
+            'expires_in' => 3600,
+            'token_type' => 'bearer',
         ]);
 
-        $response->assertStatus(200);
-    } */
+        $response->assertOk();
+    }
+
+    /**
+     * Teste exclusão de usuário válido.
+     */
+    public function testExcluirUsuario()
+    {
+        $user = User::where('email', 'ze.ninguem@email.com')->first();
+
+        $loginResponse = $this->json('POST', '/api/login', [
+            'email' => 'ze.ninguem@email.com',
+            'password' => 'teste@1'
+        ]);
+
+        $loginResponse->assertJsonStructure(['access_token']);
+        $response = $this->json('DELETE', '/api/users/'.$user->id, [
+            'access_token' => $loginResponse->json('access_token'),
+        ]);
+
+        $response->assertStatus(204);
+    }
 
     /**
      * Testa login de usuário com senha inválida.
