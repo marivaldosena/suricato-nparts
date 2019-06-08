@@ -25,6 +25,7 @@ use Illuminate\Http\Request;
 //
 //// /anuncios
 //Route::get('/anuncios', 'AnuncioController@index');
+Route::post('users/register', 'Api\\UserController@store');
 
 Route::group([
 
