@@ -12,7 +12,12 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class AuthTest extends TestCase
 {
-    public $usuario;
+    public $usuario = [
+        'name' => 'Zé Ninguém',
+        'email' => 'ze.ninguem@email.com',
+        'password' => 'teste@1',
+        'type' => '1',
+    ];
 
     /**
      * Testa a criação de um usuário com dados válidos.
@@ -22,14 +27,14 @@ class AuthTest extends TestCase
     public function testCriarUsuario()
     {
         $response = $this->json('POST', '/api/users/register', [
-            'name' => 'Zé Ninguém',
-            'email' => 'ze.ninguem@email.com',
-            'password' => 'teste@1',
-            'type' => '1',
+            'name' => $this->usuario['name'],
+            'email' => $this->usuario['email'],
+            'password' => $this->usuario['password'],
+            'type' => $this->usuario['type'],
         ]);
 
         $response->assertStatus(201);
-        $this->assertDatabaseHas('users', ['email' => 'ze.ninguem@email.com']);
+        $this->assertDatabaseHas('users', ['email' => $this->usuario['email']]);
     }
 
     /**
@@ -40,8 +45,8 @@ class AuthTest extends TestCase
     public function testLoginUsuario()
     {
         $response = $this->json('POST', '/api/login', [
-            'email' => 'ze.ninguem@email.com',
-            'password' => 'teste@1'
+            'email' => $this->usuario['email'],
+            'password' => $this->usuario['password'],
         ]);
 
         $response->assertJson([
@@ -57,11 +62,11 @@ class AuthTest extends TestCase
      */
     public function testExcluirUsuario()
     {
-        $user = User::where('email', 'ze.ninguem@email.com')->first();
+        $user = User::where('email', $this->usuario['email'])->first();
 
         $loginResponse = $this->json('POST', '/api/login', [
-            'email' => 'ze.ninguem@email.com',
-            'password' => 'teste@1'
+            'email' => $this->usuario['email'],
+            'password' => $this->usuario['password'],
         ]);
 
         $loginResponse->assertJsonStructure(['access_token']);
