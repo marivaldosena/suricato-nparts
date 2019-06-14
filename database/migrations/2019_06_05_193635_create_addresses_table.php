@@ -13,11 +13,11 @@ class CreateAddressesTable extends Migration {
 			$table->integer('customer_id')->unsigned();
 			$table->string('zip_code', 8);
 			$table->string('street', 100);
-			$table->string('complement', 191)->nullable();
+			$table->string('complement', 100)->nullable();
 			$table->string('number', 10);
-			$table->string('neighborhood', 100);
-			$table->string('city', 100);
-			$table->string('state', 100);
+			$table->string('neighborhood', 30);
+			$table->string('city', 30);
+			$table->string('state', 30);
 			$table->timestamps();
 		});
 	}
