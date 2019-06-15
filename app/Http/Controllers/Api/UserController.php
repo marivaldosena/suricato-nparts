@@ -16,9 +16,19 @@ class UserController extends Controller
     private $rules = [
         'name' => 'required|min:3',
         'email' => 'required|email',
-//        'password' => 'required|min:6|regex:/^[a-z.]*(?=.{3,})(?=.{1,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%@]).*$/',
-        'type' => 'required'
+        'password' => 'required|min:6|regex:/^[a-z.]*(?=.{3,})(?=.{1,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%@]).*$/',
+        'type' => 'required|regex:/^[2-3]{1}$/'
     ];
+
+    /**
+     * Create a new AuthController instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth:api', ['except' => ['store']]);
+    }
 
     /**
      * Display a listing of the Users.
@@ -39,6 +49,10 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        if(auth()->user() && auth()->user()->type == 1){
+            $this->rules['type'] = 'required|regex:/^[1-3]{1}$/';
+        }
+
         $this->validate($request, $this->rules);
 
         $exists = User::where('email', $request->email)->first();
@@ -84,10 +98,12 @@ class UserController extends Controller
 
         $user = User::findOrFail($id);
 
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = bcrypt($request->password);
-        $user->type = $request->type;
+        $user->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password,
+            'type' => $request->type,
+        ]);
 
         $user->save();
 
