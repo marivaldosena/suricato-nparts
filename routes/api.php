@@ -43,6 +43,17 @@ Route::group([
 
         //users
         Route::resource('users', 'Api\\UserController')->middleware('checkAdmin');
+
+        //customers
+        Route::group(['prefix' => 'customers'], function(){
+            Route::resource('natural', 'Api\NaturalPersonController');
+            Route::resource('legal', 'Api\LegalPersonController');
+            Route::put('status/{id}', 'Api\CustomerController@status');
+        });
     });
 
+    Route::group(['prefix' => 'customers'], function () {
+        Route::get('/', 'Api\CustomerController@index');
+        //
+    });
 });

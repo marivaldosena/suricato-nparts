@@ -12,17 +12,17 @@ class Customer extends Model
 
     public function user()
     {
-        return $this->belongsTo('User');
+        return $this->belongsTo('App\\User');
     }
 
     public function naturalPersonInfo()
     {
-        return $this->hasOne('NaturalPerson');
+        return $this->hasOne('App\\NaturalPerson', 'customer_id', 'id');
     }
 
     public function legalPersonInfo()
     {
-        return $this->hasOne('LegalPerson');
+        return $this->hasOne('App\\LegalPerson');
     }
 
     public function address()
