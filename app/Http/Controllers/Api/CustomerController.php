@@ -67,9 +67,14 @@ class CustomerController extends Controller
 
     /**
      * especifica para admin
-    */
-    public function status(Request $request)
+     */
+    public function status(Request $request, $id)
     {
-        //
+        $customer = Customer::findOrFail($id);
+        $customer->update([
+            'status' => $request->status,
+        ]);
+
+        return response('', 204);
     }
 }

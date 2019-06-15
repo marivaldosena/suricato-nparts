@@ -48,8 +48,12 @@ Route::group([
         Route::group(['prefix' => 'customers'], function(){
             Route::resource('natural', 'Api\NaturalPersonController');
             Route::resource('legal', 'Api\LegalPersonController');
+            Route::put('status/{id}', 'Api\CustomerController@status');
         });
     });
 
-    Route::get('/', 'Api\CustomerController@index');
+    Route::group(['prefix' => 'customers'], function () {
+        Route::get('/', 'Api\CustomerController@index');
+        //
+    });
 });
