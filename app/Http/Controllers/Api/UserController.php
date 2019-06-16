@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Resources\UserResource;
+use App\Mail\VerifyMail;
 use App\User;
+use http\Env\Response;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 use Validator;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -27,7 +31,7 @@ class UserController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['store']]);
+        $this->middleware('auth:api', ['except' => ['store', 'verify']]);
     }
 
     /**
@@ -61,14 +65,16 @@ class UserController extends Controller
             return response()->json(['message' => 'This email is already registered.'], 409);
         }
 
-        // TODO - Enviar email de confirmação
         $user = new User;
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         $user->type = $request->type;
+        $user->email_verify_token = Str::random(60);
 
         $user->save();
+
+        Mail::to($user)->queue(new VerifyMail($user));
 
         return response(null, 201);
     }
@@ -123,5 +129,30 @@ class UserController extends Controller
         $user->delete();
 
         return response(null, 204);
+    }
+
+    /**
+     * Verify user account email
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  string $token
+     * @return \Illuminate\Http\Response
+    */
+    public function verify(Request $request, $token)
+    {
+        $user = User::where('email_verify_token', $token)->first();
+
+        if($user && !$user->email_email_verified_at){
+            $user->update([
+                'email_verify_token' => null,
+                'email_verified_at' => now(),
+            ]);
+
+            $user->save();
+
+            return response(null, 204);
+        }
+
+        return response(null, 404);
     }
 }
