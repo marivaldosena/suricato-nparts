@@ -5,15 +5,12 @@ namespace App\Http\Controllers\Api;
 use App\Http\Resources\UserResource;
 use App\Mail\VerifyMail;
 use App\User;
-use http\Env\Response;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
-use Validator;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Http\Resources\Json\ResourceCollection;
-use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
