@@ -26,6 +26,8 @@ class AuthController extends Controller
      */
     public function login()
     {
+        // TODO - utilizar validate e suas regras???
+
         if(request()->has(['email', 'password'])){
             $credentials = request(['email', 'password']);
 
@@ -33,6 +35,14 @@ class AuthController extends Controller
 
             if(!$user){
                 return response()->json(['message' => __('login.invalid.user')], 404);
+            }
+
+            if(!$user->email_verified_at){
+                return response()->json(['message' => __('login.verify')], 401);
+            }
+
+            if(!$user->status){
+                return response()->json(['message' => 'conta desabilitada'], 401);
             }
 
             if (!$token = auth()->attempt($credentials)) {
@@ -43,45 +53,6 @@ class AuthController extends Controller
         }else{
             return response()->json(['message' => __('login.required.both')], 400);
         }
-    }
-
-    /**
-     * Register a new user
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function register(Request $request)
-    {
-        $v = Validator::make($request->all(), [
-            'name' => 'required|min:3',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6|confirmed|regex:/^[a-z.]*(?=.{3,})(?=.{1,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%@]).*$/',
-        ]);
-
-        if ($v->fails()) {
-            return response()->json([
-                'status' => 'error',
-                'errors' => $v->errors()
-            ], 422);
-        }
-
-        $user = new User;
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = bcrypt($request->password);
-        $user->save();
-
-        return response()->json(['status' => 'success'], 200);
-    }
-
-    /**
-     * Get the authenticated User.
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function me()
-    {
-        return response()->json(auth()->user());
     }
 
     /**
