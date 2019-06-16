@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration {
 			$table->string('password', 80);
 			$table->enum('type', array('1', '2', '3'));
 			$table->rememberToken('rememberToken');
+            $table->enum('status', ['0', '1']);
 			$table->timestamps();
 		});
 	}

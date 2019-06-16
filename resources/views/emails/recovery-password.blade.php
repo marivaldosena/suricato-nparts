@@ -5,13 +5,13 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Verify your account</title>
+    <title>Reset password</title>
 </head>
 <body>
-</body>
-<h2>Welcome to the {{config('app.name')}} {{$user['name']}}.</h2>
+<h2>Reset password.</h2>
 <br>
-Your registered email is {{$user['email']}} , Please click on the below link to verify your email account
-<br/>
-<a href="{{url('users/verify', $user['email_verify_token'])}}">Verify Email</a>
+Hi {{$user['name']}}, to reset your password, click <a href="{{url('users/reset', $token)}}">Reset password</a>
+<br>
+If you did not request this reset, please disregard this email.
+</body>
 </html>

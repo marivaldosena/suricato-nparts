@@ -13,23 +13,8 @@ use Illuminate\Http\Request;
 |
 */
 
-//Route::middleware('auth:api')->get('/user', function (Request $request) {
-//    return $request->user();
-//});
-//
-//// /users
-//Route::post('/users', 'UsuarioController@createUsuario');
-//Route::post('/users/login', 'UsuarioController@login');
-//Route::post('/users/login/recuperar', 'UsuarioController@recuperarSenha');
-//Route::post('/users/alterar-dados', 'UsuarioController@alterarDadosCadastrais');
-//
-//// /anuncios
-//Route::get('/anuncios', 'AnuncioController@index');
-
 Route::group([
-
     'middleware' => 'api',
-
 ], function ($router) {
 
     Route::post('login', 'AuthController@login');
@@ -51,6 +36,7 @@ Route::group([
 
     //users
     Route::resource('users', 'Api\\UserController');
+    Route::resource('users/reset', 'Api\\ResetPasswordController');
 
     Route::group(['prefix' => 'customers'], function () {
         Route::get('/', 'Api\CustomerController@index');
