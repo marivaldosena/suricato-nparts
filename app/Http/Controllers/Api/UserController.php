@@ -17,7 +17,7 @@ class UserController extends Controller
     private $rules = [
         'name' => 'required|min:3',
         'email' => 'required|email',
-        'password' => 'required|min:6|regex:/^[a-z.]*(?=.{3,})(?=.{1,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%@]).*$/',
+        'password' => 'required|min:6|confirmed|regex:/^[a-z.]*(?=.{3,})(?=.{1,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%@]).*$/',
         'type' => 'required|regex:/^[2-3]{1}$/'
     ];
 
@@ -68,6 +68,7 @@ class UserController extends Controller
         $user->password = bcrypt($request->password);
         $user->type = $request->type;
         $user->email_verify_token = Str::random(60);
+        $user->status = '0';
 
         $user->save();
 
@@ -152,4 +153,6 @@ class UserController extends Controller
 
         return response(null, 404);
     }
+
+    //status usuario
 }

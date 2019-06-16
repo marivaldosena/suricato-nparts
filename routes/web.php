@@ -16,6 +16,3 @@
 Route::get('test', function(){
     echo bcrypt('adhenriquemusic@gmail.com');
 });
-
-//verify user
-Route::get('users/verify/{token}', 'Api\\UserController@verify');
