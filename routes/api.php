@@ -41,9 +41,6 @@ Route::group([
     Route::group(['middleware' => 'auth:api'], function(){
         Route::get('me', 'AuthController@me');
 
-        //users
-        Route::resource('users', 'Api\\UserController')->middleware('checkAdmin');
-
         //customers
         Route::group(['prefix' => 'customers'], function(){
             Route::resource('natural', 'Api\NaturalPersonController');
@@ -51,6 +48,9 @@ Route::group([
             Route::put('status/{id}', 'Api\CustomerController@status');
         });
     });
+
+    //users
+    Route::resource('users', 'Api\\UserController');
 
     Route::group(['prefix' => 'customers'], function () {
         Route::get('/', 'Api\CustomerController@index');

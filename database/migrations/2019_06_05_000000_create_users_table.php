@@ -12,6 +12,7 @@ class CreateUsersTable extends Migration {
 			$table->increments('id');
 			$table->string('name', 40);
 			$table->string('email', 40)->unique();
+			$table->string('email_verify_token', 60)->nullable();
 			$table->timestamp('email_verified_at')->nullable();
 			$table->string('password', 80);
 			$table->enum('type', array('1', '2', '3'));

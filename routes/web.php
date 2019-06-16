@@ -14,5 +14,8 @@
 //Route::get('/', 'UsuarioController@create');
 
 Route::get('test', function(){
-    echo bcrypt('123456');
+    echo bcrypt('adhenriquemusic@gmail.com');
 });
+
+//verify user
+Route::get('users/verify/{token}', 'Api\\UserController@verify');
