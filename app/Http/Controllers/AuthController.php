@@ -26,6 +26,8 @@ class AuthController extends Controller
      */
     public function login()
     {
+        // TODO - utilizar validate e suas regras???
+
         if(request()->has(['email', 'password'])){
             $credentials = request(['email', 'password']);
 
@@ -33,6 +35,10 @@ class AuthController extends Controller
 
             if(!$user){
                 return response()->json(['message' => __('login.invalid.user')], 404);
+            }
+
+            if(!$user->email_verified_at){
+                return response()->json(['message' => __('login.verify')], 401);
             }
 
             if (!$token = auth()->attempt($credentials)) {
