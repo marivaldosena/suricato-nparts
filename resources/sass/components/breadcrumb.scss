@@ -1,0 +1,13 @@
+.breadcrumb-list{
+  list-style: none;
+  padding: 0;
+  font-size: 14px;
+  .breadcrumb-item {
+    color: #6e6e6e;
+    display: inline-block;
+    &.linked {
+      color: #000;
+      cursor: pointer;
+    }
+  }
+}

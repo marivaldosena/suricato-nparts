@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
+    private $rules = [
+        'email' => 'required|email',
+        'password' => 'required'
+    ];
     /**
      * Create a new AuthController instance.
      *
@@ -23,65 +27,29 @@ class AuthController extends Controller
      * Get a JWT via given credentials.
      *
      * @return \Illuminate\Http\JsonResponse
+     * @throws \Illuminate\Validation\ValidationException
      */
-    public function login()
+    public function login(Request $request)
     {
-        if(request()->has(['email', 'password'])){
-            $credentials = request(['email', 'password']);
+        $this->validate($request, $this->rules);
 
-            $user = User::where('email', $credentials['email'])->first();
+        $credentials = request(['email', 'password']);
 
-            if(!$user){
-                return response()->json(['message' => __('login.invalid.user')], 404);
-            }
+        $user = User::where('email', $credentials['email'])->firstOrFail();
 
-            if (!$token = auth()->attempt($credentials)) {
-                return response()->json(['message' => __('login.invalid.password')], 401);
-            }
-
-            return $this->respondWithToken($token);
-        }else{
-            return response()->json(['message' => __('login.required.both')], 400);
-        }
-    }
-
-    /**
-     * Register a new user
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function register(Request $request)
-    {
-        $v = Validator::make($request->all(), [
-            'name' => 'required|min:3',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6|confirmed|regex:/^[a-z.]*(?=.{3,})(?=.{1,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%@]).*$/',
-        ]);
-
-        if ($v->fails()) {
-            return response()->json([
-                'status' => 'error',
-                'errors' => $v->errors()
-            ], 422);
+        if(!$user->email_verified_at){
+            return response()->json(['message' => 'verify'], 401);
         }
 
-        $user = new User;
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = bcrypt($request->password);
-        $user->save();
+        if(!$user->status){
+            return response()->json(['message' => 'deactivated'], 401);
+        }
 
-        return response()->json(['status' => 'success'], 200);
-    }
+        if (!$token = auth()->attempt($credentials)) {
+            return response()->json(['message' => 'password'], 401);
+        }
 
-    /**
-     * Get the authenticated User.
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function me()
-    {
-        return response()->json(auth()->user());
+        return $this->respondWithToken($token);
     }
 
     /**

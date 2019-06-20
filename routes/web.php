@@ -12,3 +12,6 @@
 */
 
 Route::get('/{any}', 'FrontController@index')->where('any', '.*');
+//Route::get('test', function (){
+//    echo bcrypt(123456);
+//});
