@@ -3,7 +3,7 @@
         <div class="col-6">
             <div class="row justify-content-end">
                 <!--<img class="login-logo" src="svg/login-logo.svg" alt="">-->
-                <h1 class="logo logo-alfred">Nparts</h1>
+                <h1 class="logo logo-alfred">Suricato</h1>
             </div>
         </div>
         <div class="col-6">
@@ -11,6 +11,7 @@
                   @submit.prevent="handleSubmit"
                   method="post"
                   novalidate>
+                <Alert/>
                 <div class="form-group" :class="{ 'form-group--error': $v.email.$error }">
                     <label for="email">Email</label>
                     <input type="email" class="form-control" v-model.trim="$v.email.$model" id="email" placeholder="Email">
@@ -34,17 +35,24 @@
 </template>
 
 <script>
-    import { required, minLength, email } from 'vuelidate/lib/validators'
-    import { mapState, mapActions } from 'vuex';
-    import UserService from './../services/user';
+    import { required, email } from 'vuelidate/lib/validators'
+    import { mapActions } from 'vuex';
+    import Alert from './../components/Alert';
+    import AuthService from './../services/auth';
+
+    const service = AuthService.init();
 
     export default {
         name: "Login",
+        components: {
+            Alert
+        },
         data(){
             return {
                 email: '',
                 password: '',
                 submitted: false,
+                error: false,
             }
         },
         validations: {
@@ -61,35 +69,21 @@
 
             handleSubmit (){
                 this.$v.$touch();
-                // this.submitted = true;
-                const { email, password } = this;
-
+                this.submitted = true;
 
                 if (!this.$v.$invalid) {
-                    console.log(UserService.getCurrent(111222333))
-                    // this.setCurrentUser({
-                    //     id: 1,
-                    //     role: '',
-                    //     name: 'Test',
-                    //     email: 'test@test.com'
-                    // });
-                    // do submit
-                    // this.$http.post('/api/auth/login', {
-                    //     email: this.email,
-                    //     password: this.password
-                    // }).then(response => {
-                    //     console.log(response)
-                    //     // // login user, store the token and redirect to dashboard
-                    //     // store.commit('loginUser')
-                    //     localStorage.setItem('token', response.data.access_token)
-                    //     this.$router.push({ name: 'dashboard' })
-                    // }).catch(error => {
-                    //     this.submitted = false;
-                    //     console.log(error)
-                    // });
+                    service.login({
+                        email: this.email,
+                        password: this.password
+                    })
+                        .then(() => {
+                            // mover
+                        })
+                        .catch(() => {
+                        this.submitted = false;
+                    })
                 }else{
                     this.submitted = false;
-                    // set error
                 }
             }
         },
@@ -101,6 +95,6 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
 </style>

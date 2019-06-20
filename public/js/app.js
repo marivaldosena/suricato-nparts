@@ -37519,10 +37519,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuelidate__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vuelidate__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
-/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(bootstrap__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! bootstrap/dist/css/bootstrap.min.css */ "./node_modules/bootstrap/dist/css/bootstrap.min.css");
-/* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./config */ "./resources/js/config/index.js");
+/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
+/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(bootstrap__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! bootstrap/dist/css/bootstrap.min.css */ "./node_modules/bootstrap/dist/css/bootstrap.min.css");
+/* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_8__);
 
 
 
@@ -37530,10 +37531,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+ // import ApiService from "./services/api";
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.config.productionTip = false;
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuelidate__WEBPACK_IMPORTED_MODULE_4___default.a);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.prototype.$http = axios__WEBPACK_IMPORTED_MODULE_5___default.a;
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.prototype.$http = axios__WEBPACK_IMPORTED_MODULE_5___default.a; // ApiService.init(API_URL);
+
 new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   router: _router__WEBPACK_IMPORTED_MODULE_2__["default"],
   store: _store__WEBPACK_IMPORTED_MODULE_3__["default"],
@@ -37541,6 +37545,24 @@ new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     return h(_App_vue__WEBPACK_IMPORTED_MODULE_1__["default"]);
   }
 }).$mount('#app');
+
+/***/ }),
+
+/***/ "./resources/js/config/index.js":
+/*!**************************************!*\
+  !*** ./resources/js/config/index.js ***!
+  \**************************************/
+/*! exports provided: API_URL, TOKEN_KEY, REFRESH_TOKEN_KEY */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "API_URL", function() { return API_URL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TOKEN_KEY", function() { return TOKEN_KEY; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REFRESH_TOKEN_KEY", function() { return REFRESH_TOKEN_KEY; });
+var API_URL = '/api';
+var TOKEN_KEY = 'token';
+var REFRESH_TOKEN_KEY = 'refresh_token';
 
 /***/ }),
 
@@ -37585,11 +37607,102 @@ var routes = [{
   name: 'home',
   component: function component() {
     return Promise.all(/*! import() | login */[__webpack_require__.e("vendors~login"), __webpack_require__.e("login")]).then(__webpack_require__.bind(null, /*! ./../views/Home */ "./resources/js/views/Home.vue"));
-  },
-  meta: {
-    icon: 'home'
+  }
+}, {
+  path: '/login',
+  name: 'login',
+  component: function component() {
+    return Promise.all(/*! import() | login */[__webpack_require__.e("vendors~login"), __webpack_require__.e("login")]).then(__webpack_require__.bind(null, /*! ./../views/Login */ "./resources/js/views/Login.vue"));
   }
 }];
+
+/***/ }),
+
+/***/ "./resources/js/store/alert/actions.js":
+/*!*********************************************!*\
+  !*** ./resources/js/store/alert/actions.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  setAlert: function setAlert(_ref, payload) {
+    var commit = _ref.commit,
+        state = _ref.state;
+    commit('SET_ALERT', payload);
+  },
+  clearAlert: function clearAlert(_ref2) {
+    var commit = _ref2.commit;
+    commit('CLEAR_ALERT');
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/alert/index.js":
+/*!*******************************************!*\
+  !*** ./resources/js/store/alert/index.js ***!
+  \*******************************************/
+/*! exports provided: alert */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "alert", function() { return alert; });
+/* harmony import */ var _state__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./state */ "./resources/js/store/alert/state.js");
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./actions */ "./resources/js/store/alert/actions.js");
+/* harmony import */ var _mutations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./mutations */ "./resources/js/store/alert/mutations.js");
+
+
+
+var alert = {
+  state: _state__WEBPACK_IMPORTED_MODULE_0__["default"],
+  actions: _actions__WEBPACK_IMPORTED_MODULE_1__["default"],
+  mutations: _mutations__WEBPACK_IMPORTED_MODULE_2__["default"]
+};
+
+/***/ }),
+
+/***/ "./resources/js/store/alert/mutations.js":
+/*!***********************************************!*\
+  !*** ./resources/js/store/alert/mutations.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  SET_ALERT: function SET_ALERT(state, payload) {
+    state.type = payload.type;
+    state.message = payload.message;
+    state.show = payload.show;
+  },
+  CLEAR_ALERT: function CLEAR_ALERT(state) {
+    state.type = 'success';
+    state.message = '';
+    state.show = false;
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/alert/state.js":
+/*!*******************************************!*\
+  !*** ./resources/js/store/alert/state.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  type: 'success',
+  message: 'x',
+  show: false
+});
 
 /***/ }),
 
@@ -37606,13 +37719,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _user__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./user */ "./resources/js/store/user/index.js");
+/* harmony import */ var _alert__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./alert */ "./resources/js/store/alert/index.js");
+
 
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   modules: {
-    user: _user__WEBPACK_IMPORTED_MODULE_2__["user"]
+    user: _user__WEBPACK_IMPORTED_MODULE_2__["user"],
+    alert: _alert__WEBPACK_IMPORTED_MODULE_3__["alert"]
   }
 }));
 

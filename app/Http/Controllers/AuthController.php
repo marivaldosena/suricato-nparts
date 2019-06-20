@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
+    private $rules = [
+        'email' => 'required|email',
+        'password' => 'required'
+    ];
     /**
      * Create a new AuthController instance.
      *
@@ -23,36 +27,29 @@ class AuthController extends Controller
      * Get a JWT via given credentials.
      *
      * @return \Illuminate\Http\JsonResponse
+     * @throws \Illuminate\Validation\ValidationException
      */
-    public function login()
+    public function login(Request $request)
     {
-        // TODO - utilizar validate e suas regras???
+        $this->validate($request, $this->rules);
 
-        if(request()->has(['email', 'password'])){
-            $credentials = request(['email', 'password']);
+        $credentials = request(['email', 'password']);
 
-            $user = User::where('email', $credentials['email'])->first();
+        $user = User::where('email', $credentials['email'])->firstOrFail();
 
-            if(!$user){
-                return response()->json(['message' => __('login.invalid.user')], 404);
-            }
-
-            if(!$user->email_verified_at){
-                return response()->json(['message' => __('login.verify')], 401);
-            }
-
-            if(!$user->status){
-                return response()->json(['message' => 'conta desabilitada'], 401);
-            }
-
-            if (!$token = auth()->attempt($credentials)) {
-                return response()->json(['message' => __('login.invalid.password')], 401);
-            }
-
-            return $this->respondWithToken($token);
-        }else{
-            return response()->json(['message' => __('login.required.both')], 400);
+        if(!$user->email_verified_at){
+            return response()->json(['message' => 'verify'], 401);
         }
+
+        if(!$user->status){
+            return response()->json(['message' => 'deactivated'], 401);
+        }
+
+        if (!$token = auth()->attempt($credentials)) {
+            return response()->json(['message' => 'password'], 401);
+        }
+
+        return $this->respondWithToken($token);
     }
 
     /**
