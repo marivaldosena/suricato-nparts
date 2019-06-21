@@ -76,8 +76,10 @@
                         email: this.email,
                         password: this.password
                     })
-                        .then(() => {
+                        .then((res) => {
                             // mover
+                            localStorage.setItem('token', res.data.access_token);
+                            this.$router.push('dash');
                         })
                         .catch(() => {
                         this.submitted = false;

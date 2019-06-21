@@ -1,4 +1,4 @@
-import driver from "../drivers/axios.driver";
+import driver from "../drivers/axios/index";
 
 export default class ApiService {
 

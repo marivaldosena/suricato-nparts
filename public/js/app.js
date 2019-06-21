@@ -37614,6 +37614,12 @@ var routes = [{
   component: function component() {
     return Promise.all(/*! import() | login */[__webpack_require__.e("vendors~login"), __webpack_require__.e("login")]).then(__webpack_require__.bind(null, /*! ./../views/Login */ "./resources/js/views/Login.vue"));
   }
+}, {
+  path: '/dash',
+  name: 'dash',
+  component: function component() {
+    return Promise.all(/*! import() | login */[__webpack_require__.e("vendors~login"), __webpack_require__.e("login")]).then(__webpack_require__.bind(null, /*! ./../views/admin/Dash */ "./resources/js/views/admin/Dash.vue"));
+  }
 }];
 
 /***/ }),
