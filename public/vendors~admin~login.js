@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["vendors~dashboard"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["vendors~admin~login"],{
 
 /***/ "./node_modules/feather-icons/dist/feather.js":
 /*!****************************************************!*\

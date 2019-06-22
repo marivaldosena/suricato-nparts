@@ -1,4 +1,4 @@
-import driver from "../drivers/axios/index";
+import Vue from 'vue';
 
 export default class ApiService {
 
@@ -23,7 +23,7 @@ export default class ApiService {
         }
 
         this.resource = resource;
-        this.http = http || driver
+        this.http = Vue.axios
     }
 
     /**

@@ -16,12 +16,6 @@
                 </router-link>
             </li>
             <li class="sidebar-menu-item">
-                <router-link class="d-flex align-items-center" :class="setActiveClass('jobs')" to="/dashboard/jobs">
-                    <FeatherIcon type="list"/>
-                    Jobs
-                </router-link>
-            </li>
-            <li class="sidebar-menu-item">
                 <router-link class="d-flex align-items-center" :class="setActiveClass('users')" to="/dashboard/users">
                     <FeatherIcon type="users"/>
                     Usuários
