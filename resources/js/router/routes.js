@@ -27,7 +27,7 @@ export const routes = [
                     title: 'Home',
                     breadcrumb: [
                         {
-                            name: 'Dashboard'
+                            name: 'Admin'
                         }
                     ]
                 }
@@ -54,7 +54,7 @@ export const routes = [
                             breadcrumb: [
                                 // the parent, Alfred
                                 {
-                                    name: 'Suricato',
+                                    name: 'Admin',
                                     path: '/admin',
                                 },
                                 // the current route, so there's not have a path

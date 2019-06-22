@@ -38924,7 +38924,7 @@ var routes = [{
       icon: 'home',
       title: 'Home',
       breadcrumb: [{
-        name: 'Dashboard'
+        name: 'Admin'
       }]
     }
   }, {
@@ -38949,7 +38949,7 @@ var routes = [{
         title: 'Users',
         breadcrumb: [// the parent, Alfred
         {
-          name: 'Suricato',
+          name: 'Admin',
           path: '/admin'
         }, // the current route, so there's not have a path
         {
@@ -39243,6 +39243,10 @@ __webpack_require__.r(__webpack_exports__);
     var commit = _ref.commit,
         state = _ref.state;
     commit('SET_CURRENT_USER', payload);
+  },
+  clearCurrentUser: function clearCurrentUser(_ref2) {
+    var commit = _ref2.commit;
+    commit('CLEAR_CURRENT_USER');
   }
 });
 
@@ -39284,6 +39288,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   SET_CURRENT_USER: function SET_CURRENT_USER(state, payload) {
     state.curretUser = payload;
+  },
+  CLEAR_CURRENT_USER: function CLEAR_CURRENT_USER(state) {
+    state.curretUser = {
+      id: null,
+      name: null,
+      email: null,
+      type: null
+    };
   }
 });
 

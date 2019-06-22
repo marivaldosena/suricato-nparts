@@ -126,11 +126,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Header",
   components: {
     FeatherIcon: _FeatherIcon__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  methods: {
+    logout: function logout() {
+      this.$auth.logout({
+        makeRequest: true,
+        success: function success() {
+          this.$store.dispatch('clearCurrentUser').then(function () {});
+        },
+        error: function error() {//
+        }
+      });
+    }
   }
 });
 
@@ -316,14 +329,28 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _c(
-                "router-link",
-                {
-                  staticClass: "btn btn-sm btn-outline-secondary",
-                  attrs: { to: "/login" }
-                },
-                [_vm._v("Login")]
-              )
+              !_vm.$auth.check()
+                ? _c(
+                    "router-link",
+                    {
+                      staticClass: "btn btn-sm btn-outline-secondary",
+                      attrs: { to: "/login" }
+                    },
+                    [_vm._v("Login")]
+                  )
+                : _c(
+                    "a",
+                    {
+                      staticClass: "btn btn-sm btn-outline-secondary",
+                      attrs: { href: "javascript:void(0);" },
+                      on: {
+                        click: function($event) {
+                          return _vm.logout()
+                        }
+                      }
+                    },
+                    [_vm._v("Logout")]
+                  )
             ],
             1
           )
@@ -385,7 +412,7 @@ var render = function() {
             "router-link",
             {
               staticClass: "d-flex align-items-center",
-              attrs: { to: "/dashboard" }
+              attrs: { to: "/admin" }
             },
             [
               _c("FeatherIcon", { attrs: { type: "home" } }),
@@ -406,7 +433,7 @@ var render = function() {
             {
               staticClass: "d-flex align-items-center",
               class: _vm.setActiveClass("users"),
-              attrs: { to: "/dashboard/users" }
+              attrs: { to: "/admin/users" }
             },
             [
               _c("FeatherIcon", { attrs: { type: "users" } }),
@@ -427,7 +454,7 @@ var render = function() {
             {
               staticClass: "d-flex align-items-center",
               class: _vm.setActiveClass("settings"),
-              attrs: { to: "/dashboard/settings" }
+              attrs: { to: "/admin/settings" }
             },
             [
               _c("FeatherIcon", { attrs: { type: "settings" } }),

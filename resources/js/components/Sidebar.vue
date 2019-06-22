@@ -10,19 +10,19 @@
         <ul class="sidebar-menu">
             <!--<li class="sidebar-menu-item" v-for="route in routes">-->
             <li class="sidebar-menu-item">
-                <router-link class="d-flex align-items-center" to="/dashboard">
+                <router-link class="d-flex align-items-center" to="/admin">
                     <FeatherIcon type="home"/>
                     Home
                 </router-link>
             </li>
             <li class="sidebar-menu-item">
-                <router-link class="d-flex align-items-center" :class="setActiveClass('users')" to="/dashboard/users">
+                <router-link class="d-flex align-items-center" :class="setActiveClass('users')" to="/admin/users">
                     <FeatherIcon type="users"/>
                     Usuários
                 </router-link>
             </li>
             <li class="sidebar-menu-item">
-                <router-link class="d-flex align-items-center" :class="setActiveClass('settings')" to="/dashboard/settings">
+                <router-link class="d-flex align-items-center" :class="setActiveClass('settings')" to="/admin/settings">
                     <FeatherIcon type="settings"/>
                     Configurações
                 </router-link>

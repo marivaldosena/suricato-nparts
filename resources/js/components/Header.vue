@@ -16,7 +16,8 @@
                             <path d="M21 21l-5.2-5.2"></path>
                         </svg>
                     </a>
-                    <router-link class="btn btn-sm btn-outline-secondary" to="/login">Login</router-link>
+                    <router-link v-if="!$auth.check()" class="btn btn-sm btn-outline-secondary" to="/login">Login</router-link>
+                    <a v-else class="btn btn-sm btn-outline-secondary" v-on:click="logout()" href="javascript:void(0);">Logout</a>
                 </div>
             </div>
         </header>
@@ -35,6 +36,19 @@
         name: "Header",
         components: {
             FeatherIcon,
+        },
+        methods: {
+            logout() {
+                this.$auth.logout({
+                    makeRequest: true,
+                    success() {
+                        this.$store.dispatch('clearCurrentUser').then(() => {})
+                    },
+                    error() {
+                        //
+                    }
+                });
+            },
         },
     }
 </script>

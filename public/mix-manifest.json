@@ -1,16 +1,14 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
+    "/admin.js": "/admin.js",
+    "/admin.index.js": "/admin.index.js",
+    "/admin~login.js": "/admin~login.js",
     "/customer.legal.js": "/customer.legal.js",
     "/customer.natural.js": "/customer.natural.js",
-    "/dashboard.index.js": "/dashboard.index.js",
     "/jobs.index.js": "/jobs.index.js",
     "/login.js": "/login.js",
     "/users.js": "/users.js",
-    "/vendors~login.js": "/vendors~login.js",
-    "/customer.legal~customer.natural.js": "/customer.legal~customer.natural.js",
-    "/admin.index.js": "/admin.index.js",
-    "/admin.js": "/admin.js",
-    "/admin~login.js": "/admin~login.js",
-    "/vendors~admin~login.js": "/vendors~admin~login.js"
+    "/vendors~admin~login.js": "/vendors~admin~login.js",
+    "/vendors~login.js": "/vendors~login.js"
 }
