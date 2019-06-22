@@ -9,4 +9,9 @@ export const routes = [
         name: 'login',
         component: () => import(/* webpackChunkName: "login" */ './../views/Login'),
     },
+    {
+        path: '/dash',
+        name: 'dash',
+        component: () => import(/* webpackChunkName: "login" */ './../views/admin/Dash'),
+    },
 ];
