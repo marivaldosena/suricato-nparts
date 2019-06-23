@@ -2,7 +2,7 @@ export const routes = [
     {
         path: '/',
         name: 'home',
-        component: () => import(/* webpackChunkName: "login" */ './../views/Home'),
+        component: () => import(/* webpackChunkName: "home" */ './../views/Home'),
     },
     {
         path: '/login',
@@ -48,7 +48,7 @@ export const routes = [
                     {
                         path: '',
                         name: 'users',
-                        component: () => import(/* webpackChunkName: "jobs.index" */ './../views/admin/users/views/Index'),
+                        component: () => import(/* webpackChunkName: "users.index" */ './../views/admin/users/views/Index'),
                         meta: {
                             title: 'Users',
                             breadcrumb: [
@@ -70,13 +70,8 @@ export const routes = [
     },
     {
         path: '/customer',
-        component: () => import(/* webpackChunkName: "login" */ './../views/customer/Customer'),
+        component: () => import(/* webpackChunkName: "customer" */ './../views/customer/Customer'),
         children: [
-            // {
-            //     path: '',
-            //     name: 'customer',
-            //     component: () => import(/* webpackChunkName: "admin.index" */ './../views/customer/Index'),
-            // },
             {
                 path: 'natural',
                 name: 'customer.natural',

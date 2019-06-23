@@ -76,7 +76,6 @@ body a.link-eff2:hover:after {
 .sidebar {
   min-width: 300px;
   max-width: 300px;
-  background-color: #eee;
 }
 
 .sidebar .user {
@@ -87,6 +86,10 @@ body a.link-eff2:hover:after {
   max-width: 68px;
   border-radius: 50%;
   margin: 0 0 20px 0;
+}
+
+.sidebar .user .user-details p {
+  margin: 0;
 }
 
 .sidebar .user .user-details .name,
@@ -193,9 +196,5 @@ form .form-group.form-group--error input:focus {
 
 form .loading {
   margin-left: 20px;
-}
-
-.content {
-  background: #ccc;
 }
 

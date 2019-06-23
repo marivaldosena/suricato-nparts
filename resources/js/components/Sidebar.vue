@@ -1,11 +1,10 @@
 <template>
     <nav class="sidebar">
         <figure class="user">
-            <img src="/img/avatar.png" class="user-avatar" alt="User avatar">
-            <figcaption class="user-details">
-                <p class="name">Fulano de tal</p>
+            <div class="user-details">
+                <p>Seja bem vindo <span class="name">Fulano de tal</span></p>
                 <p class="user-type">Developer</p>
-            </figcaption>
+            </div>
         </figure>
         <ul class="sidebar-menu">
             <!--<li class="sidebar-menu-item" v-for="route in routes">-->

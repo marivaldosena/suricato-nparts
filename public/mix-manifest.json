@@ -1,14 +1,16 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
-    "/admin.js": "/admin.js",
-    "/admin.index.js": "/admin.index.js",
-    "/admin~login.js": "/admin~login.js",
-    "/customer.legal.js": "/customer.legal.js",
-    "/customer.natural.js": "/customer.natural.js",
-    "/jobs.index.js": "/jobs.index.js",
-    "/login.js": "/login.js",
-    "/users.js": "/users.js",
-    "/vendors~admin~login.js": "/vendors~admin~login.js",
-    "/vendors~login.js": "/vendors~login.js"
+    "/js/components/admin.js": "/js/components/admin.js",
+    "/js/components/admin.index.js": "/js/components/admin.index.js",
+    "/js/components/admin~customer~home.js": "/js/components/admin~customer~home.js",
+    "/js/components/customer.js": "/js/components/customer.js",
+    "/js/components/customer.legal.js": "/js/components/customer.legal.js",
+    "/js/components/customer.natural.js": "/js/components/customer.natural.js",
+    "/js/components/home.js": "/js/components/home.js",
+    "/js/components/login.js": "/js/components/login.js",
+    "/js/components/users.js": "/js/components/users.js",
+    "/js/components/users.index.js": "/js/components/users.index.js",
+    "/js/components/vendors~admin~customer~home.js": "/js/components/vendors~admin~customer~home.js",
+    "/js/components/vendors~login.js": "/js/components/vendors~login.js"
 }

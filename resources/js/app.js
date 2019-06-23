@@ -22,6 +22,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { resSuccess, resError } from "./services/interceptors/response";
 import { reqSuccess, reqError } from "./services/interceptors/request";
 
+import { getLiteralStatus } from "./mixins/global";
+Vue.mixin(getLiteralStatus);
+
 Vue.config.productionTip = false;
 
 Vue.router = router;

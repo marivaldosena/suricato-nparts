@@ -27,11 +27,13 @@ const resError = (err) => {
     }else{
         if(err.response.status === 404){
             message = '[resource] not found.';
-        }else if(err.response.status !== 401){
-            message = err.data.message;
+        // }else if(err.response.status !== 401){
+        //     console.log(err.response)
+        //     message = err.response.data.message;
         }else{
             message = "Undefined error.";
         }
+        console.log(err.response)
     }
 
     store.dispatch('setAlert', {

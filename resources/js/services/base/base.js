@@ -29,9 +29,9 @@ export default class ApiService {
     /**
      * @returns {*|PromiseLike}
      */
-    index() {
+    index(query = '') {
         return this.http
-            .get(`${this.resource}`)
+            .get(`${this.resource}${query}`)
             .then(this.constructor.then)
     }
 

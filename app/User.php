@@ -66,4 +66,9 @@ class User extends Authenticatable implements JWTSubject, MustVerifyEmail
     {
         return (int) $value;
     }
+
+    public function getStatusAttribute($value)
+    {
+        return (int) $value;
+    }
 }

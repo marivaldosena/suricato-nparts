@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"admin.index":"admin.index","customer.legal":"customer.legal","customer.natural":"customer.natural","jobs.index":"jobs.index","users":"users","vendors~admin~login":"vendors~admin~login","admin~login":"admin~login","admin":"admin","vendors~login":"vendors~login","login":"login"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "js/components/" + ({"admin.index":"admin.index","customer.legal":"customer.legal","customer.natural":"customer.natural","users":"users","users.index":"users.index","vendors~admin~customer~home":"vendors~admin~customer~home","admin~customer~home":"admin~customer~home","admin":"admin","customer":"customer","home":"home","vendors~login":"vendors~login","login":"login"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -38743,6 +38743,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_12__);
 /* harmony import */ var _services_interceptors_response__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./services/interceptors/response */ "./resources/js/services/interceptors/response.js");
 /* harmony import */ var _services_interceptors_request__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./services/interceptors/request */ "./resources/js/services/interceptors/request.js");
+/* harmony import */ var _mixins_global__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./mixins/global */ "./resources/js/mixins/global.js");
 
 
 
@@ -38758,6 +38759,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.mixin(_mixins_global__WEBPACK_IMPORTED_MODULE_15__["getLiteralStatus"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.config.productionTip = false;
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.router = _router__WEBPACK_IMPORTED_MODULE_3__["default"];
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]);
@@ -38858,6 +38861,28 @@ var REFRESH_TOKEN_KEY = 'refresh_token';
 
 /***/ }),
 
+/***/ "./resources/js/mixins/global.js":
+/*!***************************************!*\
+  !*** ./resources/js/mixins/global.js ***!
+  \***************************************/
+/*! exports provided: getLiteralStatus */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getLiteralStatus", function() { return getLiteralStatus; });
+var getLiteralStatus = {
+  methods: {
+    getLiteralStatus: function getLiteralStatus(status) {
+      if (status === 0) return 'Inativo';
+      return 'Ativo';
+    }
+  }
+};
+
+
+/***/ }),
+
 /***/ "./resources/js/router/index.js":
 /*!**************************************!*\
   !*** ./resources/js/router/index.js ***!
@@ -38896,18 +38921,18 @@ var routes = [{
   path: '/',
   name: 'home',
   component: function component() {
-    return Promise.all(/*! import() | login */[__webpack_require__.e("vendors~admin~login"), __webpack_require__.e("vendors~login"), __webpack_require__.e("admin~login"), __webpack_require__.e("login")]).then(__webpack_require__.bind(null, /*! ./../views/Home */ "./resources/js/views/Home.vue"));
+    return Promise.all(/*! import() | home */[__webpack_require__.e("vendors~admin~customer~home"), __webpack_require__.e("admin~customer~home"), __webpack_require__.e("home")]).then(__webpack_require__.bind(null, /*! ./../views/Home */ "./resources/js/views/Home.vue"));
   }
 }, {
   path: '/login',
   name: 'login',
   component: function component() {
-    return Promise.all(/*! import() | login */[__webpack_require__.e("vendors~admin~login"), __webpack_require__.e("vendors~login"), __webpack_require__.e("admin~login"), __webpack_require__.e("login")]).then(__webpack_require__.bind(null, /*! ./../views/Login */ "./resources/js/views/Login.vue"));
+    return Promise.all(/*! import() | login */[__webpack_require__.e("vendors~login"), __webpack_require__.e("login")]).then(__webpack_require__.bind(null, /*! ./../views/Login */ "./resources/js/views/Login.vue"));
   }
 }, {
   path: '/admin',
   component: function component() {
-    return Promise.all(/*! import() | admin */[__webpack_require__.e("vendors~admin~login"), __webpack_require__.e("admin~login"), __webpack_require__.e("admin")]).then(__webpack_require__.bind(null, /*! ./../views/admin/Admin */ "./resources/js/views/admin/Admin.vue"));
+    return Promise.all(/*! import() | admin */[__webpack_require__.e("vendors~admin~customer~home"), __webpack_require__.e("admin~customer~home"), __webpack_require__.e("admin")]).then(__webpack_require__.bind(null, /*! ./../views/admin/Admin */ "./resources/js/views/admin/Admin.vue"));
   },
   meta: {
     auth: {
@@ -38943,7 +38968,7 @@ var routes = [{
       path: '',
       name: 'users',
       component: function component() {
-        return __webpack_require__.e(/*! import() | jobs.index */ "jobs.index").then(__webpack_require__.bind(null, /*! ./../views/admin/users/views/Index */ "./resources/js/views/admin/users/views/Index.vue"));
+        return __webpack_require__.e(/*! import() | users.index */ "users.index").then(__webpack_require__.bind(null, /*! ./../views/admin/users/views/Index */ "./resources/js/views/admin/users/views/Index.vue"));
       },
       meta: {
         title: 'Users',
@@ -38961,14 +38986,9 @@ var routes = [{
 }, {
   path: '/customer',
   component: function component() {
-    return Promise.all(/*! import() | login */[__webpack_require__.e("vendors~admin~login"), __webpack_require__.e("vendors~login"), __webpack_require__.e("admin~login"), __webpack_require__.e("login")]).then(__webpack_require__.bind(null, /*! ./../views/customer/Customer */ "./resources/js/views/customer/Customer.vue"));
+    return Promise.all(/*! import() | customer */[__webpack_require__.e("vendors~admin~customer~home"), __webpack_require__.e("admin~customer~home"), __webpack_require__.e("customer")]).then(__webpack_require__.bind(null, /*! ./../views/customer/Customer */ "./resources/js/views/customer/Customer.vue"));
   },
-  children: [// {
-  //     path: '',
-  //     name: 'customer',
-  //     component: () => import(/* webpackChunkName: "admin.index" */ './../views/customer/Index'),
-  // },
-  {
+  children: [{
     path: 'natural',
     name: 'customer.natural',
     component: function component() {
@@ -39093,12 +39113,14 @@ var resError = function resError(err) {
     }
   } else {
     if (err.response.status === 404) {
-      message = '[resource] not found.';
-    } else if (err.response.status !== 401) {
-      message = err.data.message;
+      message = '[resource] not found.'; // }else if(err.response.status !== 401){
+      //     console.log(err.response)
+      //     message = err.response.data.message;
     } else {
       message = "Undefined error.";
     }
+
+    console.log(err.response);
   }
 
   _store__WEBPACK_IMPORTED_MODULE_1__["default"].dispatch('setAlert', {

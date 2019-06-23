@@ -1,7 +1,7 @@
 .sidebar{
   min-width: 300px;
   max-width: 300px;
-  background-color: #eee;
+  //background-color: #eee;
   .user{
     margin-bottom: 40px;
     .user-avatar{
@@ -12,6 +12,9 @@
       margin: 0 0 20px 0;
     }
     .user-details{
+      p{
+        margin: 0;
+      }
       .name, .user-type{
         margin: 0;
       }
