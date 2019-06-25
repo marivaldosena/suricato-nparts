@@ -610,9 +610,11 @@ function (_ApiService) {
 
   _createClass(NaturalCustomerService, [{
     key: "status",
+    //todo - esse método deve pertencer a uma unica classe, ou mixim
     value: function status(record) {
       return this.http.put("customers/status/".concat(this.getId(record)), record).then(this.constructor.then);
-    }
+    } //todo - esse método deve pertencer a uma unica classe, ou mixim
+
   }, {
     key: "unusedCustomerUsers",
     value: function unusedCustomerUsers(type) {

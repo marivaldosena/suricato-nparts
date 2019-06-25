@@ -6,12 +6,14 @@ export default class NaturalCustomerService extends ApiService {
         return new this('customers/natural');
     }
 
+    //todo - esse método deve pertencer a uma unica classe, ou mixim
     status(record){
         return this.http
             .put(`customers/status/${this.getId(record)}`, record)
             .then(this.constructor.then);
     }
 
+    //todo - esse método deve pertencer a uma unica classe, ou mixim
     unusedCustomerUsers(type, name = ''){
         let url = `users/unused-users/${type}`;
 

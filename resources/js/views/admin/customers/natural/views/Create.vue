@@ -147,7 +147,7 @@
                 this.submitted = true;
 
                 if (!this.$v.$invalid) {
-                    let cpf = this.cpf.replace(/\./g, '').replace(/\-/g, ''),
+                    let cpf = this.cpf.replace(/\D+/g, ""),
                         birthday = moment(this.birthday, 'DD/MM/YYYY').format("YYYY-MM-DD");
 
                     naturalCustomerService.store({

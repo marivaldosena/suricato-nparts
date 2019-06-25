@@ -168,7 +168,7 @@ var gender = function gender(value) {
       this.submitted = true;
 
       if (!this.$v.$invalid) {
-        var _cpf = this.cpf.replace(/\./g, '').replace(/\-/g, ''),
+        var _cpf = this.cpf.replace(/\D+/g, ""),
             birthday = moment__WEBPACK_IMPORTED_MODULE_4___default()(this.birthday, 'DD/MM/YYYY').format("YYYY-MM-DD");
 
         naturalCustomerService.store({
@@ -591,9 +591,11 @@ function (_ApiService) {
 
   _createClass(NaturalCustomerService, [{
     key: "status",
+    //todo - esse método deve pertencer a uma unica classe, ou mixim
     value: function status(record) {
       return this.http.put("customers/status/".concat(this.getId(record)), record).then(this.constructor.then);
-    }
+    } //todo - esse método deve pertencer a uma unica classe, ou mixim
+
   }, {
     key: "unusedCustomerUsers",
     value: function unusedCustomerUsers(type) {
