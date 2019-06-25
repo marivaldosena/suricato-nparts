@@ -45,12 +45,18 @@ class LegalPersonController extends Controller
 
         $this->validate($request, $this->rules);
 
+        // todo - solução para um erro no conceito de herança de models no Laravel
+        $id = false;
+
         DB::beginTransaction();
         try{
             $customer = new Customer;
             $customer->user_id = $request->user_id;
             $customer->status = '1';
             $customer->save();
+
+            // todo - solução para um erro no conceito de herança de models no Laravel
+            $id = $customer->id;
 
             $legalPerson = new LegalPerson;
             $legalPerson->customer_id = $customer->id;
@@ -63,6 +69,12 @@ class LegalPersonController extends Controller
             DB::commit();
             return response('', 201);
         }catch (\Throwable $t){
+
+            // todo - solução para um erro no conceito de herança de models no Laravel
+            if($id){
+                Customer::destroy($id);
+            }
+            
             DB::rollBack();
             return response()->json(['message' => $t->getMessage()], 500);
         }
