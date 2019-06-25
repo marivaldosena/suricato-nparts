@@ -210,7 +210,7 @@ var render = function() {
       _vm._v(" "),
       _c("Breadcrumb"),
       _vm._v(" "),
-      _c("router-view", { staticClass: "container content" })
+      _c("router-view", { staticClass: "row" })
     ],
     1
   )

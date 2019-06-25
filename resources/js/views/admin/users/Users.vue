@@ -2,7 +2,7 @@
     <div>
         <Title/>
         <Breadcrumb/>
-        <router-view class="container content"/>
+        <router-view class="row"/>
     </div>
 </template>
 

@@ -36,7 +36,7 @@
 
 <script>
     import { required, email } from 'vuelidate/lib/validators'
-    import Alert from './../components/Alert';
+    import Alert from '../components/Alert/Alert';
 
     export default {
         name: "Login",

@@ -1,53 +1,58 @@
 <template>
-    <div class="row">
-        <p>
-            <router-link class="btn btn-outline-secondary" to="/admin/users/create">Criar</router-link>
-        </p>
-        <table class="col-12 table table-hover">
-            <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Email</th>
-                <th scope="col">Tipo</th>
-                <th scope="col">Status</th>
-                <th scope="col"></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr v-for="user in users.data">
-                <th scope="row">{{user.id}}</th>
-                <td>{{user.name}}</td>
-                <td>{{user.email}}</td>
-                <td>{{getLiteralType(user.type)}}</td>
-                <td>{{getLiteralStatus(user.status)}}</td>
-                <td>
-                    <button id="btnGroupDrop1" type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Ações
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                        <router-link class="dropdown-item" to="/admin/users/edit">Editar</router-link>
-                        <a class="dropdown-item" href="#">Remover</a>
-                        <a class="dropdown-item" href="#">Desativar</a>
-                    </div>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-        <Pagination :pagination="users.meta" @paginate="getUsers()"/>
+    <div>
+        <div class="col-12">
+            <Alert/>
+            <p>
+                <router-link class="btn btn-outline-secondary" to="/admin/users/create">Criar</router-link>
+            </p>
+            <table class="col-12 table table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Status</th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-for="user in users.data">
+                    <th scope="row">{{user.id}}</th>
+                    <td>{{user.name}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{getLiteralType(user.type)}}</td>
+                    <td>{{getLiteralStatus(user.status)}}</td>
+                    <td>
+                        <button id="btnGroupDrop1" type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Ações
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                            <router-link class="dropdown-item" to="/admin/users/edit">Editar</router-link>
+                            <a class="dropdown-item" href="#">Remover</a>
+                            <a class="dropdown-item" href="#">Desativar</a>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <Pagination :pagination="users.meta" @paginate="getUsers()"/>
+        </div>
     </div>
 </template>
 
 <script>
     import Pagination from './../../../../components/Pagination';
     import UsersService from './../../../../services/users'
+    import Alert from '../../../../components/Alert/Alert';
 
     const usersService = UsersService.init();
 
     export default {
         name: "Index",
         components: {
-            Pagination
+            Pagination,
+            Alert,
         },
         data() {
             return {

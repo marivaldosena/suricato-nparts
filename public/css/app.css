@@ -54,6 +54,28 @@ body a.link-eff2:hover:after {
   background: #4d4d4d;
 }
 
+form .form-group .error {
+  font-size: 12px;
+  color: #f57f6c;
+}
+
+form .form-group.form-group--error input,
+form .form-group.form-group--error select,
+form .form-group.form-group--error textarea {
+  border: 1px solid #f57f6c;
+}
+
+form .form-group.form-group--error input:focus,
+form .form-group.form-group--error select:focus,
+form .form-group.form-group--error textarea:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(245, 127, 108, 0.25);
+}
+
+form .loading {
+  margin-left: 20px;
+}
+
 .header {
   min-height: 60px;
   margin-bottom: 20px;
@@ -176,25 +198,7 @@ body a.link-eff2:hover:after {
   margin-right: 20px;
 }
 
-form {
+form#login {
   max-width: 300px;
-}
-
-form .form-group .error {
-  font-size: 12px;
-  color: #f57f6c;
-}
-
-form .form-group.form-group--error input {
-  border: 1px solid #f57f6c;
-}
-
-form .form-group.form-group--error input:focus {
-  outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(245, 127, 108, 0.25);
-}
-
-form .loading {
-  margin-left: 20px;
 }
 

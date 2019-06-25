@@ -25,15 +25,19 @@ const resError = (err) => {
             message = helpers.authServerErrors(err.response.data.message);
         }
     }else{
+        //todo rever
         if(err.response.status === 404){
             message = '[resource] not found.';
         // }else if(err.response.status !== 401){
         //     console.log(err.response)
         //     message = err.response.data.message;
+        }else if(err.response.status === 422){
+            message = err.response.data.errors;
         }else{
-            message = "Undefined error.";
+            // message = "Undefined error.";
+            message = err.response.data.message;
         }
-        console.log(err.response)
+        // console.log(err.response)
     }
 
     store.dispatch('setAlert', {

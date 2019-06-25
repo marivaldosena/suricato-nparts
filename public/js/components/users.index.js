@@ -89,6 +89,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Pagination__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../../../components/Pagination */ "./resources/js/components/Pagination.vue");
 /* harmony import */ var _services_users__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../../services/users */ "./resources/js/services/users.js");
+/* harmony import */ var _components_Alert_Alert__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../components/Alert/Alert */ "./resources/js/components/Alert/Alert.vue");
 //
 //
 //
@@ -129,13 +130,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+
 
 
 var usersService = _services_users__WEBPACK_IMPORTED_MODULE_1__["default"].init();
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Index",
   components: {
-    Pagination: _components_Pagination__WEBPACK_IMPORTED_MODULE_0__["default"]
+    Pagination: _components_Pagination__WEBPACK_IMPORTED_MODULE_0__["default"],
+    Alert: _components_Alert_Alert__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   data: function data() {
     return {
@@ -302,106 +308,116 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "row" },
-    [
-      _c(
-        "p",
-        [
-          _c(
-            "router-link",
-            {
-              staticClass: "btn btn-outline-secondary",
-              attrs: { to: "/admin/users/create" }
-            },
-            [_vm._v("Criar")]
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c("table", { staticClass: "col-12 table table-hover" }, [
-        _vm._m(0),
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "col-12" },
+      [
+        _c("Alert"),
         _vm._v(" "),
         _c(
-          "tbody",
-          _vm._l(_vm.users.data, function(user) {
-            return _c("tr", [
-              _c("th", { attrs: { scope: "row" } }, [_vm._v(_vm._s(user.id))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(user.name))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(user.email))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(_vm.getLiteralType(user.type)))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(_vm.getLiteralStatus(user.status)))]),
-              _vm._v(" "),
-              _c("td", [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-outline-secondary dropdown-toggle",
-                    attrs: {
-                      id: "btnGroupDrop1",
-                      type: "button",
-                      "data-toggle": "dropdown",
-                      "aria-haspopup": "true",
-                      "aria-expanded": "false"
-                    }
-                  },
-                  [_vm._v("\n                    Ações\n                ")]
-                ),
+          "p",
+          [
+            _c(
+              "router-link",
+              {
+                staticClass: "btn btn-outline-secondary",
+                attrs: { to: "/admin/users/create" }
+              },
+              [_vm._v("Criar")]
+            )
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c("table", { staticClass: "col-12 table table-hover" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.users.data, function(user) {
+              return _c("tr", [
+                _c("th", { attrs: { scope: "row" } }, [
+                  _vm._v(_vm._s(user.id))
+                ]),
                 _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "dropdown-menu",
-                    attrs: { "aria-labelledby": "btnGroupDrop1" }
-                  },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "dropdown-item",
-                        attrs: { to: "/admin/users/edit" }
-                      },
-                      [_vm._v("Editar")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      { staticClass: "dropdown-item", attrs: { href: "#" } },
-                      [_vm._v("Remover")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      { staticClass: "dropdown-item", attrs: { href: "#" } },
-                      [_vm._v("Desativar")]
-                    )
-                  ],
-                  1
-                )
+                _c("td", [_vm._v(_vm._s(user.name))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(user.email))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(_vm.getLiteralType(user.type)))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(_vm.getLiteralStatus(user.status)))]),
+                _vm._v(" "),
+                _c("td", [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-outline-secondary dropdown-toggle",
+                      attrs: {
+                        id: "btnGroupDrop1",
+                        type: "button",
+                        "data-toggle": "dropdown",
+                        "aria-haspopup": "true",
+                        "aria-expanded": "false"
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n                        Ações\n                    "
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "dropdown-menu",
+                      attrs: { "aria-labelledby": "btnGroupDrop1" }
+                    },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          staticClass: "dropdown-item",
+                          attrs: { to: "/admin/users/edit" }
+                        },
+                        [_vm._v("Editar")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        { staticClass: "dropdown-item", attrs: { href: "#" } },
+                        [_vm._v("Remover")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        { staticClass: "dropdown-item", attrs: { href: "#" } },
+                        [_vm._v("Desativar")]
+                      )
+                    ],
+                    1
+                  )
+                ])
               ])
-            ])
-          }),
-          0
-        )
-      ]),
-      _vm._v(" "),
-      _c("Pagination", {
-        attrs: { pagination: _vm.users.meta },
-        on: {
-          paginate: function($event) {
-            return _vm.getUsers()
+            }),
+            0
+          )
+        ]),
+        _vm._v(" "),
+        _c("Pagination", {
+          attrs: { pagination: _vm.users.meta },
+          on: {
+            paginate: function($event) {
+              return _vm.getUsers()
+            }
           }
-        }
-      })
-    ],
-    1
-  )
+        })
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -495,209 +511,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Pagination_vue_vue_type_template_id_d7acf176_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Pagination_vue_vue_type_template_id_d7acf176_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/js/services/base/base.js":
-/*!********************************************!*\
-  !*** ./resources/js/services/base/base.js ***!
-  \********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ApiService; });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-var ApiService =
-/*#__PURE__*/
-function () {
-  /**
-   * @type {String}
-   */
-
-  /**
-   * @type {String}
-   */
-
-  /**
-   * @param {String} resource
-   * @param {Object} http
-   */
-  function ApiService(resource) {
-    var http = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-
-    _classCallCheck(this, ApiService);
-
-    _defineProperty(this, "resource", '');
-
-    _defineProperty(this, "id", 'id');
-
-    if (!resource) {
-      throw new Error('The child service class did not provide the resource.');
-    }
-
-    this.resource = resource;
-    this.http = vue__WEBPACK_IMPORTED_MODULE_0___default.a.axios;
-  }
-  /**
-   * @returns {*|PromiseLike}
-   */
-
-
-  _createClass(ApiService, [{
-    key: "index",
-    value: function index() {
-      var query = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-      return this.http.get("".concat(this.resource).concat(query)).then(this.constructor.then);
-    }
-    /**
-     * @param {Object} record
-     * @returns {*|PromiseLike}
-     */
-
-  }, {
-    key: "store",
-    value: function store(record) {
-      return this.http.post("".concat(this.resource), record).then(this.constructor.then);
-    }
-    /**
-     * @param {Object} record
-     * @returns {*|PromiseLike}
-     */
-
-  }, {
-    key: "show",
-    value: function show(record) {
-      return this.http.get("".concat(this.resource, "/").concat(this.getId(record))).then(this.constructor.then);
-    }
-    /**
-     * @param {Object} record
-     * @returns {*|PromiseLike}
-     */
-
-  }, {
-    key: "update",
-    value: function update(record) {
-      return this.http.put("".concat(this.resource, "/").concat(this.getId(record)), record).then(this.constructor.then);
-    }
-    /**
-     * @param {Object} record
-     * @returns {*|PromiseLike}
-     */
-
-  }, {
-    key: "destroy",
-    value: function destroy(record) {
-      return this.http["delete"]("".concat(this.resource, "/").concat(this.getId(record))).then(this.constructor.then);
-    }
-    /**
-     * @param {Object} response
-     * @returns {Object}
-     */
-
-  }, {
-    key: "getId",
-
-    /**
-     * @param {String|Object} record
-     * @returns {String}
-     */
-    value: function getId(record) {
-      if (_typeof(record) === 'object') {
-        return record[this.id];
-      }
-
-      return String(record);
-    }
-  }], [{
-    key: "then",
-    value: function then(response) {
-      if (!response.data) {
-        return {};
-      }
-
-      if (typeof response.data === 'string') {
-        return JSON.parse(response.data);
-      }
-
-      return response.data;
-    }
-  }]);
-
-  return ApiService;
-}();
-
-
-
-/***/ }),
-
-/***/ "./resources/js/services/users.js":
-/*!****************************************!*\
-  !*** ./resources/js/services/users.js ***!
-  \****************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return UsersService; });
-/* harmony import */ var _base_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./base/base */ "./resources/js/services/base/base.js");
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-
-
-var UsersService =
-/*#__PURE__*/
-function (_ApiService) {
-  _inherits(UsersService, _ApiService);
-
-  function UsersService() {
-    _classCallCheck(this, UsersService);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(UsersService).apply(this, arguments));
-  }
-
-  _createClass(UsersService, null, [{
-    key: "init",
-    value: function init() {
-      return new this('users');
-    }
-  }]);
-
-  return UsersService;
-}(_base_base__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 
 

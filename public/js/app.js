@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "js/components/" + ({"admin.index":"admin.index","customer.legal":"customer.legal","customer.natural":"customer.natural","users":"users","users.index":"users.index","vendors~admin~customer~home":"vendors~admin~customer~home","admin~customer~home":"admin~customer~home","admin":"admin","customer":"customer","home":"home","vendors~login":"vendors~login","login":"login"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "js/components/" + ({"admin.index":"admin.index","customer.legal":"customer.legal","customer.natural":"customer.natural","users":"users","users.create~users.index":"users.create~users.index","users.index":"users.index","vendors~admin~customer~home":"vendors~admin~customer~home","admin~customer~home":"admin~customer~home","admin":"admin","customer":"customer","home":"home","vendors~login~users.create":"vendors~login~users.create","login":"login","users.create":"users.create"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -38894,7 +38894,9 @@ var getLiteralStatus = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./routes */ "./resources/js/router/routes.js");
+/* harmony import */ var _store_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../store/index */ "./resources/js/store/index.js");
 // import Vue from 'vue'
+
 
  // Vue.use(Router);
 
@@ -38902,6 +38904,16 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
   history: true,
   mode: 'history',
   routes: _routes__WEBPACK_IMPORTED_MODULE_1__["routes"]
+}); //todo - criar uma forma melhor de remover os alertas das views
+
+router.afterEach(function (to, from) {
+  var alert = _store_index__WEBPACK_IMPORTED_MODULE_2__["default"].state.alert;
+
+  if (alert.show) {
+    setTimeout(function () {
+      _store_index__WEBPACK_IMPORTED_MODULE_2__["default"].dispatch('clearAlert');
+    }, 3000);
+  }
 });
 /* harmony default export */ __webpack_exports__["default"] = (router);
 
@@ -38927,7 +38939,7 @@ var routes = [{
   path: '/login',
   name: 'login',
   component: function component() {
-    return Promise.all(/*! import() | login */[__webpack_require__.e("vendors~login"), __webpack_require__.e("login")]).then(__webpack_require__.bind(null, /*! ./../views/Login */ "./resources/js/views/Login.vue"));
+    return Promise.all(/*! import() | login */[__webpack_require__.e("vendors~login~users.create"), __webpack_require__.e("login")]).then(__webpack_require__.bind(null, /*! ./../views/Login */ "./resources/js/views/Login.vue"));
   }
 }, {
   path: '/admin',
@@ -38968,7 +38980,7 @@ var routes = [{
       path: '',
       name: 'users',
       component: function component() {
-        return __webpack_require__.e(/*! import() | users.index */ "users.index").then(__webpack_require__.bind(null, /*! ./../views/admin/users/views/Index */ "./resources/js/views/admin/users/views/Index.vue"));
+        return Promise.all(/*! import() | users.index */[__webpack_require__.e("users.create~users.index"), __webpack_require__.e("users.index")]).then(__webpack_require__.bind(null, /*! ./../views/admin/users/views/Index */ "./resources/js/views/admin/users/views/Index.vue"));
       },
       meta: {
         title: 'Users',
@@ -38979,6 +38991,27 @@ var routes = [{
         }, // the current route, so there's not have a path
         {
           name: 'Users'
+        }]
+      }
+    }, {
+      path: 'create',
+      name: 'users.create',
+      component: function component() {
+        return Promise.all(/*! import() | users.create */[__webpack_require__.e("vendors~login~users.create"), __webpack_require__.e("users.create~users.index"), __webpack_require__.e("users.create")]).then(__webpack_require__.bind(null, /*! ./../views/admin/users/views/Create */ "./resources/js/views/admin/users/views/Create.vue"));
+      },
+      meta: {
+        title: 'Create User',
+        breadcrumb: [// the parent, Alfred
+        {
+          name: 'Admin',
+          path: '/admin'
+        }, // the parent, Alfred
+        {
+          name: 'Users',
+          path: '/admin/users'
+        }, // the current route, so there's not have a path
+        {
+          name: 'Create User'
         }]
       }
     }]
@@ -39057,10 +39090,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var reqSuccess = function reqSuccess(req) {
-  if (_store__WEBPACK_IMPORTED_MODULE_0__["default"].state.alert.show) {
-    _store__WEBPACK_IMPORTED_MODULE_0__["default"].dispatch('clearAlert').then(function () {});
-  }
-
+  // if(store.state.alert.show){
+  //     store.dispatch('clearAlert').then(() => {});
+  // }
   return req;
 };
 
@@ -39112,15 +39144,18 @@ var resError = function resError(err) {
       message = _helpers__WEBPACK_IMPORTED_MODULE_0__["default"].authServerErrors(err.response.data.message);
     }
   } else {
+    //todo rever
     if (err.response.status === 404) {
       message = '[resource] not found.'; // }else if(err.response.status !== 401){
       //     console.log(err.response)
       //     message = err.response.data.message;
+    } else if (err.response.status === 422) {
+      message = err.response.data.errors;
     } else {
-      message = "Undefined error.";
-    }
+      // message = "Undefined error.";
+      message = err.response.data.message;
+    } // console.log(err.response)
 
-    console.log(err.response);
   }
 
   _store__WEBPACK_IMPORTED_MODULE_1__["default"].dispatch('setAlert', {

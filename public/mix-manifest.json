@@ -10,7 +10,10 @@
     "/js/components/home.js": "/js/components/home.js",
     "/js/components/login.js": "/js/components/login.js",
     "/js/components/users.js": "/js/components/users.js",
+    "/js/components/users.create.js": "/js/components/users.create.js",
     "/js/components/users.index.js": "/js/components/users.index.js",
     "/js/components/vendors~admin~customer~home.js": "/js/components/vendors~admin~customer~home.js",
-    "/js/components/vendors~login.js": "/js/components/vendors~login.js"
+    "/js/components/vendors~login~users.create.js": "/js/components/vendors~login~users.create.js",
+    "/js/components/vendors~login.js": "/js/components/vendors~login.js",
+    "/js/components/users.create~users.index.js": "/js/components/users.create~users.index.js"
 }
