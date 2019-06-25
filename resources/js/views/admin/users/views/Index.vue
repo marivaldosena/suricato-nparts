@@ -29,8 +29,8 @@
                         </button>
                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                             <router-link class="dropdown-item" :to="{path: `/admin/users/${user.id}`}">Editar</router-link>
-                            <a class="dropdown-item" href="#">Remover</a>
-                            <a class="dropdown-item" href="#">Desativar</a>
+                            <a class="dropdown-item" href="#" v-on:click.stop="handleDestroy(user.id)">Remover</a>
+                            <a class="dropdown-item" href="#" v-on:click.stop="handleStatus(user.id, user.status)">{{user.status ? 'Desativar' : 'Ativar'}}</a>
                         </div>
                     </td>
                 </tr>
@@ -75,6 +75,31 @@
                     this.users.data = data;
                     this.users.meta = meta;
                 })
+            },
+            //todo - criar modal para confirmar
+            handleDestroy(id){
+                let c = confirm('Deseja remover esse usuário?');
+
+                if(c){
+                    usersService.destroy(id).then(() => {
+                        this.data = [];
+                        this.getUsers();
+                    })
+                }
+            },
+            //todo - criar modal para confirmar
+            handleStatus(id, status){
+                let c = confirm('Deseja mudar o status desse usuário?');
+
+                if(c){
+                    usersService.status({
+                        id,
+                        status: status ? '0' : '1',
+                    }).then(() => {
+                        this.data = [];
+                        this.getUsers();
+                    })
+                }
             },
             getLiteralType(type){
                 if(type === 2){

@@ -40,6 +40,7 @@ Route::group([
     //users
     Route::resource('users', 'Api\\UserController');
     Route::resource('users/reset', 'Api\\ResetPasswordController');
+    Route::put('users/status/{id}', 'Api\\UserController@status');
 
     Route::group(['prefix' => 'customers'], function () {
         Route::get('/', 'Api\CustomerController@index');

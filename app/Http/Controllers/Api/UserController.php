@@ -157,4 +157,16 @@ class UserController extends Controller
     }
 
     //status usuario
+    public function status(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+
+        $user->update([
+            'status' => $request->status,
+        ]);
+
+        $user->save();
+
+        return response(null, 204);
+    }
 }

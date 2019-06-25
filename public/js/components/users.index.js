@@ -168,6 +168,37 @@ var usersService = _services_users__WEBPACK_IMPORTED_MODULE_1__["default"].init(
         _this.users.meta = meta;
       });
     },
+    //todo - criar modal para confirmar
+    handleDestroy: function handleDestroy(id) {
+      var _this2 = this;
+
+      var c = confirm('Deseja remover esse usuário?');
+
+      if (c) {
+        usersService.destroy(id).then(function () {
+          _this2.data = [];
+
+          _this2.getUsers();
+        });
+      }
+    },
+    //todo - criar modal para confirmar
+    handleStatus: function handleStatus(id, status) {
+      var _this3 = this;
+
+      var c = confirm('Deseja mudar o status desse usuário?');
+
+      if (c) {
+        usersService.status({
+          id: id,
+          status: status ? '0' : '1'
+        }).then(function () {
+          _this3.data = [];
+
+          _this3.getUsers();
+        });
+      }
+    },
     getLiteralType: function getLiteralType(type) {
       if (type === 2) {
         return 'PF';
@@ -387,14 +418,32 @@ var render = function() {
                       _vm._v(" "),
                       _c(
                         "a",
-                        { staticClass: "dropdown-item", attrs: { href: "#" } },
+                        {
+                          staticClass: "dropdown-item",
+                          attrs: { href: "#" },
+                          on: {
+                            click: function($event) {
+                              $event.stopPropagation()
+                              return _vm.handleDestroy(user.id)
+                            }
+                          }
+                        },
                         [_vm._v("Remover")]
                       ),
                       _vm._v(" "),
                       _c(
                         "a",
-                        { staticClass: "dropdown-item", attrs: { href: "#" } },
-                        [_vm._v("Desativar")]
+                        {
+                          staticClass: "dropdown-item",
+                          attrs: { href: "#" },
+                          on: {
+                            click: function($event) {
+                              $event.stopPropagation()
+                              return _vm.handleStatus(user.id, user.status)
+                            }
+                          }
+                        },
+                        [_vm._v(_vm._s(user.status ? "Desativar" : "Ativar"))]
                       )
                     ],
                     1

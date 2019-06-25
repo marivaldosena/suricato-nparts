@@ -18,5 +18,6 @@
     "/js/components/users.create~users.index.js": "/js/components/users.create~users.index.js",
     "/js/components/users.create~users.index~users.update.js": "/js/components/users.create~users.index~users.update.js",
     "/js/components/users.update.js": "/js/components/users.update.js",
-    "/js/components/vendors~login~users.create~users.update.js": "/js/components/vendors~login~users.create~users.update.js"
+    "/js/components/vendors~login~users.create~users.update.js": "/js/components/vendors~login~users.create~users.update.js",
+    "/js/components/users.create~users.update.js": "/js/components/users.create~users.update.js"
 }

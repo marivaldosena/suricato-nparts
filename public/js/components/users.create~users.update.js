@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["users.create~users.index~users.update"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["users.create~users.update"],{
 
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Alert/Alert.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************************************************************************************************!*\
@@ -447,7 +447,7 @@ function (_ApiService) {
   _createClass(UsersService, [{
     key: "status",
     value: function status(record) {
-      return this.http.put("".concat(this.resource, "/status/").concat(this.getId(record)), record).then(this.constructor.then);
+      return this.http.put("".concat(this.resource, "/").concat(this.getId(record)), record).then(this.constructor.then);
     }
   }], [{
     key: "init",
