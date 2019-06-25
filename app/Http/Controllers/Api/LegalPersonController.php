@@ -76,7 +76,7 @@ class LegalPersonController extends Controller
      */
     public function show($id)
     {
-        return new LegalPersonResource(Customer::with('legalPersonInfo')->findOrFail($id));
+        return new LegalPersonResource(Customer::with(['legalPersonInfo', 'user'])->findOrFail($id));
     }
 
     /**
@@ -92,6 +92,10 @@ class LegalPersonController extends Controller
         $this->validate($request, $this->rules);
 
         $customer = Customer::findOrFail($id);
+        $customer->update([
+            'user_id' => $request->user_id,
+        ]);
+
         $legalPerson = $customer->legalPersonInfo();
         $legalPerson->update([
             'cnpj' => $request->cnpj,
