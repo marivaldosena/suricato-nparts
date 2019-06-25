@@ -2,8 +2,8 @@
     <nav class="sidebar">
         <figure class="user">
             <div class="user-details">
-                <p>Seja bem vindo <span class="name">Fulano de tal</span></p>
-                <p class="user-type">Developer</p>
+                <p>Seja bem vindo <span class="name">{{username}}</span></p>
+                <p class="user-type">{{this.literalUserType(type)}}</p>
             </div>
         </figure>
         <ul class="sidebar-menu">
@@ -57,12 +57,28 @@
             },
             route(){
                 return this.$route
+            },
+            username(){
+                return this.$store.state.user.currentUser.name
+            },
+            type(){
+                return this.$store.state.user.currentUser.type
             }
         },
         methods: {
             setActiveClass(routeName){
                 if (this.route.name === routeName)
                     return 'router-link-exact-active'
+            },
+            literalUserType(type){
+
+                if(type === 1){
+                    return 'Administrador';
+                }else if (type === 2){
+                    return 'Pessoa Física'
+                }else{
+                    return 'Pessoa Jurídica'
+                }
             }
         },
     }

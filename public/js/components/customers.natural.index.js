@@ -175,9 +175,11 @@ var naturalCustomerService = _services_natural_customer__WEBPACK_IMPORTED_MODULE
     getLiteralGender: function getLiteralGender(gender) {
       if (gender === 'M') {
         return 'Masculino';
+      } else if (gender === 'F') {
+        return 'Feminino';
       }
 
-      return 'Feminino';
+      return 'Indefinido';
     },
     literalBirthday: function literalBirthday(date) {
       return moment__WEBPACK_IMPORTED_MODULE_3___default()(date).format("DD/MM/YYYY");

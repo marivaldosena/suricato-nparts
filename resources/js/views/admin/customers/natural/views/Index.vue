@@ -81,8 +81,10 @@
             getLiteralGender(gender){
                 if(gender === 'M'){
                     return 'Masculino';
+                }else if (gender === 'F'){
+                    return 'Feminino';
                 }
-                return 'Feminino';
+                return 'Indefinido'
             },
             literalBirthday(date){
                 return moment(date).format("DD/MM/YYYY")

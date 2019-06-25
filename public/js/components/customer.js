@@ -66,11 +66,26 @@ __webpack_require__.r(__webpack_exports__);
     },
     route: function route() {
       return this.$route;
+    },
+    username: function username() {
+      return this.$store.state.user.currentUser.name;
+    },
+    type: function type() {
+      return this.$store.state.user.currentUser.type;
     }
   },
   methods: {
     setActiveClass: function setActiveClass(routeName) {
       if (this.route.name === routeName) return 'router-link-exact-active';
+    },
+    literalUserType: function literalUserType(type) {
+      if (type === 1) {
+        return 'Administrador';
+      } else if (type === 2) {
+        return 'Pessoa Física';
+      } else {
+        return 'Pessoa Jurídica';
+      }
     }
   }
 });
@@ -124,7 +139,18 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("nav", { staticClass: "sidebar" }, [
-    _vm._m(0),
+    _c("figure", { staticClass: "user" }, [
+      _c("div", { staticClass: "user-details" }, [
+        _c("p", [
+          _vm._v("Seja bem vindo "),
+          _c("span", { staticClass: "name" }, [_vm._v(_vm._s(_vm.username))])
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "user-type" }, [
+          _vm._v(_vm._s(this.literalUserType(_vm.type)))
+        ])
+      ])
+    ]),
     _vm._v(" "),
     _c("ul", { staticClass: "sidebar-menu" }, [
       _c(
@@ -222,23 +248,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("figure", { staticClass: "user" }, [
-      _c("div", { staticClass: "user-details" }, [
-        _c("p", [
-          _vm._v("Seja bem vindo "),
-          _c("span", { staticClass: "name" }, [_vm._v("Fulano de tal")])
-        ]),
-        _vm._v(" "),
-        _c("p", { staticClass: "user-type" }, [_vm._v("Developer")])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
