@@ -26,7 +26,16 @@
                     <td scope="col">{{getLiteralStatus(customer.status)}}</td>
                     <td scope="col">{{getLiteralGender(customer.natural_person_info.gender)}}</td>
                     <td scope="col">{{literalBirthday(customer.natural_person_info.birthday)}}</td>
-                    <td scope="col">ac</td>
+                    <td>
+                        <button id="btnGroupDrop1" type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Ações
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                            <router-link class="dropdown-item" :to="{path: `/admin/customers/natural/${customer.id}`}">Editar</router-link>
+                            <a class="dropdown-item" href="#" v-on:click.stop="handleDestroy(customer.id)">Remover</a>
+                            <a class="dropdown-item" href="#" v-on:click.stop="handleStatus(customer.id, customer.status)">{{customer.status ? 'Desativar' : 'Ativar'}}</a>
+                        </div>
+                    </td>
                 </tr>
             </table>
         </div>
@@ -77,7 +86,32 @@
             },
             literalBirthday(date){
                 return moment(date).format("DD/MM/YYYY")
-            }
+            },
+            //todo - criar modal para confirmar
+            handleDestroy(id){
+                let c = confirm('Deseja remover esse cliente?');
+
+                if(c){
+                    naturalCustomerService.destroy(id).then(() => {
+                        this.customers.data = [];
+                        this.getCustomers();
+                    })
+                }
+            },
+            //todo - criar modal para confirmar
+            handleStatus(id, status){
+                let c = confirm('Deseja mudar o status desse usuário?');
+
+                if(c){
+                    naturalCustomerService.status({
+                        id,
+                        status: status ? '0' : '1',
+                    }).then(() => {
+                        this.customers.data = [];
+                        this.getCustomers();
+                    })
+                }
+            },
         },
         created(){
             this.getCustomers();

@@ -209,6 +209,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -254,6 +263,37 @@ var naturalCustomerService = _services_natural_customer__WEBPACK_IMPORTED_MODULE
     },
     literalBirthday: function literalBirthday(date) {
       return moment__WEBPACK_IMPORTED_MODULE_3___default()(date).format("DD/MM/YYYY");
+    },
+    //todo - criar modal para confirmar
+    handleDestroy: function handleDestroy(id) {
+      var _this2 = this;
+
+      var c = confirm('Deseja remover esse cliente?');
+
+      if (c) {
+        naturalCustomerService.destroy(id).then(function () {
+          _this2.customers.data = [];
+
+          _this2.getCustomers();
+        });
+      }
+    },
+    //todo - criar modal para confirmar
+    handleStatus: function handleStatus(id, status) {
+      var _this3 = this;
+
+      var c = confirm('Deseja mudar o status desse usuário?');
+
+      if (c) {
+        naturalCustomerService.status({
+          id: id,
+          status: status ? '0' : '1'
+        }).then(function () {
+          _this3.customers.data = [];
+
+          _this3.getCustomers();
+        });
+      }
     }
   },
   created: function created() {
@@ -792,7 +832,86 @@ var render = function() {
                   )
                 ]),
                 _vm._v(" "),
-                _c("td", { attrs: { scope: "col" } }, [_vm._v("ac")])
+                _c("td", [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-outline-secondary dropdown-toggle",
+                      attrs: {
+                        id: "btnGroupDrop1",
+                        type: "button",
+                        "data-toggle": "dropdown",
+                        "aria-haspopup": "true",
+                        "aria-expanded": "false"
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n                        Ações\n                    "
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "dropdown-menu",
+                      attrs: { "aria-labelledby": "btnGroupDrop1" }
+                    },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          staticClass: "dropdown-item",
+                          attrs: {
+                            to: {
+                              path: "/admin/customers/natural/" + customer.id
+                            }
+                          }
+                        },
+                        [_vm._v("Editar")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "dropdown-item",
+                          attrs: { href: "#" },
+                          on: {
+                            click: function($event) {
+                              $event.stopPropagation()
+                              return _vm.handleDestroy(customer.id)
+                            }
+                          }
+                        },
+                        [_vm._v("Remover")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "dropdown-item",
+                          attrs: { href: "#" },
+                          on: {
+                            click: function($event) {
+                              $event.stopPropagation()
+                              return _vm.handleStatus(
+                                customer.id,
+                                customer.status
+                              )
+                            }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            _vm._s(customer.status ? "Desativar" : "Ativar")
+                          )
+                        ]
+                      )
+                    ],
+                    1
+                  )
+                ])
               ])
             })
           ],

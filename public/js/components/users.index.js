@@ -193,7 +193,7 @@ var usersService = _services_users__WEBPACK_IMPORTED_MODULE_1__["default"].init(
           id: id,
           status: status ? '0' : '1'
         }).then(function () {
-          _this3.data = [];
+          _this3.users.data = [];
 
           _this3.getUsers();
         });

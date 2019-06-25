@@ -96,7 +96,7 @@
                         id,
                         status: status ? '0' : '1',
                     }).then(() => {
-                        this.data = [];
+                        this.users.data = [];
                         this.getUsers();
                     })
                 }
