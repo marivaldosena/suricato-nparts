@@ -28,7 +28,7 @@
                             Ações
                         </button>
                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                            <router-link class="dropdown-item" to="/admin/users/edit">Editar</router-link>
+                            <router-link class="dropdown-item" :to="{path: `/admin/users/${user.id}`}">Editar</router-link>
                             <a class="dropdown-item" href="#">Remover</a>
                             <a class="dropdown-item" href="#">Desativar</a>
                         </div>

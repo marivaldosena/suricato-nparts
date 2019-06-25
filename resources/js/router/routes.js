@@ -88,6 +88,30 @@ export const routes = [
                             ]
                         },
                     },
+                    {
+                        path: ':id',
+                        name: 'users.update',
+                        component: () => import(/* webpackChunkName: "users.update" */ './../views/admin/users/views/Edit'),
+                        meta: {
+                            title: 'Edit User',
+                            breadcrumb: [
+                                // the parent, Alfred
+                                {
+                                    name: 'Admin',
+                                    path: '/admin',
+                                },
+                                // the parent, Alfred
+                                {
+                                    name: 'Users',
+                                    path: '/admin/users',
+                                },
+                                // the current route, so there's not have a path
+                                {
+                                    name: 'Edit User',
+                                }
+                            ]
+                        },
+                    },
                 ]
             },
         ]

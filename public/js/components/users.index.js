@@ -380,7 +380,7 @@ var render = function() {
                         "router-link",
                         {
                           staticClass: "dropdown-item",
-                          attrs: { to: "/admin/users/edit" }
+                          attrs: { to: { path: "/admin/users/" + user.id } }
                         },
                         [_vm._v("Editar")]
                       ),

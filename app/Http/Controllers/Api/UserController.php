@@ -98,14 +98,16 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, $this->rules);
+        $rules = $this->rules;
+        unset($rules['password']);
+
+        $this->validate($request, $rules);
 
         $user = User::findOrFail($id);
 
         $user->update([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => $request->password,
             'type' => $request->type,
         ]);
 

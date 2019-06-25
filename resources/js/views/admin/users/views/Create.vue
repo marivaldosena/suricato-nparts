@@ -129,7 +129,7 @@
 
                         this.$router.push('/admin/users');
                     }, (err) => {
-
+                        this.submitted = false;
                     })
                 }else{
                     this.submitted = false;

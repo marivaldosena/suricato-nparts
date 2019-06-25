@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "js/components/" + ({"admin.index":"admin.index","customer.legal":"customer.legal","customer.natural":"customer.natural","users":"users","users.create~users.index":"users.create~users.index","users.index":"users.index","vendors~admin~customer~home":"vendors~admin~customer~home","admin~customer~home":"admin~customer~home","admin":"admin","customer":"customer","home":"home","vendors~login~users.create":"vendors~login~users.create","login":"login","users.create":"users.create"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "js/components/" + ({"admin.index":"admin.index","customer.legal":"customer.legal","customer.natural":"customer.natural","users":"users","users.create~users.index~users.update":"users.create~users.index~users.update","users.index":"users.index","vendors~admin~customer~home":"vendors~admin~customer~home","admin~customer~home":"admin~customer~home","admin":"admin","customer":"customer","home":"home","vendors~login~users.create~users.update":"vendors~login~users.create~users.update","login":"login","users.create":"users.create","users.update":"users.update"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -38939,7 +38939,7 @@ var routes = [{
   path: '/login',
   name: 'login',
   component: function component() {
-    return Promise.all(/*! import() | login */[__webpack_require__.e("vendors~login~users.create"), __webpack_require__.e("login")]).then(__webpack_require__.bind(null, /*! ./../views/Login */ "./resources/js/views/Login.vue"));
+    return Promise.all(/*! import() | login */[__webpack_require__.e("vendors~login~users.create~users.update"), __webpack_require__.e("login")]).then(__webpack_require__.bind(null, /*! ./../views/Login */ "./resources/js/views/Login.vue"));
   }
 }, {
   path: '/admin',
@@ -38980,7 +38980,7 @@ var routes = [{
       path: '',
       name: 'users',
       component: function component() {
-        return Promise.all(/*! import() | users.index */[__webpack_require__.e("users.create~users.index"), __webpack_require__.e("users.index")]).then(__webpack_require__.bind(null, /*! ./../views/admin/users/views/Index */ "./resources/js/views/admin/users/views/Index.vue"));
+        return Promise.all(/*! import() | users.index */[__webpack_require__.e("users.create~users.index~users.update"), __webpack_require__.e("users.index")]).then(__webpack_require__.bind(null, /*! ./../views/admin/users/views/Index */ "./resources/js/views/admin/users/views/Index.vue"));
       },
       meta: {
         title: 'Users',
@@ -38997,7 +38997,7 @@ var routes = [{
       path: 'create',
       name: 'users.create',
       component: function component() {
-        return Promise.all(/*! import() | users.create */[__webpack_require__.e("vendors~login~users.create"), __webpack_require__.e("users.create~users.index"), __webpack_require__.e("users.create")]).then(__webpack_require__.bind(null, /*! ./../views/admin/users/views/Create */ "./resources/js/views/admin/users/views/Create.vue"));
+        return Promise.all(/*! import() | users.create */[__webpack_require__.e("vendors~login~users.create~users.update"), __webpack_require__.e("users.create~users.index~users.update"), __webpack_require__.e("users.create")]).then(__webpack_require__.bind(null, /*! ./../views/admin/users/views/Create */ "./resources/js/views/admin/users/views/Create.vue"));
       },
       meta: {
         title: 'Create User',
@@ -39012,6 +39012,27 @@ var routes = [{
         }, // the current route, so there's not have a path
         {
           name: 'Create User'
+        }]
+      }
+    }, {
+      path: ':id',
+      name: 'users.update',
+      component: function component() {
+        return Promise.all(/*! import() | users.update */[__webpack_require__.e("vendors~login~users.create~users.update"), __webpack_require__.e("users.create~users.index~users.update"), __webpack_require__.e("users.update")]).then(__webpack_require__.bind(null, /*! ./../views/admin/users/views/Edit */ "./resources/js/views/admin/users/views/Edit.vue"));
+      },
+      meta: {
+        title: 'Edit User',
+        breadcrumb: [// the parent, Alfred
+        {
+          name: 'Admin',
+          path: '/admin'
+        }, // the parent, Alfred
+        {
+          name: 'Users',
+          path: '/admin/users'
+        }, // the current route, so there's not have a path
+        {
+          name: 'Edit User'
         }]
       }
     }]
