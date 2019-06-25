@@ -34,4 +34,9 @@ class Customer extends Model
     {
         return $this->hasMany('Advertisement');
     }
+
+    public function getStatusAttribute($value)
+    {
+        return (int) $value;
+    }
 }

@@ -42,6 +42,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Menu",
@@ -156,26 +168,57 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c(
-        "li",
-        { staticClass: "sidebar-menu-item" },
-        [
+      _c("li", { staticClass: "sidebar-menu-item" }, [
+        _c(
+          "a",
+          { attrs: { href: "#" } },
+          [
+            _c("FeatherIcon", { attrs: { type: "settings" } }),
+            _vm._v("\n                Clientes\n            ")
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c("ul", [
           _c(
-            "router-link",
-            {
-              staticClass: "d-flex align-items-center",
-              class: _vm.setActiveClass("settings"),
-              attrs: { to: "/admin/settings" }
-            },
+            "li",
             [
-              _c("FeatherIcon", { attrs: { type: "settings" } }),
-              _vm._v("\n                Configurações\n            ")
+              _c(
+                "router-link",
+                {
+                  staticClass: "d-flex align-items-center",
+                  attrs: { to: "/admin/customers/natural" }
+                },
+                [
+                  _vm._v(
+                    "\n                        Pessoa Física\n                    "
+                  )
+                ]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            [
+              _c(
+                "router-link",
+                {
+                  staticClass: "d-flex align-items-center",
+                  attrs: { to: "/admin/customers/legal" }
+                },
+                [
+                  _vm._v(
+                    "\n                        Pessoa Jurídica\n                    "
+                  )
+                ]
+              )
             ],
             1
           )
-        ],
-        1
-      )
+        ])
+      ])
     ])
   ])
 }

@@ -57,7 +57,7 @@
     };
 
     export default {
-        name: "Create",
+        name: "Edit",
         components: {
             Alert,
         },

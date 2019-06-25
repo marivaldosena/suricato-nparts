@@ -70,7 +70,7 @@ var checkType = function checkType(value) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Create",
+  name: "Edit",
   components: {
     Alert: _components_Alert_Alert__WEBPACK_IMPORTED_MODULE_1__["default"]
   },

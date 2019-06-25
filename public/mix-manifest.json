@@ -19,5 +19,14 @@
     "/js/components/users.create~users.index~users.update.js": "/js/components/users.create~users.index~users.update.js",
     "/js/components/users.update.js": "/js/components/users.update.js",
     "/js/components/vendors~login~users.create~users.update.js": "/js/components/vendors~login~users.create~users.update.js",
-    "/js/components/users.create~users.update.js": "/js/components/users.create~users.update.js"
+    "/js/components/users.create~users.update.js": "/js/components/users.create~users.update.js",
+    "/js/components/customers.js": "/js/components/customers.js",
+    "/js/components/customers.create.js": "/js/components/customers.create.js",
+    "/js/components/customers.index.js": "/js/components/customers.index.js",
+    "/js/components/customers.update.js": "/js/components/customers.update.js",
+    "/js/components/customers.natural.js": "/js/components/customers.natural.js",
+    "/js/components/customers.natural.create.js": "/js/components/customers.natural.create.js",
+    "/js/components/customers.natural.index.js": "/js/components/customers.natural.index.js",
+    "/js/components/customers.natural.update.js": "/js/components/customers.natural.update.js",
+    "/js/components/vendors~customers.natural.index.js": "/js/components/vendors~customers.natural.index.js"
 }

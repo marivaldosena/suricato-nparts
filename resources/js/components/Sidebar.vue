@@ -21,10 +21,22 @@
                 </router-link>
             </li>
             <li class="sidebar-menu-item">
-                <router-link class="d-flex align-items-center" :class="setActiveClass('settings')" to="/admin/settings">
+                <a href="#">
                     <FeatherIcon type="settings"/>
-                    Configurações
-                </router-link>
+                    Clientes
+                </a>
+                <ul>
+                    <li>
+                        <router-link class="d-flex align-items-center" to="/admin/customers/natural">
+                            Pessoa Física
+                        </router-link>
+                    </li>
+                    <li>
+                        <router-link class="d-flex align-items-center" to="/admin/customers/legal">
+                            Pessoa Jurídica
+                        </router-link>
+                    </li>
+                </ul>
             </li>
         </ul>
     </nav>

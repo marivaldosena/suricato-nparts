@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "js/components/" + ({"admin.index":"admin.index","customer.legal":"customer.legal","customer.natural":"customer.natural","users":"users","users.create~users.index~users.update":"users.create~users.index~users.update","users.index":"users.index","vendors~admin~customer~home":"vendors~admin~customer~home","admin~customer~home":"admin~customer~home","admin":"admin","customer":"customer","home":"home","vendors~login~users.create~users.update":"vendors~login~users.create~users.update","login":"login","users.create":"users.create","users.update":"users.update"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "js/components/" + ({"admin.index":"admin.index","customer.legal":"customer.legal","customer.natural":"customer.natural","customers.natural":"customers.natural","customers.natural.create":"customers.natural.create","customers.natural.update":"customers.natural.update","users":"users","users.create~users.index~users.update":"users.create~users.index~users.update","users.index":"users.index","vendors~admin~customer~home":"vendors~admin~customer~home","admin~customer~home":"admin~customer~home","admin":"admin","customer":"customer","home":"home","vendors~customers.natural.index":"vendors~customers.natural.index","customers.natural.index":"customers.natural.index","vendors~login~users.create~users.update":"vendors~login~users.create~users.update","login":"login","users.create":"users.create","users.update":"users.update"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -39033,6 +39033,78 @@ var routes = [{
         }, // the current route, so there's not have a path
         {
           name: 'Edit User'
+        }]
+      }
+    }]
+  }, {
+    path: 'customers/natural',
+    component: function component() {
+      return __webpack_require__.e(/*! import() | customers.natural */ "customers.natural").then(__webpack_require__.bind(null, /*! ./../views/admin/customers/Customers */ "./resources/js/views/admin/customers/Customers.vue"));
+    },
+    meta: {
+      icon: 'customers',
+      title: 'Clientes Pessoa Física',
+      breadcrumb: [{
+        name: 'Clientes Pessoa Física'
+      }]
+    },
+    children: [{
+      path: '',
+      name: 'customers',
+      component: function component() {
+        return Promise.all(/*! import() | customers.natural.index */[__webpack_require__.e("vendors~customers.natural.index"), __webpack_require__.e("customers.natural.index")]).then(__webpack_require__.bind(null, /*! ../views/admin/customers/natural/views/Index */ "./resources/js/views/admin/customers/natural/views/Index.vue"));
+      },
+      meta: {
+        title: 'Natural Person Customer',
+        breadcrumb: [// the parent, Alfred
+        {
+          name: 'Admin',
+          path: '/admin'
+        }, // the current route, so there's not have a path
+        {
+          name: 'Natural Person Customer'
+        }]
+      }
+    }, {
+      path: 'create',
+      name: 'customers.create',
+      component: function component() {
+        return __webpack_require__.e(/*! import() | customers.natural.create */ "customers.natural.create").then(__webpack_require__.bind(null, /*! ../views/admin/customers/natural/views/Create */ "./resources/js/views/admin/customers/natural/views/Create.vue"));
+      },
+      meta: {
+        title: 'Create Natural Person Customer',
+        breadcrumb: [// the parent, Alfred
+        {
+          name: 'Admin',
+          path: '/admin'
+        }, // the parent, Alfred
+        {
+          name: 'Natural Person Customers',
+          path: '/admin/customers/natural'
+        }, // the current route, so there's not have a path
+        {
+          name: 'Create Natural Person Customer'
+        }]
+      }
+    }, {
+      path: ':id',
+      name: 'customers.update',
+      component: function component() {
+        return __webpack_require__.e(/*! import() | customers.natural.update */ "customers.natural.update").then(__webpack_require__.bind(null, /*! ../views/admin/customers/natural/views/Edit */ "./resources/js/views/admin/customers/natural/views/Edit.vue"));
+      },
+      meta: {
+        title: 'Edit Natural Person Customer',
+        breadcrumb: [// the parent, Alfred
+        {
+          name: 'Admin',
+          path: '/admin'
+        }, // the parent, Alfred
+        {
+          name: 'Natural Person Customers',
+          path: '/admin/customers/natural'
+        }, // the current route, so there's not have a path
+        {
+          name: 'Edit Natural Person Customer'
         }]
       }
     }]

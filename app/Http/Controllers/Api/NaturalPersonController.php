@@ -26,7 +26,7 @@ class NaturalPersonController extends Controller
      */
     public function index()
     {
-        return NaturalPersonResource::collection(Customer::with('naturalPersonInfo')
+        return NaturalPersonResource::collection(Customer::with(['naturalPersonInfo', 'user'])
             ->whereHas('user', function ($q){
                 $q->where('type', 2);
             })->paginate(10));
