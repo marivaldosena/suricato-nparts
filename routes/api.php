@@ -39,8 +39,11 @@ Route::group([
 
     //users
     Route::resource('users', 'Api\\UserController');
-    Route::resource('users/reset', 'Api\\ResetPasswordController');
-    Route::put('users/status/{id}', 'Api\\UserController@status');
+    Route::group(['prefix' => 'users'], function(){
+        Route::resource('reset', 'Api\\ResetPasswordController');
+        Route::put('status/{id}', 'Api\\UserController@status');
+        Route::get('unused-users/{type}/{name?}', 'Api\UserController@unusedUsers');
+    });
 
     Route::group(['prefix' => 'customers'], function () {
         Route::get('/', 'Api\CustomerController@index');

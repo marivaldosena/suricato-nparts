@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Api;
 
 use App\Customer;
-use App\Http\Requests\StoreNaturalPerson;
 use App\Http\Resources\NaturalPersonResource;
 use App\NaturalPerson;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Resources\Json\ResourceCollection;
@@ -15,7 +15,6 @@ class NaturalPersonController extends Controller
 {
     private $rules = [
         'cpf' => 'required|regex:/^[0-9]{11}$/',
-        'rg' => 'integer',
         'birthday' => 'required|date_format:Y-m-d',
     ];
 
@@ -45,6 +44,9 @@ class NaturalPersonController extends Controller
 
         $this->validate($request, $this->rules);
 
+        // todo - solução para um erro no conceito de herança de models no Laravel
+        $id = false;
+
         DB::beginTransaction();
         try{
             $customer = new Customer;
@@ -52,17 +54,27 @@ class NaturalPersonController extends Controller
             $customer->status = '1';
             $customer->save();
 
+            // todo - solução para um erro no conceito de herança de models no Laravel
+            $id = $customer->id;
+
             $naturalPerson = new NaturalPerson;
             $naturalPerson->customer_id = $customer->id;
             $naturalPerson->cpf = $request->cpf;
             $naturalPerson->rg = $request->rg;
             $naturalPerson->birthday = $request->birthday;
             $naturalPerson->gender = $request->gender;
+
             $naturalPerson->save();
 
             DB::commit();
             return response('', 201);
         }catch (\Throwable $t){
+
+            // todo - solução para um erro no conceito de herança de models no Laravel
+            if($id){
+                Customer::destroy($id);
+            }
+
             DB::rollBack();
             return response()->json(['message' => $t->getMessage()], 500);
         }

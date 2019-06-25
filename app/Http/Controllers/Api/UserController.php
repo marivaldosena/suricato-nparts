@@ -156,7 +156,6 @@ class UserController extends Controller
         return response(null, 404);
     }
 
-    //status usuario
     public function status(Request $request, $id)
     {
         $user = User::findOrFail($id);
@@ -168,5 +167,19 @@ class UserController extends Controller
         $user->save();
 
         return response(null, 204);
+    }
+
+    public function unusedUsers($type, $name = null)
+    {
+        $users = User::whereDoesntHave('customer')
+            ->where('type', $type);
+
+        if($name){
+            $users->where('name', 'like', "%{$name}%");
+        }
+
+        $users = $users->get();
+
+        return UserResource::collection($users);
     }
 }

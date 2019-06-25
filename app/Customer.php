@@ -8,7 +8,7 @@ class Customer extends Model
 {
     protected $table = 'customers';
     public $timestamps = true;
-    protected $fillable = array('status');
+    protected $fillable = array('status', 'user_id');
 
     public function user()
     {
