@@ -3,35 +3,33 @@
         <div class="col-12">
             <Alert/>
             <p>
-                <router-link class="btn btn-outline-secondary" to="/admin/customers/natural/create">Criar</router-link>
+                <router-link class="btn btn-outline-secondary" to="/admin/customers/legal/create">Criar</router-link>
             </p>
             <table class="col-12 table table-hover">
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Cpf</th>
-                    <th scope="col">Rg</th>
+                    <th scope="col">Razão Social</th>
+                    <th scope="col">Nome Fantasia</th>
+                    <th scope="col">Cnpj</th>
+                    <th scope="col">Inscrição Estadual</th>
                     <th scope="col">Status</th>
-                    <th scope="col">Gênero</th>
-                    <th scope="col">Dt Nascimento</th>
                     <th scope="col"></th>
                 </tr>
                 </thead>
                 <tr v-for="customer in customers.data">
                     <th scope="row">{{customer.id}}</th>
-                    <td scope="col">{{customer.user.name}}</td>
-                    <td scope="col">{{customer.natural_person_info.cpf}}</td>
-                    <td scope="col">{{customer.natural_person_info.rg}}</td>
+                    <td scope="col">{{customer.legal_person_info.company_name}}</td>
+                    <td scope="col">{{customer.legal_person_info.trade_name}}</td>
+                    <td scope="col">{{customer.legal_person_info.cnpj}}</td>
+                    <td scope="col">{{customer.legal_person_info.state_registration ? customer.legal_person_info.state_registration : "--"}}</td>
                     <td scope="col">{{getLiteralStatus(customer.status)}}</td>
-                    <td scope="col">{{getLiteralGender(customer.natural_person_info.gender)}}</td>
-                    <td scope="col">{{literalBirthday(customer.natural_person_info.birthday)}}</td>
                     <td>
                         <button id="btnGroupDrop1" type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Ações
                         </button>
                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                            <router-link class="dropdown-item" :to="{path: `/admin/customers/natural/${customer.id}`}">Editar</router-link>
+                            <router-link class="dropdown-item" :to="{path: `/admin/customers/legal/${customer.id}`}">Editar</router-link>
                             <a class="dropdown-item" href="#" v-on:click.stop="handleDestroy(customer.id)">Remover</a>
                             <a class="dropdown-item" href="#" v-on:click.stop="handleStatus(customer.id, customer.status)">{{customer.status ? 'Desativar' : 'Ativar'}}</a>
                         </div>
@@ -45,10 +43,10 @@
 <script>
     import Pagination from '../../../../../components/Pagination';
     import Alert from '../../../../../components/Alert/Alert';
-    import NaturalCustomerService from './../../../../../services/natural_customer';
+    import LegalCustomerService from './../../../../../services/legal_customer';
     import moment from 'moment';
 
-    const naturalCustomerService = NaturalCustomerService.init();
+    const legalCustomerService = LegalCustomerService.init();
 
     export default {
         name: "Index",
@@ -72,29 +70,19 @@
         },
         methods: {
             getCustomers(){
-                naturalCustomerService.index(`?page=${this.customers.meta.current_page}`).then((res) => {
+                legalCustomerService.index(`?page=${this.customers.meta.current_page}`).then((res) => {
                     const { data, meta } = res;
                     this.customers.data = data;
                     this.customers.meta = meta;
                 })
             },
-            getLiteralGender(gender){
-                if(gender === 'M'){
-                    return 'Masculino';
-                }else if (gender === 'F'){
-                    return 'Feminino';
-                }
-                return 'Indefinido'
-            },
-            literalBirthday(date){
-                return moment(date).format("DD/MM/YYYY")
-            },
+
             //todo - criar modal para confirmar
             handleDestroy(id){
                 let c = confirm('Deseja remover esse cliente?');
 
                 if(c){
-                    naturalCustomerService.destroy(id).then(() => {
+                    legalCustomerService.destroy(id).then(() => {
                         this.customers.data = [];
                         this.getCustomers();
                     })
@@ -105,7 +93,7 @@
                 let c = confirm('Deseja mudar o status desse cliente?');
 
                 if(c){
-                    naturalCustomerService.status({
+                    legalCustomerService.status({
                         id,
                         status: status ? '0' : '1',
                     }).then(() => {

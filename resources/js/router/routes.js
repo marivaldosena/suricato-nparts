@@ -196,6 +196,88 @@ export const routes = [
                     },
                 ]
             },
+            {
+                path: 'customers/legal',
+                component: () => import(/* webpackChunkName: "customers.legal" */ './../views/admin/customers/Customers'),
+                meta: {
+                    icon: 'customers',
+                    title: 'Clientes Pessoa Jurídica',
+                    breadcrumb: [
+                        {
+                            name: 'Clientes Pessoa Jurídica'
+                        }
+                    ]
+                },
+                children: [
+                    {
+                        path: '',
+                        name: 'customers',
+                        component: () => import(/* webpackChunkName: "customers.legal.index" */ '../views/admin/customers/legal/views/Index'),
+                        meta: {
+                            title: 'Legal Person Customer',
+                            breadcrumb: [
+                                // the parent, Alfred
+                                {
+                                    name: 'Admin',
+                                    path: '/admin',
+                                },
+                                // the current route, so there's not have a path
+                                {
+                                    name: 'Legal Person Customer',
+                                }
+                            ]
+                        },
+                    },
+                    {
+                        path: 'create',
+                        name: 'customers.create',
+                        component: () => import(/* webpackChunkName: "customers.legal.create" */ '../views/admin/customers/legal/views/Create'),
+                        meta: {
+                            title: 'Create Legal Person Customer',
+                            breadcrumb: [
+                                // the parent, Alfred
+                                {
+                                    name: 'Admin',
+                                    path: '/admin',
+                                },
+                                // the parent, Alfred
+                                {
+                                    name: 'Legal Person Customers',
+                                    path: '/admin/customers/legal',
+                                },
+                                // the current route, so there's not have a path
+                                {
+                                    name: 'Create Legal Person Customer',
+                                }
+                            ]
+                        },
+                    },
+                    {
+                        path: ':id',
+                        name: 'customers.update',
+                        component: () => import(/* webpackChunkName: "customers.legal.update" */ '../views/admin/customers/legal/views/Edit'),
+                        meta: {
+                            title: 'Edit Legal Person Customer',
+                            breadcrumb: [
+                                // the parent, Alfred
+                                {
+                                    name: 'Admin',
+                                    path: '/admin',
+                                },
+                                // the parent, Alfred
+                                {
+                                    name: 'Legal Person Customers',
+                                    path: '/admin/customers/legal',
+                                },
+                                // the current route, so there's not have a path
+                                {
+                                    name: 'Edit Legal Person Customer',
+                                }
+                            ]
+                        },
+                    },
+                ]
+            },
         ]
     },
     {

@@ -37,5 +37,13 @@
     "/js/components/customers.natural.create~customers.natural.index~customers.natural.update.js": "/js/components/customers.natural.create~customers.natural.index~customers.natural.update.js",
     "/js/components/vendors~customers.natural.create~customers.natural.index~customers.natural.update.js": "/js/components/vendors~customers.natural.create~customers.natural.index~customers.natural.update.js",
     "/js/components/vendors~customers.natural.create~customers.natural.update.js": "/js/components/vendors~customers.natural.create~customers.natural.update.js",
-    "/js/components/vendors~customers.natural.create~customers.natural.update~login~users.create~users.update.js": "/js/components/vendors~customers.natural.create~customers.natural.update~login~users.create~users.update.js"
+    "/js/components/vendors~customers.natural.create~customers.natural.update~login~users.create~users.update.js": "/js/components/vendors~customers.natural.create~customers.natural.update~login~users.create~users.update.js",
+    "/js/components/customers.legal.js": "/js/components/customers.legal.js",
+    "/js/components/customers.legal.create.js": "/js/components/customers.legal.create.js",
+    "/js/components/customers.legal.create~customers.legal.index~customers.legal.update~customers.natural.create~custome~b444fed4.js": "/js/components/customers.legal.create~customers.legal.index~customers.legal.update~customers.natural.create~custome~b444fed4.js",
+    "/js/components/customers.legal.index.js": "/js/components/customers.legal.index.js",
+    "/js/components/customers.legal.update.js": "/js/components/customers.legal.update.js",
+    "/js/components/vendors~customers.legal.create~customers.legal.index~customers.legal.update~customers.natural.create~68b5b6fc.js": "/js/components/vendors~customers.legal.create~customers.legal.index~customers.legal.update~customers.natural.create~68b5b6fc.js",
+    "/js/components/vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~a62c8462.js": "/js/components/vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~a62c8462.js",
+    "/js/components/vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~ad8f03c9.js": "/js/components/vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~ad8f03c9.js"
 }
