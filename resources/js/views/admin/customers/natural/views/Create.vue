@@ -130,6 +130,9 @@
                 gender
             }
         },
+        created(){
+            this.getUsers();
+        },
         methods: {
             getUsers(name){
                 this.isLoading = true;
@@ -171,9 +174,6 @@
                 }
             }
         },
-        created(){
-            this.getUsers();
-        }
     }
 </script>
 

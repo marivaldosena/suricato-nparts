@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "js/components/" + ({"admin.index":"admin.index","customer.legal":"customer.legal","customer.natural":"customer.natural","customers.natural":"customers.natural","customers.natural.update":"customers.natural.update","users":"users","users.create~users.index~users.update":"users.create~users.index~users.update","users.index":"users.index","vendors~admin~customer~home":"vendors~admin~customer~home","admin~customer~home":"admin~customer~home","admin":"admin","customer":"customer","home":"home","vendors~customers.natural.create~customers.natural.index":"vendors~customers.natural.create~customers.natural.index","customers.natural.create~customers.natural.index":"customers.natural.create~customers.natural.index","customers.natural.index":"customers.natural.index","vendors~customers.natural.create~login~users.create~users.update":"vendors~customers.natural.create~login~users.create~users.update","login":"login","users.create":"users.create","users.update":"users.update","vendors~customers.natural.create":"vendors~customers.natural.create","customers.natural.create":"customers.natural.create"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "js/components/" + ({"admin.index":"admin.index","customer.legal":"customer.legal","customer.natural":"customer.natural","customers.natural":"customers.natural","users":"users","users.create~users.index~users.update":"users.create~users.index~users.update","users.index":"users.index","vendors~admin~customer~home":"vendors~admin~customer~home","admin~customer~home":"admin~customer~home","admin":"admin","customer":"customer","home":"home","vendors~customers.natural.create~customers.natural.index~customers.natural.update":"vendors~customers.natural.create~customers.natural.index~customers.natural.update","customers.natural.create~customers.natural.index~customers.natural.update":"customers.natural.create~customers.natural.index~customers.natural.update","customers.natural.index":"customers.natural.index","vendors~customers.natural.create~customers.natural.update~login~users.create~users.update":"vendors~customers.natural.create~customers.natural.update~login~users.create~users.update","login":"login","users.create":"users.create","users.update":"users.update","vendors~customers.natural.create~customers.natural.update":"vendors~customers.natural.create~customers.natural.update","customers.natural.create":"customers.natural.create","customers.natural.update":"customers.natural.update"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -38939,7 +38939,7 @@ var routes = [{
   path: '/login',
   name: 'login',
   component: function component() {
-    return Promise.all(/*! import() | login */[__webpack_require__.e("vendors~customers.natural.create~login~users.create~users.update"), __webpack_require__.e("login")]).then(__webpack_require__.bind(null, /*! ./../views/Login */ "./resources/js/views/Login.vue"));
+    return Promise.all(/*! import() | login */[__webpack_require__.e("vendors~customers.natural.create~customers.natural.update~login~users.create~users.update"), __webpack_require__.e("login")]).then(__webpack_require__.bind(null, /*! ./../views/Login */ "./resources/js/views/Login.vue"));
   }
 }, {
   path: '/admin',
@@ -38997,7 +38997,7 @@ var routes = [{
       path: 'create',
       name: 'users.create',
       component: function component() {
-        return Promise.all(/*! import() | users.create */[__webpack_require__.e("vendors~customers.natural.create~login~users.create~users.update"), __webpack_require__.e("users.create~users.index~users.update"), __webpack_require__.e("users.create")]).then(__webpack_require__.bind(null, /*! ./../views/admin/users/views/Create */ "./resources/js/views/admin/users/views/Create.vue"));
+        return Promise.all(/*! import() | users.create */[__webpack_require__.e("vendors~customers.natural.create~customers.natural.update~login~users.create~users.update"), __webpack_require__.e("users.create~users.index~users.update"), __webpack_require__.e("users.create")]).then(__webpack_require__.bind(null, /*! ./../views/admin/users/views/Create */ "./resources/js/views/admin/users/views/Create.vue"));
       },
       meta: {
         title: 'Create User',
@@ -39018,7 +39018,7 @@ var routes = [{
       path: ':id',
       name: 'users.update',
       component: function component() {
-        return Promise.all(/*! import() | users.update */[__webpack_require__.e("vendors~customers.natural.create~login~users.create~users.update"), __webpack_require__.e("users.create~users.index~users.update"), __webpack_require__.e("users.update")]).then(__webpack_require__.bind(null, /*! ./../views/admin/users/views/Edit */ "./resources/js/views/admin/users/views/Edit.vue"));
+        return Promise.all(/*! import() | users.update */[__webpack_require__.e("vendors~customers.natural.create~customers.natural.update~login~users.create~users.update"), __webpack_require__.e("users.create~users.index~users.update"), __webpack_require__.e("users.update")]).then(__webpack_require__.bind(null, /*! ./../views/admin/users/views/Edit */ "./resources/js/views/admin/users/views/Edit.vue"));
       },
       meta: {
         title: 'Edit User',
@@ -39052,7 +39052,7 @@ var routes = [{
       path: '',
       name: 'customers',
       component: function component() {
-        return Promise.all(/*! import() | customers.natural.index */[__webpack_require__.e("vendors~customers.natural.create~customers.natural.index"), __webpack_require__.e("customers.natural.create~customers.natural.index"), __webpack_require__.e("customers.natural.index")]).then(__webpack_require__.bind(null, /*! ../views/admin/customers/natural/views/Index */ "./resources/js/views/admin/customers/natural/views/Index.vue"));
+        return Promise.all(/*! import() | customers.natural.index */[__webpack_require__.e("vendors~customers.natural.create~customers.natural.index~customers.natural.update"), __webpack_require__.e("customers.natural.create~customers.natural.index~customers.natural.update"), __webpack_require__.e("customers.natural.index")]).then(__webpack_require__.bind(null, /*! ../views/admin/customers/natural/views/Index */ "./resources/js/views/admin/customers/natural/views/Index.vue"));
       },
       meta: {
         title: 'Natural Person Customer',
@@ -39069,7 +39069,7 @@ var routes = [{
       path: 'create',
       name: 'customers.create',
       component: function component() {
-        return Promise.all(/*! import() | customers.natural.create */[__webpack_require__.e("vendors~customers.natural.create~login~users.create~users.update"), __webpack_require__.e("vendors~customers.natural.create~customers.natural.index"), __webpack_require__.e("vendors~customers.natural.create"), __webpack_require__.e("customers.natural.create~customers.natural.index"), __webpack_require__.e("customers.natural.create")]).then(__webpack_require__.bind(null, /*! ../views/admin/customers/natural/views/Create */ "./resources/js/views/admin/customers/natural/views/Create.vue"));
+        return Promise.all(/*! import() | customers.natural.create */[__webpack_require__.e("vendors~customers.natural.create~customers.natural.update~login~users.create~users.update"), __webpack_require__.e("vendors~customers.natural.create~customers.natural.index~customers.natural.update"), __webpack_require__.e("vendors~customers.natural.create~customers.natural.update"), __webpack_require__.e("customers.natural.create~customers.natural.index~customers.natural.update"), __webpack_require__.e("customers.natural.create")]).then(__webpack_require__.bind(null, /*! ../views/admin/customers/natural/views/Create */ "./resources/js/views/admin/customers/natural/views/Create.vue"));
       },
       meta: {
         title: 'Create Natural Person Customer',
@@ -39090,7 +39090,7 @@ var routes = [{
       path: ':id',
       name: 'customers.update',
       component: function component() {
-        return __webpack_require__.e(/*! import() | customers.natural.update */ "customers.natural.update").then(__webpack_require__.bind(null, /*! ../views/admin/customers/natural/views/Edit */ "./resources/js/views/admin/customers/natural/views/Edit.vue"));
+        return Promise.all(/*! import() | customers.natural.update */[__webpack_require__.e("vendors~customers.natural.create~customers.natural.update~login~users.create~users.update"), __webpack_require__.e("vendors~customers.natural.create~customers.natural.index~customers.natural.update"), __webpack_require__.e("vendors~customers.natural.create~customers.natural.update"), __webpack_require__.e("customers.natural.create~customers.natural.index~customers.natural.update"), __webpack_require__.e("customers.natural.update")]).then(__webpack_require__.bind(null, /*! ../views/admin/customers/natural/views/Edit */ "./resources/js/views/admin/customers/natural/views/Edit.vue"));
       },
       meta: {
         title: 'Edit Natural Person Customer',

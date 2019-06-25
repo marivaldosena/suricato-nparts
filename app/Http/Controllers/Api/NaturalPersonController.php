@@ -88,7 +88,7 @@ class NaturalPersonController extends Controller
      */
     public function show($id)
     {
-        return new NaturalPersonResource(Customer::with('naturalPersonInfo')->findOrFail($id));
+        return new NaturalPersonResource(Customer::with(['naturalPersonInfo', 'user'])->findOrFail($id));
     }
 
     /**
@@ -104,6 +104,10 @@ class NaturalPersonController extends Controller
         $this->validate($request, $this->rules);
 
         $customer = Customer::findOrFail($id);
+        $customer->update([
+            'user_id' => $request->user_id,
+        ]);
+
         $naturalPerson = $customer->naturalPersonInfo();
         $naturalPerson->update([
             'cpf' => $request->cpf,

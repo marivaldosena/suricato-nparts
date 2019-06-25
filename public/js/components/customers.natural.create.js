@@ -148,6 +148,9 @@ var gender = function gender(value) {
       gender: gender
     }
   },
+  created: function created() {
+    this.getUsers();
+  },
   methods: {
     getUsers: function getUsers(name) {
       var _this = this;
@@ -191,9 +194,6 @@ var gender = function gender(value) {
         this.submitted = false;
       }
     }
-  },
-  created: function created() {
-    this.getUsers();
   }
 });
 
