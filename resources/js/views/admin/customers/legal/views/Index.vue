@@ -44,7 +44,6 @@
     import Pagination from '../../../../../components/Pagination';
     import Alert from '../../../../../components/Alert/Alert';
     import LegalCustomerService from './../../../../../services/legal_customer';
-    import moment from 'moment';
 
     const legalCustomerService = LegalCustomerService.init();
 

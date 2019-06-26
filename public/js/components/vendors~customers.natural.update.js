@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["vendors~customers.natural.create~customers.natural.update"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["vendors~customers.natural.update"],{
 
 /***/ "./node_modules/moment/locale/af.js":
 /*!******************************************!*\
