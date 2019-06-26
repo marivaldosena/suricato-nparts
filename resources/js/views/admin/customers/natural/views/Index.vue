@@ -46,7 +46,6 @@
     import Pagination from '../../../../../components/Pagination';
     import Alert from '../../../../../components/Alert/Alert';
     import NaturalCustomerService from './../../../../../services/natural_customer';
-    import moment from 'moment';
 
     const naturalCustomerService = NaturalCustomerService.init();
 
@@ -87,7 +86,7 @@
                 return 'Indefinido'
             },
             literalBirthday(date){
-                return moment(date).format("DD/MM/YYYY")
+                return this.$moment(date).format("DD/MM/YYYY")
             },
             //todo - criar modal para confirmar
             handleDestroy(id){

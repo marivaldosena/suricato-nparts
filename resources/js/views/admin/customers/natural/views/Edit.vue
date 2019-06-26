@@ -73,7 +73,6 @@
     import Alert from '../../../../../components/Alert/Alert';
     import Multiselect from 'vue-multiselect'
     import NaturalCustomerService from './../../../../../services/natural_customer';
-    import moment from 'moment';
 
     const naturalCustomerService = NaturalCustomerService.init();
 
@@ -158,7 +157,7 @@
                 });
             },
             literalBirthday(date){
-                return moment(date).format("DD/MM/YYYY")
+                return this.$moment(date).format("DD/MM/YYYY")
             },
             handleSubmit(){
                 this.$v.$touch();
@@ -166,7 +165,7 @@
 
                 if (!this.$v.$invalid) {
                     let cpf = this.cpf.replace(/\./g, '').replace(/\-/g, ''),
-                        birthday = moment(this.birthday, 'DD/MM/YYYY').format("YYYY-MM-DD");
+                        birthday = this.$moment(this.birthday, 'DD/MM/YYYY').format("YYYY-MM-DD");
 
                     naturalCustomerService.update({
                         id: this.id,

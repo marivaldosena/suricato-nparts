@@ -18,6 +18,7 @@ import {API_URL} from "./config";
 
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+Vue.use(require('vue-moment'));
 
 import { resSuccess, resError } from "./services/interceptors/response";
 import { reqSuccess, reqError } from "./services/interceptors/request";
@@ -36,7 +37,7 @@ axios.interceptors.response.use(resSuccess, resError);
 axios.interceptors.request.use(reqSuccess);
 
 Vue.use(VueAxios, axios);
-axios.defaults.baseURL = `${process.env.MIX_APP_URL}/${API_URL}`;
+axios.defaults.baseURL = `/${API_URL}`;
 Vue.use(VueAuth, auth);
 
 new Vue({
