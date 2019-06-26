@@ -1,0 +1,69 @@
+.sidebar{
+  min-width: 300px;
+  max-width: 300px;
+  //background-color: #eee;
+  .user{
+    margin-bottom: 40px;
+    .user-avatar{
+      max-width: 68px;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+      margin: 0 0 20px 0;
+    }
+    .user-details{
+      p{
+        margin: 0;
+      }
+      .name, .user-type{
+        margin: 0;
+      }
+      .name{
+        font-weight: 500;
+      }
+      .user-type{
+        font-size: 13px;
+      }
+    }
+  }
+  .sidebar-menu{
+    list-style: none;
+    padding: 0;
+    .sidebar-menu-item{
+      a{
+        display: block;
+        padding: 0 20px;
+        min-height: 40px;
+        width: 100%;
+        position: relative;
+        &:before{
+          position: absolute;
+          content: '';
+          background: $primaryColor;
+          left: 0;
+          top: 0;
+          width: 2px;
+          height: 0;
+          -webkit-transition: height $linkTransitionVelocity;
+          -moz-transition: height $linkTransitionVelocity;
+          -ms-transition: height $linkTransitionVelocity;
+          -o-transition: height $linkTransitionVelocity;
+          transition: height $linkTransitionVelocity;
+        }
+        &.router-link-exact-active.router-link-active{
+          &:before{
+            height: 100%;
+          }
+        }
+        &:hover{
+          &:before{
+            height: 40%;
+          }
+        }
+        svg{
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}

@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\User;
-use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
+    private $rules = [
+        'email' => 'required|email',
+        'password' => 'required'
+    ];
+
     /**
      * Create a new AuthController instance.
      *
@@ -16,110 +19,82 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login']]);
+        $this->middleware('auth:api', ['except' => ['login', 'refresh']]);
     }
 
     /**
-     * Get a JWT via given credentials.
-     *
-     * @return \Illuminate\Http\JsonResponse
+     * Login user and return a token
      */
-    public function login()
+    public function login(Request $request)
     {
-        if(request()->has(['email', 'password'])){
-            $credentials = request(['email', 'password']);
+        $this->validate($request, $this->rules);
 
-            $user = User::where('email', $credentials['email'])->first();
+        $credentials = request(['email', 'password']);
 
-            if(!$user){
-                return response()->json(['message' => __('login.invalid.user')], 404);
-            }
+        $user = User::where('email', $credentials['email'])->firstOrFail();
 
-            if (!$token = auth()->attempt($credentials)) {
-                return response()->json(['message' => __('login.invalid.password')], 401);
-            }
-
-            return $this->respondWithToken($token);
-        }else{
-            return response()->json(['message' => __('login.required.both')], 400);
-        }
-    }
-
-    /**
-     * Register a new user
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function register(Request $request)
-    {
-        $v = Validator::make($request->all(), [
-            'name' => 'required|min:3',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6|confirmed|regex:/^[a-z.]*(?=.{3,})(?=.{1,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%@]).*$/',
-        ]);
-
-        if ($v->fails()) {
-            return response()->json([
-                'status' => 'error',
-                'errors' => $v->errors()
-            ], 422);
+        if(!$user->email_verified_at){
+            return response()->json(['message' => 'verify'], 401);
         }
 
-        $user = new User;
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = bcrypt($request->password);
-        $user->save();
+        if(!$user->status){
+            return response()->json(['message' => 'deactivated'], 401);
+        }
 
-        return response()->json(['status' => 'success'], 200);
+        if (!$token = auth()->attempt($credentials)) {
+            return response()->json(['message' => 'password'], 401);
+        }
+
+        return response()->json([
+            'status' => 'success',
+            'user' => auth()->user(),
+        ], 200)->header('Authorization', $token);
     }
 
     /**
-     * Get the authenticated User.
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function me()
-    {
-        return response()->json(auth()->user());
-    }
-
-    /**
-     * Log the user out (Invalidate the token).
-     *
-     * @return \Illuminate\Http\JsonResponse
+     * Logout User
      */
     public function logout()
     {
-        auth()->logout();
+        $this->guard()->logout();
 
-        return response()->json(['message' => __('login.logout')]);
+        return response()->json([
+            'status' => 'success',
+            'msg' => 'Logged out Successfully.'
+        ], 200);
     }
 
     /**
-     * Refresh a token.
-     *
-     * @return \Illuminate\Http\JsonResponse
+     * Get authenticated user
+     */
+    public function me()
+    {
+        $user = User::find(auth()->user()->id);
+
+        return response()->json([
+            'status' => 'success',
+            'data' => $user
+        ]);
+    }
+
+    /**
+     * Refresh JWT token
      */
     public function refresh()
     {
-        return $this->respondWithToken(auth()->refresh());
+        if ($token = $this->guard()->refresh()) {
+            return response()
+                ->json(['status' => 'successs'], 200)
+                ->header('Authorization', $token);
+        }
+        return response()->json(['error' => 'refresh_token_error'], 401);
     }
 
     /**
-     * Get the token array structure.
-     *
-     * @param  string $token
-     *
-     * @return \Illuminate\Http\JsonResponse
+     * Return auth guard
      */
-    protected function respondWithToken($token)
+    private function guard()
     {
-        return response()->json([
-            'access_token' => $token,
-            'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60
-        ]);
+        return auth()->guard();
     }
 }
-

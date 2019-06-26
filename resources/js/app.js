@@ -1,33 +1,46 @@
+import Vue from 'vue'
+import App from './App.vue'
 
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
+import Router from 'vue-router';
+import router from './router'
 
-require('./bootstrap');
+import store from './store'
 
-window.Vue = require('vue');
+import Vuelidate from 'vuelidate'
 
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 
-// const files = require.context('./', true, /\.vue$/i);
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
+import VueAuth from '@websanova/vue-auth'
+import auth from './config/auth'
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+import {API_URL} from "./config";
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-const app = new Vue({
-    el: '#app'
-});
+import { resSuccess, resError } from "./services/interceptors/response";
+import { reqSuccess, reqError } from "./services/interceptors/request";
+
+import { getLiteralStatus } from "./mixins/global";
+Vue.mixin(getLiteralStatus);
+
+Vue.config.productionTip = false;
+
+Vue.router = router;
+Vue.use(Router);
+
+Vue.use(Vuelidate);
+
+axios.interceptors.response.use(resSuccess, resError);
+axios.interceptors.request.use(reqSuccess);
+
+Vue.use(VueAxios, axios);
+axios.defaults.baseURL = `${process.env.MIX_APP_URL}/${API_URL}`;
+Vue.use(VueAuth, auth);
+
+new Vue({
+    router,
+    store,
+    render: h => h(App)
+}).$mount('#app');

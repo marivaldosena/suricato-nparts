@@ -10,4 +10,5 @@ return [
         'both' => 'Email and password is required.'
     ],
     'logout' => 'Successfully logged out.',
+    'verify' => 'You should check your email.',
 ];

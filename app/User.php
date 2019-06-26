@@ -7,7 +7,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class User extends Authenticatable implements JWTSubject
+class User extends Authenticatable implements JWTSubject, MustVerifyEmail
 {
     use Notifiable;
 
@@ -17,7 +17,7 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'email_verify_token', 'email_verified_at', 'type', 'status',
     ];
 
     /**
@@ -58,8 +58,17 @@ class User extends Authenticatable implements JWTSubject
         return [];
     }
 
-    public function anuncios()
+    public function customer(){
+        return $this->hasOne('App\\Customer');
+    }
+
+    public function getTypeAttribute($value)
     {
-        return $this->hasMany('App\Anuncio');
+        return (int) $value;
+    }
+
+    public function getStatusAttribute($value)
+    {
+        return (int) $value;
     }
 }

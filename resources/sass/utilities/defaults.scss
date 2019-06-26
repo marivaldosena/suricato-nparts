@@ -1,0 +1,106 @@
+// default font
+html{
+  body {
+    //font-family: "Myriad Pro";
+  }
+}
+
+.logo-alfred{
+  //font-family: "Amatic SC";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 50px;
+}
+
+// links defaults
+body{
+  a{
+    position: relative;
+    color: $black;
+    -webkit-transition: color $linkTransitionVelocity;
+    -moz-transition: color $linkTransitionVelocity;
+    -ms-transition: color $linkTransitionVelocity;
+    -o-transition: color $linkTransitionVelocity;
+    transition: color $linkTransitionVelocity;
+    &:hover{
+      text-decoration: none;
+      color: lighten($black, 30%);
+      //color: $black;
+    }
+
+    /*
+    * Links effects.
+    * These effects only activated when class is set in link.
+    * Ex: <a href="#" class="link-eff1">
+    */
+    &.link-eff1{
+      &:after{
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 2px;
+        background: $black;
+        opacity: 0;
+        -webkit-transition: opacity $linkTransitionVelocity, -webkit-transform $linkTransitionVelocity;
+        -moz-transition: opacity $linkTransitionVelocity, -moz-transform $linkTransitionVelocity;
+        transition: opacity $linkTransitionVelocity, transform $linkTransitionVelocity;
+        -webkit-transform: translateY(10px);
+        -moz-transform: translateY(10px);
+        transform: translateY(10px);
+      }
+      &:hover{
+        &:after{
+          opacity: 1;
+          -webkit-transform: translateY(0px);
+          -moz-transform: translateY(0px);
+          transform: translateY(0px);
+        }
+      }
+    }
+    &.link-eff2{
+      &:after{
+        position: absolute;
+        content: '';
+        width: 0;
+        height: 2px;
+        background: $black;
+        -webkit-transition: width $linkTransitionVelocity;
+        -moz-transition: width $linkTransitionVelocity;
+        -ms-transition: width $linkTransitionVelocity;
+        -o-transition: width $linkTransitionVelocity;
+        transition: width $linkTransitionVelocity;
+      }
+      &:hover{
+        &:after{
+          width: 40%;
+          background: lighten($black, 30%);
+          //background: $black;
+        }
+      }
+    }
+  }
+}
+
+
+//form errors
+form{
+  .form-group {
+    .error {
+      font-size: 12px;
+      color: $errorColor;
+    }
+    &.form-group--error {
+      input, select, textarea {
+        border: 1px solid $errorColor;
+        &:focus {
+          outline: 0;
+          -webkit-box-shadow: 0 0 0 0.2rem rgba($errorColor,.25);
+          box-shadow: 0 0 0 0.2rem rgba($errorColor,.25);
+        }
+      }
+    }
+  }
+  .loading {
+    margin-left: 20px;
+  }
+}
