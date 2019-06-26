@@ -129,7 +129,7 @@ export const routes = [
                 children: [
                     {
                         path: '',
-                        name: 'customers',
+                        name: 'customers.natural',
                         component: () => import(/* webpackChunkName: "customers.natural.index" */ '../views/admin/customers/natural/views/Index'),
                         meta: {
                             title: 'Natural Person Customer',
@@ -148,7 +148,7 @@ export const routes = [
                     },
                     {
                         path: 'create',
-                        name: 'customers.create',
+                        name: 'customers.natural.create',
                         component: () => import(/* webpackChunkName: "customers.natural.create" */ '../views/admin/customers/natural/views/Create'),
                         meta: {
                             title: 'Create Natural Person Customer',
@@ -172,7 +172,7 @@ export const routes = [
                     },
                     {
                         path: ':id',
-                        name: 'customers.update',
+                        name: 'customers.natural.update',
                         component: () => import(/* webpackChunkName: "customers.natural.update" */ '../views/admin/customers/natural/views/Edit'),
                         meta: {
                             title: 'Edit Natural Person Customer',
@@ -211,7 +211,7 @@ export const routes = [
                 children: [
                     {
                         path: '',
-                        name: 'customers',
+                        name: 'customers.legal',
                         component: () => import(/* webpackChunkName: "customers.legal.index" */ '../views/admin/customers/legal/views/Index'),
                         meta: {
                             title: 'Legal Person Customer',
@@ -230,7 +230,7 @@ export const routes = [
                     },
                     {
                         path: 'create',
-                        name: 'customers.create',
+                        name: 'customers.legal.create',
                         component: () => import(/* webpackChunkName: "customers.legal.create" */ '../views/admin/customers/legal/views/Create'),
                         meta: {
                             title: 'Create Legal Person Customer',
@@ -254,7 +254,7 @@ export const routes = [
                     },
                     {
                         path: ':id',
-                        name: 'customers.update',
+                        name: 'customers.legal.update',
                         component: () => import(/* webpackChunkName: "customers.legal.update" */ '../views/admin/customers/legal/views/Edit'),
                         meta: {
                             title: 'Edit Legal Person Customer',
