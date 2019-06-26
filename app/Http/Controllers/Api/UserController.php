@@ -38,7 +38,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return UserResource::collection(User::paginate(10));
+        return UserResource::collection(User::where('id', '<>', auth()->user()->id)->paginate(10));
     }
 
     /**
@@ -98,14 +98,16 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, $this->rules);
+        $rules = $this->rules;
+        unset($rules['password']);
+
+        $this->validate($request, $rules);
 
         $user = User::findOrFail($id);
 
         $user->update([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => $request->password,
             'type' => $request->type,
         ]);
 
@@ -154,5 +156,30 @@ class UserController extends Controller
         return response(null, 404);
     }
 
-    //status usuario
+    public function status(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+
+        $user->update([
+            'status' => $request->status,
+        ]);
+
+        $user->save();
+
+        return response(null, 204);
+    }
+
+    public function unusedUsers($type, $name = null)
+    {
+        $users = User::whereDoesntHave('customer')
+            ->where('type', $type);
+
+        if($name){
+            $users->where('name', 'like', "%{$name}%");
+        }
+
+        $users = $users->get();
+
+        return UserResource::collection($users);
+    }
 }

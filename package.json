@@ -22,11 +22,16 @@
         "vue-template-compiler": "^2.6.7"
     },
     "dependencies": {
+        "@websanova/vue-auth": "^2.21.14-beta",
         "bootstrap": "^4.3.1",
+        "es6-promise": "^4.2.8",
         "feather-icons": "^4.19.0",
         "jquery": "^3.3.1",
+        "moment": "^2.24.0",
         "popper.js": "^1.14.7",
         "vue": "^2.6.7",
+        "vue-axios": "^2.1.4",
+        "vue-multiselect": "^2.1.6",
         "vue-router": "^3.0.2",
         "vuelidate": "^0.7.4",
         "vuex": "^3.1.0"

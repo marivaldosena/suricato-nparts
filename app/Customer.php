@@ -8,7 +8,7 @@ class Customer extends Model
 {
     protected $table = 'customers';
     public $timestamps = true;
-    protected $fillable = array('status');
+    protected $fillable = array('status', 'user_id');
 
     public function user()
     {
@@ -33,5 +33,10 @@ class Customer extends Model
     public function advertisements()
     {
         return $this->hasMany('Advertisement');
+    }
+
+    public function getStatusAttribute($value)
+    {
+        return (int) $value;
     }
 }

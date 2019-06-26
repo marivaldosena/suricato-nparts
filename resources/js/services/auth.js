@@ -1,4 +1,4 @@
-import driver from "./drivers/axios/index";
+// import driver from "./drivers/axios/index";
 
 export default class AuthService {
     resource = 'auth';
@@ -20,6 +20,10 @@ export default class AuthService {
 
     logout(){
         //
+    }
+
+    me(){
+        return this.http.get('/me');
     }
 
     refreshToken(payload){

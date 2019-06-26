@@ -20,14 +20,14 @@ Route::group([
     Route::group(['prefix' => 'auth'], function(){
         Route::post('login', 'AuthController@login');
         Route::post('logout', 'AuthController@logout');
-        Route::post('refresh', 'AuthController@refresh');
+        Route::get('refresh', 'AuthController@refresh');
+        Route::get('me', 'AuthController@me');
     });
 
     Route::get('advertisements', 'Api\\AdvertisementController@index');
 
 
     Route::group(['middleware' => 'auth:api'], function(){
-        Route::get('me', 'AuthController@me');
 
         //customers
         Route::group(['prefix' => 'customers'], function(){
@@ -39,7 +39,11 @@ Route::group([
 
     //users
     Route::resource('users', 'Api\\UserController');
-    Route::resource('users/reset', 'Api\\ResetPasswordController');
+    Route::group(['prefix' => 'users'], function(){
+        Route::resource('reset', 'Api\\ResetPasswordController');
+        Route::put('status/{id}', 'Api\\UserController@status');
+        Route::get('unused-users/{type}/{name?}', 'Api\UserController@unusedUsers');
+    });
 
     Route::group(['prefix' => 'customers'], function () {
         Route::get('/', 'Api\CustomerController@index');

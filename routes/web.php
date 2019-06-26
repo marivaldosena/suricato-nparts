@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/{any}', 'FrontController@index')->where('any', '.*');
+Route::get('/{any}', 'FrontController@index')->where('any', '^(?!api\/)[\/\w\.-]*');
 //Route::get('test', function (){
 //    echo bcrypt(123456);
 //});

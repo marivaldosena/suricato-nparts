@@ -36,11 +36,7 @@
 
 <script>
     import { required, email } from 'vuelidate/lib/validators'
-    import { mapActions } from 'vuex';
-    import Alert from './../components/Alert';
-    import AuthService from './../services/auth';
-
-    const service = AuthService.init();
+    import Alert from '../components/Alert/Alert';
 
     export default {
         name: "Login",
@@ -65,33 +61,46 @@
             }
         },
         methods: {
-            ...mapActions(['setCurrentUser']),
-
             handleSubmit (){
                 this.$v.$touch();
                 this.submitted = true;
 
                 if (!this.$v.$invalid) {
-                    service.login({
-                        email: this.email,
-                        password: this.password
-                    })
-                        .then((res) => {
-                            // mover
-                            localStorage.setItem('token', res.data.access_token);
-                            this.$router.push('dash');
-                        })
-                        .catch(() => {
-                        this.submitted = false;
+                    this.$auth.login({
+                        data: {
+                            email: this.email,
+                            password: this.password
+                        },
+                        success: function(res) {
+                            const { data: { user } } = res;
+
+                            this.redirectByType(user.type);
+                        },
+                        error: function() {
+                            this.submitted = false;
+                        },
+                        rememberMe: true,
+                        fetchUser: true
                     })
                 }else{
                     this.submitted = false;
                 }
+            },
+            redirectByType(type){
+                if(type === 1){
+                    this.$router.push('admin');
+                }else if(type === 2){
+                    this.$router.push('customer/natural');
+                }else if (type === 3){
+                    this.$router.push('customer/legal');
+                }
             }
         },
-        mounted(){
-            if(localStorage.getItem('token')){
-                this.$router.push({ name: 'dashboard' })
+        created(){
+            let userType = this.$auth.user().type;
+
+            if(localStorage.getItem('token') && userType){
+                this.redirectByType(userType);
             }
         }
     }

@@ -17,7 +17,7 @@ class User extends Authenticatable implements JWTSubject, MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'email_verify_token', 'email_verified_at',
+        'name', 'email', 'password', 'email_verify_token', 'email_verified_at', 'type', 'status',
     ];
 
     /**
@@ -60,5 +60,15 @@ class User extends Authenticatable implements JWTSubject, MustVerifyEmail
 
     public function customer(){
         return $this->hasOne('App\\Customer');
+    }
+
+    public function getTypeAttribute($value)
+    {
+        return (int) $value;
+    }
+
+    public function getStatusAttribute($value)
+    {
+        return (int) $value;
     }
 }

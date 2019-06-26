@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\User;
-use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
@@ -13,6 +11,7 @@ class AuthController extends Controller
         'email' => 'required|email',
         'password' => 'required'
     ];
+
     /**
      * Create a new AuthController instance.
      *
@@ -24,10 +23,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Get a JWT via given credentials.
-     *
-     * @return \Illuminate\Http\JsonResponse
-     * @throws \Illuminate\Validation\ValidationException
+     * Login user and return a token
      */
     public function login(Request $request)
     {
@@ -49,45 +45,56 @@ class AuthController extends Controller
             return response()->json(['message' => 'password'], 401);
         }
 
-        return $this->respondWithToken($token);
+        return response()->json([
+            'status' => 'success',
+            'user' => auth()->user(),
+        ], 200)->header('Authorization', $token);
     }
 
     /**
-     * Log the user out (Invalidate the token).
-     *
-     * @return \Illuminate\Http\JsonResponse
+     * Logout User
      */
     public function logout()
     {
-        auth()->logout();
+        $this->guard()->logout();
 
-        return response()->json(['message' => __('login.logout')]);
+        return response()->json([
+            'status' => 'success',
+            'msg' => 'Logged out Successfully.'
+        ], 200);
     }
 
     /**
-     * Refresh a token.
-     *
-     * @return \Illuminate\Http\JsonResponse
+     * Get authenticated user
+     */
+    public function me()
+    {
+        $user = User::find(auth()->user()->id);
+
+        return response()->json([
+            'status' => 'success',
+            'data' => $user
+        ]);
+    }
+
+    /**
+     * Refresh JWT token
      */
     public function refresh()
     {
-        return $this->respondWithToken(auth()->refresh());
+        if ($token = $this->guard()->refresh()) {
+            return response()
+                ->json(['status' => 'successs'], 200)
+                ->header('Authorization', $token);
+        }
+        return response()->json(['error' => 'refresh_token_error'], 401);
     }
 
     /**
-     * Get the token array structure.
-     *
-     * @param  string $token
-     *
-     * @return \Illuminate\Http\JsonResponse
+     * Return auth guard
      */
-    protected function respondWithToken($token)
+    private function guard()
     {
-        return response()->json([
-            'access_token' => $token,
-            'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60
-        ]);
+        return auth()->guard();
     }
 }
-

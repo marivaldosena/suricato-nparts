@@ -1,8 +1,8 @@
 export default {
     currentUser: {
-        id: '',
-        role: '',
-        name: '',
-        email: ''
+        id: null,
+        name: null,
+        email: null,
+        type: null,
     }
 };
