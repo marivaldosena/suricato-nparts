@@ -10,7 +10,7 @@
 <body>
 <h2>Reset password.</h2>
 <br>
-Hi {{$user['name']}}, to reset your password, click <a href="{{url('users/reset', $token)}}">Reset password</a>
+Hi {{$user['name']}}, to reset your password, click <a href="{{url('reset', $token)}}">Reset password</a>
 <br>
 If you did not request this reset, please disregard this email.
 </body>

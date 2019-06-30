@@ -10,11 +10,26 @@ export const routes = [
         component: () => import(/* webpackChunkName: "login" */ './../views/Login'),
     },
     {
+        path: '/register',
+        name: 'register',
+        component: () => import(/* webpackChunkName: "register" */ './../views/Register'),
+    },
+    {
+        path: '/reset/request',
+        name: 'reset-request',
+        component: () => import(/* webpackChunkName: "reset-request" */ '../views/ResetPassword/Request'),
+    },
+    {
+        path: '/reset/:token',
+        name: 'reset',
+        component: () => import(/* webpackChunkName: "reset" */ '../views/ResetPassword/Create'),
+    },
+    {
         path: '/admin',
         component: () => import(/* webpackChunkName: "admin" */ './../views/admin/Admin'),
         meta: {
             auth: {
-                roles: 1,
+                roles: 'admin',
             },
         },
         children: [
@@ -290,7 +305,7 @@ export const routes = [
                 component: () => import(/* webpackChunkName: "customer.natural" */ './../views/customer/natural/Natural'),
                 meta: {
                     auth: {
-                        roles: 2,
+                        roles: 'buyer',
                     },
                 },
             },
@@ -300,7 +315,7 @@ export const routes = [
                 component: () => import(/* webpackChunkName: "customer.legal" */ './../views/customer/legal/Legal'),
                 meta: {
                     auth: {
-                        roles: 3,
+                        roles: 'seller',
                     },
                 },
             }

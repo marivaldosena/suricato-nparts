@@ -66,11 +66,6 @@ class User extends Authenticatable implements JWTSubject, MustVerifyEmail
         return $this->hasOne('App\\Address');
     }
 
-    public function getTypeAttribute($value)
-    {
-        return (int) $value;
-    }
-
     public function getStatusAttribute($value)
     {
         return (int) $value;

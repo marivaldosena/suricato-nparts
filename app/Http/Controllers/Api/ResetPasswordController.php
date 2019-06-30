@@ -78,6 +78,7 @@ class ResetPasswordController extends Controller
      */
     public function update(Request $request, $token)
     {
+        // todo - adicionar essa rule no repositorio de rules
         $this->validate($request, [
             'password' => 'required|min:6|confirmed|regex:/^[a-z.]*(?=.{3,})(?=.{1,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%@]).*$/',
         ]);
