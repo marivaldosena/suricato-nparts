@@ -33,8 +33,8 @@
 
 <script>
     import {required, email} from 'vuelidate/lib/validators'
-    import Alert from '../../components/Alert/Alert';
-    import ResetService from '../../services/reset';
+    import Alert from '../../../components/Alert/Alert';
+    import ResetService from '../../../services/reset';
 
     const resetService = ResetService.init();
 

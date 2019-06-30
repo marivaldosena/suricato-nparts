@@ -17,19 +17,13 @@
     "/js/components/customers.natural.update.js": "/js/components/customers.natural.update.js",
     "/js/components/home.js": "/js/components/home.js",
     "/js/components/login.js": "/js/components/login.js",
+    "/js/components/register.js": "/js/components/register.js",
+    "/js/components/reset.js": "/js/components/reset.js",
     "/js/components/users.js": "/js/components/users.js",
     "/js/components/users.create.js": "/js/components/users.create.js",
     "/js/components/users.index.js": "/js/components/users.index.js",
     "/js/components/users.update.js": "/js/components/users.update.js",
     "/js/components/vendors~admin~customer~home.js": "/js/components/vendors~admin~customer~home.js",
-    "/js/components/vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~a62c8462.js": "/js/components/vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~a62c8462.js",
     "/js/components/vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~ad8f03c9.js": "/js/components/vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~ad8f03c9.js",
-    "/js/components/register.js": "/js/components/register.js",
-    "/js/components/reset-password.js": "/js/components/reset-password.js",
-    "/js/components/vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~0b1bed80.js": "/js/components/vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~0b1bed80.js",
-    "/js/components/reset.js": "/js/components/reset.js",
-    "/js/components/reset-request.js": "/js/components/reset-request.js",
-    "/js/components/vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~3b14dcf6.js": "/js/components/vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~3b14dcf6.js",
-    "/js/components/reset~reset-request.js": "/js/components/reset~reset-request.js",
-    "/js/components/vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~1cc8415a.js": "/js/components/vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~1cc8415a.js"
+    "/js/components/vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~c0bc667f.js": "/js/components/vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~c0bc667f.js"
 }

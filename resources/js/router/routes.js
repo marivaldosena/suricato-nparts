@@ -15,14 +15,9 @@ export const routes = [
         component: () => import(/* webpackChunkName: "register" */ './../views/Register'),
     },
     {
-        path: '/reset/request',
-        name: 'reset-request',
-        component: () => import(/* webpackChunkName: "reset-request" */ '../views/ResetPassword/Request'),
-    },
-    {
-        path: '/reset/:token',
+        path: '/reset/:token?',
         name: 'reset',
-        component: () => import(/* webpackChunkName: "reset" */ '../views/ResetPassword/Create'),
+        component: () => import(/* webpackChunkName: "reset" */ '../views/ResetPassword/ResetPassword'),
     },
     {
         path: '/admin',

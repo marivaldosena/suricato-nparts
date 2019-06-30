@@ -40,8 +40,8 @@
 
 <script>
     import { required, sameAs } from 'vuelidate/lib/validators'
-    import Alert from '../../components/Alert/Alert';
-    import ResetService from '../../services/reset';
+    import Alert from '../../../components/Alert/Alert';
+    import ResetService from '../../../services/reset';
 
     const resetService = ResetService.init();
 
@@ -54,13 +54,15 @@
         components: {
             Alert
         },
+        props: {
+            token: String
+        },
         data(){
             return {
                 password: '',
                 password_confirmation: '',
                 submitted: false,
                 error: false,
-                token: this.$route.params.token,
             }
         },
         validations: {
@@ -100,13 +102,20 @@
             }
         },
         created(){
-            resetService.show({
-                id: this.token,
-            }).then((res) => {
+            if(this.token){
+                resetService.show({
+                    id: this.token,
+                }).then((res) => {
 
-            }, (err) => {
-                this.$router.push('/login');
-            })
+                }, (err) => {
+                    this.$store.dispatch('setAlert', {
+                        type: 'danger',
+                        message: 'Invalid token provided.',
+                        show: true,
+                    }).then(() => {});
+                    this.$router.push('/login');
+                })
+            }
         }
     }
 </script>

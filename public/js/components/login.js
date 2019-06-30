@@ -434,7 +434,7 @@ var render = function() {
                   1
                 ),
                 _vm._v(" "),
-                _c("router-link", { attrs: { to: "/reset/request" } }, [
+                _c("router-link", { attrs: { to: "/reset" } }, [
                   _vm._v("Esqueceu sua senha?")
                 ])
               ],

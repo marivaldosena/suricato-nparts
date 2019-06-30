@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "js/components/" + ({"admin.index":"admin.index","customer.legal":"customer.legal","customer.natural":"customer.natural","customers.legal":"customers.legal","customers.legal.index~customers.natural.index~users.index":"customers.legal.index~customers.natural.index~users.index","customers.legal.index":"customers.legal.index","customers.natural.index":"customers.natural.index","users.index":"users.index","register":"register","users":"users","vendors~admin~customer~home":"vendors~admin~customer~home","admin~customer~home":"admin~customer~home","admin":"admin","customer":"customer","home":"home","vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~1cc8415a":"vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~1cc8415a","login":"login","reset~reset-request":"reset~reset-request","reset":"reset","reset-request":"reset-request","users.create":"users.create","users.update":"users.update","vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~ad8f03c9":"vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~ad8f03c9","customers.legal.create":"customers.legal.create","customers.legal.update":"customers.legal.update","customers.natural.create":"customers.natural.create","customers.natural.update":"customers.natural.update"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "js/components/" + ({"admin.index":"admin.index","customer.legal":"customer.legal","customer.natural":"customer.natural","customers.legal":"customers.legal","customers.legal.index~customers.natural.index~users.index":"customers.legal.index~customers.natural.index~users.index","customers.legal.index":"customers.legal.index","customers.natural.index":"customers.natural.index","users.index":"users.index","register":"register","users":"users","vendors~admin~customer~home":"vendors~admin~customer~home","admin~customer~home":"admin~customer~home","admin":"admin","customer":"customer","home":"home","vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~c0bc667f":"vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~c0bc667f","login":"login","reset":"reset","users.create":"users.create","users.update":"users.update","vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~ad8f03c9":"vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~ad8f03c9","customers.legal.create":"customers.legal.create","customers.legal.update":"customers.legal.update","customers.natural.create":"customers.natural.create","customers.natural.update":"customers.natural.update"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -43655,7 +43655,7 @@ var routes = [{
   path: '/login',
   name: 'login',
   component: function component() {
-    return Promise.all(/*! import() | login */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~1cc8415a"), __webpack_require__.e("login")]).then(__webpack_require__.bind(null, /*! ./../views/Login */ "./resources/js/views/Login.vue"));
+    return Promise.all(/*! import() | login */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~c0bc667f"), __webpack_require__.e("login")]).then(__webpack_require__.bind(null, /*! ./../views/Login */ "./resources/js/views/Login.vue"));
   }
 }, {
   path: '/register',
@@ -43664,16 +43664,10 @@ var routes = [{
     return __webpack_require__.e(/*! import() | register */ "register").then(__webpack_require__.bind(null, /*! ./../views/Register */ "./resources/js/views/Register.vue"));
   }
 }, {
-  path: '/reset/request',
-  name: 'reset-request',
-  component: function component() {
-    return Promise.all(/*! import() | reset-request */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~1cc8415a"), __webpack_require__.e("reset~reset-request"), __webpack_require__.e("reset-request")]).then(__webpack_require__.bind(null, /*! ../views/ResetPassword/Request */ "./resources/js/views/ResetPassword/Request.vue"));
-  }
-}, {
-  path: '/reset/:token',
+  path: '/reset/:token?',
   name: 'reset',
   component: function component() {
-    return Promise.all(/*! import() | reset */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~1cc8415a"), __webpack_require__.e("reset~reset-request"), __webpack_require__.e("reset")]).then(__webpack_require__.bind(null, /*! ../views/ResetPassword/Create */ "./resources/js/views/ResetPassword/Create.vue"));
+    return Promise.all(/*! import() | reset */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~c0bc667f"), __webpack_require__.e("reset")]).then(__webpack_require__.bind(null, /*! ../views/ResetPassword/ResetPassword */ "./resources/js/views/ResetPassword/ResetPassword.vue"));
   }
 }, {
   path: '/admin',
@@ -43731,7 +43725,7 @@ var routes = [{
       path: 'create',
       name: 'users.create',
       component: function component() {
-        return Promise.all(/*! import() | users.create */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~1cc8415a"), __webpack_require__.e("users.create")]).then(__webpack_require__.bind(null, /*! ./../views/admin/users/views/Create */ "./resources/js/views/admin/users/views/Create.vue"));
+        return Promise.all(/*! import() | users.create */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~c0bc667f"), __webpack_require__.e("users.create")]).then(__webpack_require__.bind(null, /*! ./../views/admin/users/views/Create */ "./resources/js/views/admin/users/views/Create.vue"));
       },
       meta: {
         title: 'Create User',
@@ -43752,7 +43746,7 @@ var routes = [{
       path: ':id',
       name: 'users.update',
       component: function component() {
-        return Promise.all(/*! import() | users.update */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~1cc8415a"), __webpack_require__.e("users.update")]).then(__webpack_require__.bind(null, /*! ./../views/admin/users/views/Edit */ "./resources/js/views/admin/users/views/Edit.vue"));
+        return Promise.all(/*! import() | users.update */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~c0bc667f"), __webpack_require__.e("users.update")]).then(__webpack_require__.bind(null, /*! ./../views/admin/users/views/Edit */ "./resources/js/views/admin/users/views/Edit.vue"));
       },
       meta: {
         title: 'Edit User',
@@ -43803,7 +43797,7 @@ var routes = [{
       path: 'create',
       name: 'customers.natural.create',
       component: function component() {
-        return Promise.all(/*! import() | customers.natural.create */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~1cc8415a"), __webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~ad8f03c9"), __webpack_require__.e("customers.natural.create")]).then(__webpack_require__.bind(null, /*! ../views/admin/customers/natural/views/Create */ "./resources/js/views/admin/customers/natural/views/Create.vue"));
+        return Promise.all(/*! import() | customers.natural.create */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~c0bc667f"), __webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~ad8f03c9"), __webpack_require__.e("customers.natural.create")]).then(__webpack_require__.bind(null, /*! ../views/admin/customers/natural/views/Create */ "./resources/js/views/admin/customers/natural/views/Create.vue"));
       },
       meta: {
         title: 'Create Natural Person Customer',
@@ -43824,7 +43818,7 @@ var routes = [{
       path: ':id',
       name: 'customers.natural.update',
       component: function component() {
-        return Promise.all(/*! import() | customers.natural.update */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~1cc8415a"), __webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~ad8f03c9"), __webpack_require__.e("customers.natural.update")]).then(__webpack_require__.bind(null, /*! ../views/admin/customers/natural/views/Edit */ "./resources/js/views/admin/customers/natural/views/Edit.vue"));
+        return Promise.all(/*! import() | customers.natural.update */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~c0bc667f"), __webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~ad8f03c9"), __webpack_require__.e("customers.natural.update")]).then(__webpack_require__.bind(null, /*! ../views/admin/customers/natural/views/Edit */ "./resources/js/views/admin/customers/natural/views/Edit.vue"));
       },
       meta: {
         title: 'Edit Natural Person Customer',
@@ -43875,7 +43869,7 @@ var routes = [{
       path: 'create',
       name: 'customers.legal.create',
       component: function component() {
-        return Promise.all(/*! import() | customers.legal.create */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~1cc8415a"), __webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~ad8f03c9"), __webpack_require__.e("customers.legal.create")]).then(__webpack_require__.bind(null, /*! ../views/admin/customers/legal/views/Create */ "./resources/js/views/admin/customers/legal/views/Create.vue"));
+        return Promise.all(/*! import() | customers.legal.create */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~c0bc667f"), __webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~ad8f03c9"), __webpack_require__.e("customers.legal.create")]).then(__webpack_require__.bind(null, /*! ../views/admin/customers/legal/views/Create */ "./resources/js/views/admin/customers/legal/views/Create.vue"));
       },
       meta: {
         title: 'Create Legal Person Customer',
@@ -43896,7 +43890,7 @@ var routes = [{
       path: ':id',
       name: 'customers.legal.update',
       component: function component() {
-        return Promise.all(/*! import() | customers.legal.update */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~1cc8415a"), __webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~ad8f03c9"), __webpack_require__.e("customers.legal.update")]).then(__webpack_require__.bind(null, /*! ../views/admin/customers/legal/views/Edit */ "./resources/js/views/admin/customers/legal/views/Edit.vue"));
+        return Promise.all(/*! import() | customers.legal.update */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~c0bc667f"), __webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~ad8f03c9"), __webpack_require__.e("customers.legal.update")]).then(__webpack_require__.bind(null, /*! ../views/admin/customers/legal/views/Edit */ "./resources/js/views/admin/customers/legal/views/Edit.vue"));
       },
       meta: {
         title: 'Edit Legal Person Customer',

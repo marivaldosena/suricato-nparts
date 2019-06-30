@@ -31,7 +31,7 @@
                 <p class="loading" v-if="this.submitted">Aguarde...</p>
                 <div class="form-group">
                     <p>Não possui cadastro? <router-link to="/register">Cadastre-se aqui.</router-link></p>
-                    <router-link to="/reset/request">Esqueceu sua senha?</router-link>
+                    <router-link to="/reset">Esqueceu sua senha?</router-link>
                 </div>
             </form>
         </div>
