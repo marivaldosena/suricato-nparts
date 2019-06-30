@@ -9,10 +9,12 @@ class CreateProductPhotosTable extends Migration {
 	public function up()
 	{
 		Schema::create('product_photos', function(Blueprint $table) {
+            $table->engine = 'InnoDB';
+
 			$table->increments('id');
+            $table->integer('product_id')->unsigned();
 			$table->string('path', 50);
 			$table->timestamps();
-			$table->integer('product_id')->unsigned();
 		});
 	}
 

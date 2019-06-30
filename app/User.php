@@ -20,6 +20,10 @@ class User extends Authenticatable implements JWTSubject, MustVerifyEmail
         'name', 'email', 'password', 'email_verify_token', 'email_verified_at', 'type', 'status',
     ];
 
+    protected $visible = [
+        'name', 'email', 'type', 'status', 'created_at', 'updated_at',
+    ];
+
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -58,8 +62,8 @@ class User extends Authenticatable implements JWTSubject, MustVerifyEmail
         return [];
     }
 
-    public function customer(){
-        return $this->hasOne('App\\Customer');
+    public function address(){
+        return $this->hasOne('App\\Address');
     }
 
     public function getTypeAttribute($value)
@@ -70,5 +74,10 @@ class User extends Authenticatable implements JWTSubject, MustVerifyEmail
     public function getStatusAttribute($value)
     {
         return (int) $value;
+    }
+
+    public function buyer()
+    {
+        return $this->hasOne('App\\Buyer');
     }
 }

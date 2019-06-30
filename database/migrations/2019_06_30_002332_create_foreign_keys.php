@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Eloquent\Model;
@@ -9,28 +8,23 @@ class CreateForeignKeys extends Migration {
 
 	public function up()
 	{
-		Schema::table('customers', function(Blueprint $table) {
+		Schema::table('buyers', function(Blueprint $table) {
 			$table->foreign('user_id')->references('id')->on('users')
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
-		Schema::table('natural_persons', function(Blueprint $table) {
-			$table->foreign('customer_id')->references('id')->on('customers')
+		Schema::table('sellers', function(Blueprint $table) {
+			$table->foreign('user_id')->references('id')->on('users')
 						->onDelete('cascade')
-						->onUpdate('no action');
-		});
-		Schema::table('legal_persons', function(Blueprint $table) {
-			$table->foreign('customer_id')->references('id')->on('customers')
-						->onDelete('cascade')
-						->onUpdate('no action');
+						->onUpdate('cascade');
 		});
 		Schema::table('addresses', function(Blueprint $table) {
-			$table->foreign('customer_id')->references('id')->on('customers')
+			$table->foreign('user_id')->references('id')->on('users')
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
 		Schema::table('advertisements', function(Blueprint $table) {
-			$table->foreign('customer_id')->references('id')->on('customers')
+			$table->foreign('seller_id')->references('user_id')->on('sellers')
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
@@ -44,30 +38,35 @@ class CreateForeignKeys extends Migration {
 						->onDelete('cascade')
 						->onUpdate('no action');
 		});
+		Schema::table('seller_docs', function(Blueprint $table) {
+			$table->foreign('seller_id')->references('user_id')->on('sellers')
+						->onDelete('cascade')
+						->onUpdate('cascade');
+		});
 	}
 
 	public function down()
 	{
-		Schema::table('customers', function(Blueprint $table) {
-			$table->dropForeign('customers_user_id_foreign');
+		Schema::table('buyers', function(Blueprint $table) {
+			$table->dropForeign('buyers_user_id_foreign');
 		});
-		Schema::table('natural_persons', function(Blueprint $table) {
-			$table->dropForeign('natural_persons_customer_id_foreign');
-		});
-		Schema::table('legal_persons', function(Blueprint $table) {
-			$table->dropForeign('legal_persons_customer_id_foreign');
+		Schema::table('sellers', function(Blueprint $table) {
+			$table->dropForeign('sellers_user_id_foreign');
 		});
 		Schema::table('addresses', function(Blueprint $table) {
-			$table->dropForeign('addresses_customer_id_foreign');
+			$table->dropForeign('addresses_user_id_foreign');
 		});
 		Schema::table('advertisements', function(Blueprint $table) {
-			$table->dropForeign('advertisements_customer_id_foreign');
+			$table->dropForeign('advertisements_seller_id_foreign');
 		});
 		Schema::table('advertisements', function(Blueprint $table) {
 			$table->dropForeign('advertisements_product_id_foreign');
 		});
 		Schema::table('product_photos', function(Blueprint $table) {
 			$table->dropForeign('product_photos_product_id_foreign');
+		});
+		Schema::table('seller_docs', function(Blueprint $table) {
+			$table->dropForeign('seller_docs_seller_id_foreign');
 		});
 	}
 }
