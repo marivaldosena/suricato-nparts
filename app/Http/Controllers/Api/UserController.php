@@ -134,18 +134,43 @@ class UserController extends Controller
     /**
      * Verify user account email
      *
-     * @param  \Illuminate\Http\Request  $request
      * @param  string $token
      * @return \Illuminate\Http\Response
     */
-    public function verify(Request $request, $token)
+    public function verify($token)
     {
         $user = User::where('email_verify_token', $token)->first();
 
-        if($user && !$user->email_email_verified_at){
+        if($user && !$user->email_verified_at){
             $user->update([
                 'email_verify_token' => null,
                 'email_verified_at' => now(),
+                'status' => '1'
+            ]);
+
+            $user->save();
+
+            return response(null, 204);
+        }
+
+        return response(null, 404);
+    }
+
+    /**
+     * Auto verify user account email and create a new password.
+     *
+     * @param  string $token
+     * @return \Illuminate\Http\Response
+    */
+    public function createPassword($token)
+    {
+        $user = User::where('email_verify_token', $token)->findOrFail();
+
+        if(!$user->email_verified_at){
+            $user->update([
+                'email_verify_token' => null,
+                'email_verified_at' => now(),
+                'status' => '1'
             ]);
 
             $user->save();
