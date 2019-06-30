@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Buyer;
 use App\Http\Resources\BuyerResource;
+use App\Http\Resources\SellerResource;
 use App\Mail\CreatePasswordMail;
+use App\Seller;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -13,15 +15,17 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
-class BuyerController extends Controller
+class SellerController extends Controller
 {
     // todo - criar um repositorio para dispor essa e outras rules
     private $rules = [
         'name' => 'required|min:3',
         'email' => 'required|email',
 
-        'cpf' => 'required|regex:/^[0-9]{11}$/',
-        'birthday' => 'required|date_format:Y-m-d',
+        'cnpj' => 'required|regex:/^[0-9]{14}$/',
+        'company_name' => 'required',
+        'trade_name' => 'required',
+        'state_registration' => 'integer',
     ];
 
     /**
@@ -40,7 +44,7 @@ class BuyerController extends Controller
      */
     public function index()
     {
-        return BuyerResource::collection(Buyer::with('user')->paginate(10));
+        return SellerResource::collection(Seller::with('user')->paginate(10));
     }
 
     /**
@@ -62,18 +66,35 @@ class BuyerController extends Controller
             $user = User::firstOrCreate(['email' => $request->email,],[
                 'name' => $request->name,
                 'password' => $password,
-                'type' => 'buyer',
+                'type' => 'seller',
                 'email_verify_token' => $verifyToken,
                 'status' => '0',
             ]);
 
-            $buyer = Buyer::create([
+            $seller = Seller::create([
                 'user_id' => $user->id,
-                'cpf' => $request->cpf,
-                'rg' => $request->rg,
-                'birthday' => $request->birthday,
-                'gender' => $request->gender,
+                'cnpj' => $request->cnpj,
+                'company_name' => $request->company_name,
+                'trade_name' => $request->trade_name,
+                'state_registration' => $request->state_registration,
             ]);
+
+            /**
+             * a criação de doc nao é obrigatoria.
+             * a ideia é deixar ela opcional, pois o usuario pode escolher enviar os docs no momento do cadastro ou nao.
+             * o fato é que, ao fazer login na plataforma, e os docs nao foram enviados,
+             * ele receberá um alerta que deverá enviar os docs, para poder realizar anuncios,
+             * caso contrário o usuario dele permanecerá com o status pendente
+             *
+             * todo isso será implementado no momento de alterar o front
+             * [docs][1][file]
+             * [docs][1][description]
+             */
+//            $seller->docs()->create([
+//                'description' => '',
+//                'path' => '',
+//                'status' => '0',
+//            ]);
 
             Mail::to($user)->queue(new CreatePasswordMail($user));
 
@@ -89,11 +110,11 @@ class BuyerController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return BuyerResource
+     * @return SellerResource
      */
     public function show($id)
     {
-        return new BuyerResource(Buyer::with('user')->findOrFail($id));
+        return new SellerResource(Seller::with('user')->findOrFail($id));
     }
 
     /**
@@ -117,13 +138,24 @@ class BuyerController extends Controller
                 'email' => $request->email,
             ]);
 
-            $buyer = $user->buyer();
-            $buyer->update([
-                'cpf' => $request->cpf,
-                'rg' => $request->rg,
-                'birthday' => $request->birthday,
-                'gender' => $request->gender,
+            $seller = $user->seller();
+            $seller->update([
+                'cnpj' => $request->cnpj,
+                'company_name' => $request->company_name,
+                'trade_name' => $request->trade_name,
+                'state_registration' => $request->state_registration,
             ]);
+
+            /**
+            * todo isso será implementado no momento de alterar o front
+            * [docs][1][file]
+            * [docs][1][description]
+            */
+//            $seller->docs()->create([
+//                'description' => '',
+//                'path' => '',
+//                'status' => '0',
+//            ]);
 
             DB::commit();
             return response('', 204);

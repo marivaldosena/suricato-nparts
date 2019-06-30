@@ -145,6 +145,7 @@ class UserController extends Controller
             $user->update([
                 'email_verify_token' => null,
                 'email_verified_at' => now(),
+                'status' => '1'
             ]);
 
             $user->save();
@@ -169,6 +170,7 @@ class UserController extends Controller
             $user->update([
                 'email_verify_token' => null,
                 'email_verified_at' => now(),
+                'status' => '1'
             ]);
 
             $user->save();

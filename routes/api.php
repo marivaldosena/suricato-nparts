@@ -27,6 +27,7 @@ Route::group([
     Route::get('advertisements', 'Api\\AdvertisementController@index');
 
     Route::resource('buyers', 'Api\\BuyerController');
+    Route::resource('sellers', 'Api\\SellerController');
 
 
 //    Route::group(['middleware' => 'auth:api'], function(){
