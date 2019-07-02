@@ -43,8 +43,10 @@ Route::group([
     //users
     Route::resource('users', 'Api\\UserController');
     Route::group(['prefix' => 'users'], function(){
+        // todo - adicionar prefixo nessa rota, igual ao front? "password/"
         Route::resource('reset', 'Api\\ResetPasswordController');
-        Route::get('create-password/{token}', 'Api\UserController@createPassword');
+        // todo - adicionar prefixo nessa rota, igual ao front? "password/"
+        Route::put('create-password/{token}', 'Api\UserController@createPassword');
         Route::get('verify/{token}', 'Api\UserController@verify');
 
         Route::put('status/{id}', 'Api\\UserController@status');

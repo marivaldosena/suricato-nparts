@@ -12,12 +12,28 @@ export const routes = [
     {
         path: '/register',
         name: 'register',
-        component: () => import(/* webpackChunkName: "register" */ './../views/Register'),
+        component: () => import(/* webpackChunkName: "register" */ '../views/Register/Register')
     },
+    {
+        path: '/register/buyer',
+        name: 'register.buyer',
+        component: () => import(/* webpackChunkName: "register.buyer" */ '../views/Register/views/BuyerRegister')
+    },
+    {
+        path: '/register/seller',
+        name: 'register.seller',
+        component: () => import(/* webpackChunkName: "register.seller" */ '../views/Register/views/SellerRegister')
+    },
+    // todo - adicionar prefixo nessa rota: password
     {
         path: '/reset/:token?',
         name: 'reset',
         component: () => import(/* webpackChunkName: "reset" */ '../views/ResetPassword/ResetPassword'),
+    },
+    {
+        path: '/password/create/:token',
+        name: 'create.password',
+        component: () => import(/* webpackChunkName: "reset" */ '../views/CreatePassword'),
     },
     {
         path: '/admin',

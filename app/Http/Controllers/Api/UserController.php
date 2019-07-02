@@ -28,7 +28,7 @@ class UserController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['store', 'verify']]);
+        $this->middleware('auth:api', ['except' => ['store', 'verify', 'createPassword']]);
     }
 
     /**
@@ -159,15 +159,23 @@ class UserController extends Controller
     /**
      * Auto verify user account email and create a new password.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @param  string $token
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Validation\ValidationException
     */
-    public function createPassword($token)
+    public function createPassword(Request $request, $token)
     {
-        $user = User::where('email_verify_token', $token)->findOrFail();
+        $rules = [
+            'password' => $this->rules['password'],
+        ];
+        $this->validate($request, $rules);
+
+        $user = User::where('email_verify_token', $token)->first();
 
         if(!$user->email_verified_at){
             $user->update([
+                'password' => bcrypt($request->password),
                 'email_verify_token' => null,
                 'email_verified_at' => now(),
                 'status' => '1'

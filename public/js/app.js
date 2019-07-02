@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "js/components/" + ({"admin.index":"admin.index","customer.legal":"customer.legal","customer.natural":"customer.natural","customers.legal":"customers.legal","customers.legal.index~customers.natural.index~users.index":"customers.legal.index~customers.natural.index~users.index","customers.legal.index":"customers.legal.index","customers.natural.index":"customers.natural.index","users.index":"users.index","register":"register","users":"users","vendors~admin~customer~home":"vendors~admin~customer~home","admin~customer~home":"admin~customer~home","admin":"admin","customer":"customer","home":"home","vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~c0bc667f":"vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~c0bc667f","login":"login","reset":"reset","users.create":"users.create","users.update":"users.update","vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~ad8f03c9":"vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~ad8f03c9","customers.legal.create":"customers.legal.create","customers.legal.update":"customers.legal.update","customers.natural.create":"customers.natural.create","customers.natural.update":"customers.natural.update"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "js/components/" + ({"admin.index":"admin.index","customer.legal":"customer.legal","customer.natural":"customer.natural","customers.legal":"customers.legal","customers.legal.create~customers.legal.index~customers.legal.update":"customers.legal.create~customers.legal.index~customers.legal.update","customers.legal.index":"customers.legal.index","customers.natural.create~customers.natural.index~customers.natural.update":"customers.natural.create~customers.natural.index~customers.natural.update","customers.natural.index":"customers.natural.index","reset~users.create~users.index~users.update":"reset~users.create~users.index~users.update","users.index":"users.index","users":"users","vendors~admin~customer~home~register~register.buyer~register.seller~reset":"vendors~admin~customer~home~register~register.buyer~register.seller~reset","admin~customer~home~register~register.buyer~register.seller~reset":"admin~customer~home~register~register.buyer~register.seller~reset","admin":"admin","customer":"customer","home":"home","register":"register","register.seller":"register.seller","vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~7c33ed4f":"vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~7c33ed4f","login":"login","users.create":"users.create","users.update":"users.update","register.buyer":"register.buyer","reset":"reset","vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~ad8f03c9":"vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~ad8f03c9","customers.legal.create":"customers.legal.create","customers.legal.update":"customers.legal.update","customers.natural.create":"customers.natural.create","customers.natural.update":"customers.natural.update"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -43649,30 +43649,49 @@ var routes = [{
   path: '/',
   name: 'home',
   component: function component() {
-    return Promise.all(/*! import() | home */[__webpack_require__.e("vendors~admin~customer~home"), __webpack_require__.e("admin~customer~home"), __webpack_require__.e("home")]).then(__webpack_require__.bind(null, /*! ./../views/Home */ "./resources/js/views/Home.vue"));
+    return Promise.all(/*! import() | home */[__webpack_require__.e("vendors~admin~customer~home~register~register.buyer~register.seller~reset"), __webpack_require__.e("admin~customer~home~register~register.buyer~register.seller~reset"), __webpack_require__.e("home")]).then(__webpack_require__.bind(null, /*! ./../views/Home */ "./resources/js/views/Home.vue"));
   }
 }, {
   path: '/login',
   name: 'login',
   component: function component() {
-    return Promise.all(/*! import() | login */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~c0bc667f"), __webpack_require__.e("login")]).then(__webpack_require__.bind(null, /*! ./../views/Login */ "./resources/js/views/Login.vue"));
+    return Promise.all(/*! import() | login */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~7c33ed4f"), __webpack_require__.e("login")]).then(__webpack_require__.bind(null, /*! ./../views/Login */ "./resources/js/views/Login.vue"));
   }
 }, {
   path: '/register',
   name: 'register',
   component: function component() {
-    return __webpack_require__.e(/*! import() | register */ "register").then(__webpack_require__.bind(null, /*! ./../views/Register */ "./resources/js/views/Register.vue"));
+    return Promise.all(/*! import() | register */[__webpack_require__.e("vendors~admin~customer~home~register~register.buyer~register.seller~reset"), __webpack_require__.e("admin~customer~home~register~register.buyer~register.seller~reset"), __webpack_require__.e("register")]).then(__webpack_require__.bind(null, /*! ../views/Register/Register */ "./resources/js/views/Register/Register.vue"));
   }
 }, {
+  path: '/register/buyer',
+  name: 'register.buyer',
+  component: function component() {
+    return Promise.all(/*! import() | register.buyer */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~7c33ed4f"), __webpack_require__.e("vendors~admin~customer~home~register~register.buyer~register.seller~reset"), __webpack_require__.e("admin~customer~home~register~register.buyer~register.seller~reset"), __webpack_require__.e("register.buyer")]).then(__webpack_require__.bind(null, /*! ../views/Register/views/BuyerRegister */ "./resources/js/views/Register/views/BuyerRegister.vue"));
+  }
+}, {
+  path: '/register/seller',
+  name: 'register.seller',
+  component: function component() {
+    return Promise.all(/*! import() | register.seller */[__webpack_require__.e("vendors~admin~customer~home~register~register.buyer~register.seller~reset"), __webpack_require__.e("admin~customer~home~register~register.buyer~register.seller~reset"), __webpack_require__.e("register.seller")]).then(__webpack_require__.bind(null, /*! ../views/Register/views/SellerRegister */ "./resources/js/views/Register/views/SellerRegister.vue"));
+  }
+}, // todo - adicionar prefixo nessa rota: password
+{
   path: '/reset/:token?',
   name: 'reset',
   component: function component() {
-    return Promise.all(/*! import() | reset */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~c0bc667f"), __webpack_require__.e("reset")]).then(__webpack_require__.bind(null, /*! ../views/ResetPassword/ResetPassword */ "./resources/js/views/ResetPassword/ResetPassword.vue"));
+    return Promise.all(/*! import() | reset */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~7c33ed4f"), __webpack_require__.e("vendors~admin~customer~home~register~register.buyer~register.seller~reset"), __webpack_require__.e("admin~customer~home~register~register.buyer~register.seller~reset"), __webpack_require__.e("reset~users.create~users.index~users.update"), __webpack_require__.e("reset")]).then(__webpack_require__.bind(null, /*! ../views/ResetPassword/ResetPassword */ "./resources/js/views/ResetPassword/ResetPassword.vue"));
+  }
+}, {
+  path: '/password/create/:token',
+  name: 'create.password',
+  component: function component() {
+    return Promise.all(/*! import() | reset */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~7c33ed4f"), __webpack_require__.e("vendors~admin~customer~home~register~register.buyer~register.seller~reset"), __webpack_require__.e("admin~customer~home~register~register.buyer~register.seller~reset"), __webpack_require__.e("reset~users.create~users.index~users.update"), __webpack_require__.e("reset")]).then(__webpack_require__.bind(null, /*! ../views/CreatePassword */ "./resources/js/views/CreatePassword.vue"));
   }
 }, {
   path: '/admin',
   component: function component() {
-    return Promise.all(/*! import() | admin */[__webpack_require__.e("vendors~admin~customer~home"), __webpack_require__.e("admin~customer~home"), __webpack_require__.e("admin")]).then(__webpack_require__.bind(null, /*! ./../views/admin/Admin */ "./resources/js/views/admin/Admin.vue"));
+    return Promise.all(/*! import() | admin */[__webpack_require__.e("vendors~admin~customer~home~register~register.buyer~register.seller~reset"), __webpack_require__.e("admin~customer~home~register~register.buyer~register.seller~reset"), __webpack_require__.e("admin")]).then(__webpack_require__.bind(null, /*! ./../views/admin/Admin */ "./resources/js/views/admin/Admin.vue"));
   },
   meta: {
     auth: {
@@ -43708,7 +43727,7 @@ var routes = [{
       path: '',
       name: 'users',
       component: function component() {
-        return Promise.all(/*! import() | users.index */[__webpack_require__.e("customers.legal.index~customers.natural.index~users.index"), __webpack_require__.e("users.index")]).then(__webpack_require__.bind(null, /*! ./../views/admin/users/views/Index */ "./resources/js/views/admin/users/views/Index.vue"));
+        return Promise.all(/*! import() | users.index */[__webpack_require__.e("reset~users.create~users.index~users.update"), __webpack_require__.e("users.index")]).then(__webpack_require__.bind(null, /*! ./../views/admin/users/views/Index */ "./resources/js/views/admin/users/views/Index.vue"));
       },
       meta: {
         title: 'Users',
@@ -43725,7 +43744,7 @@ var routes = [{
       path: 'create',
       name: 'users.create',
       component: function component() {
-        return Promise.all(/*! import() | users.create */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~c0bc667f"), __webpack_require__.e("users.create")]).then(__webpack_require__.bind(null, /*! ./../views/admin/users/views/Create */ "./resources/js/views/admin/users/views/Create.vue"));
+        return Promise.all(/*! import() | users.create */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~7c33ed4f"), __webpack_require__.e("reset~users.create~users.index~users.update"), __webpack_require__.e("users.create")]).then(__webpack_require__.bind(null, /*! ./../views/admin/users/views/Create */ "./resources/js/views/admin/users/views/Create.vue"));
       },
       meta: {
         title: 'Create User',
@@ -43746,7 +43765,7 @@ var routes = [{
       path: ':id',
       name: 'users.update',
       component: function component() {
-        return Promise.all(/*! import() | users.update */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~c0bc667f"), __webpack_require__.e("users.update")]).then(__webpack_require__.bind(null, /*! ./../views/admin/users/views/Edit */ "./resources/js/views/admin/users/views/Edit.vue"));
+        return Promise.all(/*! import() | users.update */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~7c33ed4f"), __webpack_require__.e("reset~users.create~users.index~users.update"), __webpack_require__.e("users.update")]).then(__webpack_require__.bind(null, /*! ./../views/admin/users/views/Edit */ "./resources/js/views/admin/users/views/Edit.vue"));
       },
       meta: {
         title: 'Edit User',
@@ -43780,7 +43799,7 @@ var routes = [{
       path: '',
       name: 'customers.natural',
       component: function component() {
-        return Promise.all(/*! import() | customers.natural.index */[__webpack_require__.e("customers.legal.index~customers.natural.index~users.index"), __webpack_require__.e("customers.natural.index")]).then(__webpack_require__.bind(null, /*! ../views/admin/customers/natural/views/Index */ "./resources/js/views/admin/customers/natural/views/Index.vue"));
+        return Promise.all(/*! import() | customers.natural.index */[__webpack_require__.e("customers.natural.create~customers.natural.index~customers.natural.update"), __webpack_require__.e("customers.natural.index")]).then(__webpack_require__.bind(null, /*! ../views/admin/customers/natural/views/Index */ "./resources/js/views/admin/customers/natural/views/Index.vue"));
       },
       meta: {
         title: 'Natural Person Customer',
@@ -43797,7 +43816,7 @@ var routes = [{
       path: 'create',
       name: 'customers.natural.create',
       component: function component() {
-        return Promise.all(/*! import() | customers.natural.create */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~c0bc667f"), __webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~ad8f03c9"), __webpack_require__.e("customers.natural.create")]).then(__webpack_require__.bind(null, /*! ../views/admin/customers/natural/views/Create */ "./resources/js/views/admin/customers/natural/views/Create.vue"));
+        return Promise.all(/*! import() | customers.natural.create */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~7c33ed4f"), __webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~ad8f03c9"), __webpack_require__.e("customers.natural.create~customers.natural.index~customers.natural.update"), __webpack_require__.e("customers.natural.create")]).then(__webpack_require__.bind(null, /*! ../views/admin/customers/natural/views/Create */ "./resources/js/views/admin/customers/natural/views/Create.vue"));
       },
       meta: {
         title: 'Create Natural Person Customer',
@@ -43818,7 +43837,7 @@ var routes = [{
       path: ':id',
       name: 'customers.natural.update',
       component: function component() {
-        return Promise.all(/*! import() | customers.natural.update */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~c0bc667f"), __webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~ad8f03c9"), __webpack_require__.e("customers.natural.update")]).then(__webpack_require__.bind(null, /*! ../views/admin/customers/natural/views/Edit */ "./resources/js/views/admin/customers/natural/views/Edit.vue"));
+        return Promise.all(/*! import() | customers.natural.update */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~7c33ed4f"), __webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~ad8f03c9"), __webpack_require__.e("customers.natural.create~customers.natural.index~customers.natural.update"), __webpack_require__.e("customers.natural.update")]).then(__webpack_require__.bind(null, /*! ../views/admin/customers/natural/views/Edit */ "./resources/js/views/admin/customers/natural/views/Edit.vue"));
       },
       meta: {
         title: 'Edit Natural Person Customer',
@@ -43852,7 +43871,7 @@ var routes = [{
       path: '',
       name: 'customers.legal',
       component: function component() {
-        return Promise.all(/*! import() | customers.legal.index */[__webpack_require__.e("customers.legal.index~customers.natural.index~users.index"), __webpack_require__.e("customers.legal.index")]).then(__webpack_require__.bind(null, /*! ../views/admin/customers/legal/views/Index */ "./resources/js/views/admin/customers/legal/views/Index.vue"));
+        return Promise.all(/*! import() | customers.legal.index */[__webpack_require__.e("customers.legal.create~customers.legal.index~customers.legal.update"), __webpack_require__.e("customers.legal.index")]).then(__webpack_require__.bind(null, /*! ../views/admin/customers/legal/views/Index */ "./resources/js/views/admin/customers/legal/views/Index.vue"));
       },
       meta: {
         title: 'Legal Person Customer',
@@ -43869,7 +43888,7 @@ var routes = [{
       path: 'create',
       name: 'customers.legal.create',
       component: function component() {
-        return Promise.all(/*! import() | customers.legal.create */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~c0bc667f"), __webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~ad8f03c9"), __webpack_require__.e("customers.legal.create")]).then(__webpack_require__.bind(null, /*! ../views/admin/customers/legal/views/Create */ "./resources/js/views/admin/customers/legal/views/Create.vue"));
+        return Promise.all(/*! import() | customers.legal.create */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~7c33ed4f"), __webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~ad8f03c9"), __webpack_require__.e("customers.legal.create~customers.legal.index~customers.legal.update"), __webpack_require__.e("customers.legal.create")]).then(__webpack_require__.bind(null, /*! ../views/admin/customers/legal/views/Create */ "./resources/js/views/admin/customers/legal/views/Create.vue"));
       },
       meta: {
         title: 'Create Legal Person Customer',
@@ -43890,7 +43909,7 @@ var routes = [{
       path: ':id',
       name: 'customers.legal.update',
       component: function component() {
-        return Promise.all(/*! import() | customers.legal.update */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~c0bc667f"), __webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~ad8f03c9"), __webpack_require__.e("customers.legal.update")]).then(__webpack_require__.bind(null, /*! ../views/admin/customers/legal/views/Edit */ "./resources/js/views/admin/customers/legal/views/Edit.vue"));
+        return Promise.all(/*! import() | customers.legal.update */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~7c33ed4f"), __webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~ad8f03c9"), __webpack_require__.e("customers.legal.create~customers.legal.index~customers.legal.update"), __webpack_require__.e("customers.legal.update")]).then(__webpack_require__.bind(null, /*! ../views/admin/customers/legal/views/Edit */ "./resources/js/views/admin/customers/legal/views/Edit.vue"));
       },
       meta: {
         title: 'Edit Legal Person Customer',
@@ -43912,7 +43931,7 @@ var routes = [{
 }, {
   path: '/customer',
   component: function component() {
-    return Promise.all(/*! import() | customer */[__webpack_require__.e("vendors~admin~customer~home"), __webpack_require__.e("admin~customer~home"), __webpack_require__.e("customer")]).then(__webpack_require__.bind(null, /*! ./../views/customer/Customer */ "./resources/js/views/customer/Customer.vue"));
+    return Promise.all(/*! import() | customer */[__webpack_require__.e("vendors~admin~customer~home~register~register.buyer~register.seller~reset"), __webpack_require__.e("admin~customer~home~register~register.buyer~register.seller~reset"), __webpack_require__.e("customer")]).then(__webpack_require__.bind(null, /*! ./../views/customer/Customer */ "./resources/js/views/customer/Customer.vue"));
   },
   children: [{
     path: 'natural',

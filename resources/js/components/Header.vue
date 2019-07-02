@@ -6,7 +6,7 @@
                     <a class="text-muted" href="#"> </a>
                 </div>
                 <div class="col-4 text-center">
-                    <a class="header-logo text-dark" href="#">Nparts</a>
+                    <a class="header-logo text-dark" href="/">Nparts</a>
                 </div>
                 <div class="col-4 d-flex justify-content-end align-items-center">
                     <a class="text-muted" href="#">
@@ -21,11 +21,12 @@
                 </div>
             </div>
         </header>
-        <!--<div class="nav-scroller py-1 mb-2">-->
-            <!--<nav class="nav d-flex justify-content-between">-->
-                <!--<router-link class="p-2 text-muted" to="/">Home</router-link>-->
-            <!--</nav>-->
-        <!--</div>-->
+        <div class="nav-scroller py-1 mb-2">
+            <nav class="nav d-flex">
+                <router-link class="p-2 text-muted" to="/">Home</router-link>
+                <router-link class="p-2 text-muted" to="/register">Cadastro</router-link>
+            </nav>
+        </div>
     </div>
 </template>
 

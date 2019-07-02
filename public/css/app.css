@@ -72,6 +72,10 @@ form .form-group.form-group--error textarea:focus {
   box-shadow: 0 0 0 0.2rem rgba(245, 127, 108, 0.25);
 }
 
+form .form-group--title {
+  border-bottom: 1px solid #ccc;
+}
+
 .header {
   min-height: 60px;
   margin-bottom: 20px;
@@ -196,5 +200,14 @@ form .form-group.form-group--error textarea:focus {
 
 form#login {
   max-width: 300px;
+}
+
+.button-container .btn img {
+  width: 30px;
+  margin: 20px;
+}
+
+.button-container:first-child {
+  margin-right: 10px;
 }
 

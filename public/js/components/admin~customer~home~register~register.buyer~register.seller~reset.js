@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["admin~customer~home"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["admin~customer~home~register~register.buyer~register.seller~reset"],{
 
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FeatherIcon.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************************************************************************************************!*\

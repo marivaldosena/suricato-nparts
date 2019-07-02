@@ -25,5 +25,19 @@
     "/js/components/users.update.js": "/js/components/users.update.js",
     "/js/components/vendors~admin~customer~home.js": "/js/components/vendors~admin~customer~home.js",
     "/js/components/vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~ad8f03c9.js": "/js/components/vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~ad8f03c9.js",
-    "/js/components/vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~c0bc667f.js": "/js/components/vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~c0bc667f.js"
+    "/js/components/vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~c0bc667f.js": "/js/components/vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~c0bc667f.js",
+    "/js/components/admin~customer~home~register.js": "/js/components/admin~customer~home~register.js",
+    "/js/components/vendors~admin~customer~home~register.js": "/js/components/vendors~admin~customer~home~register.js",
+    "/js/components/admin~customer~home~register~register.buyer~register.seller.js": "/js/components/admin~customer~home~register~register.buyer~register.seller.js",
+    "/js/components/register.buyer.js": "/js/components/register.buyer.js",
+    "/js/components/register.seller.js": "/js/components/register.seller.js",
+    "/js/components/vendors~admin~customer~home~register~register.buyer~register.seller.js": "/js/components/vendors~admin~customer~home~register~register.buyer~register.seller.js",
+    "/js/components/vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~7c33ed4f.js": "/js/components/vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~7c33ed4f.js",
+    "/js/components/vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~ef141d0d.js": "/js/components/vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~ef141d0d.js",
+    "/js/components/admin~customer~home~register~register.buyer~register.seller~reset.js": "/js/components/admin~customer~home~register~register.buyer~register.seller~reset.js",
+    "/js/components/vendors~admin~customer~home~register~register.buyer~register.seller~reset.js": "/js/components/vendors~admin~customer~home~register~register.buyer~register.seller~reset.js",
+    "/js/components/register.buyer~reset.js": "/js/components/register.buyer~reset.js",
+    "/js/components/customers.legal.create~customers.legal.index~customers.legal.update.js": "/js/components/customers.legal.create~customers.legal.index~customers.legal.update.js",
+    "/js/components/customers.natural.create~customers.natural.index~customers.natural.update.js": "/js/components/customers.natural.create~customers.natural.index~customers.natural.update.js",
+    "/js/components/reset~users.create~users.index~users.update.js": "/js/components/reset~users.create~users.index~users.update.js"
 }
