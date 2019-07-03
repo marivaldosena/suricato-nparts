@@ -209,6 +209,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -818,7 +819,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-6" }, [
       _c("div", { staticClass: "row justify-content-end" }, [
-        _c("h1", { staticClass: "logo logo-alfred" }, [_vm._v("Suricato")])
+        _c("h1", { staticClass: "logo logo-alfred" }, [_vm._v("nparts")])
       ])
     ])
   }
@@ -959,7 +960,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-6" }, [
       _c("div", { staticClass: "row justify-content-end" }, [
-        _c("h1", { staticClass: "logo logo-alfred" }, [_vm._v("Suricato")])
+        _c("h1", { staticClass: "logo logo-alfred" }, [_vm._v("nparts")])
       ])
     ])
   }
