@@ -410,31 +410,29 @@ export const routes = [
                 ]
             },
         ]
-    }
-    // {
-    //     path: '/customer',
-    //     component: () => import(/* webpackChunkName: "customer" */ './../views/customer/Customer'),
-    //     children: [
-    //         {
-    //             path: 'natural',
-    //             name: 'customer.natural',
-    //             component: () => import(/* webpackChunkName: "customer.natural" */ './../views/customer/natural/Natural'),
-    //             meta: {
-    //                 auth: {
-    //                     roles: 'buyer',
-    //                 },
-    //             },
-    //         },
-    //         {
-    //             path: 'legal',
-    //             name: 'customer.legal',
-    //             component: () => import(/* webpackChunkName: "customer.legal" */ './../views/customer/legal/Legal'),
-    //             meta: {
-    //                 auth: {
-    //                     roles: 'seller',
-    //                 },
-    //             },
-    //         }
-    //     ]
-    // },
+    },
+    {
+        path: '/buyer',
+        component: () => import(/* webpackChunkName "buyer" */ './../views/buyer/Buyer'),
+        meta: {
+            auth: {
+                roles: 'buyer',
+            },
+        },
+        children: [
+            {
+                path: '',
+                name: 'buyer.index',
+                component: () => import(/* webpackChunkName "buyer.index" */ './../views/buyer/Index'),
+                meta: {
+                    title: 'My area',
+                    breadcrumb: [
+                        {
+                            name: 'My area'
+                        }
+                    ]
+                },
+            },
+        ]
+    },
 ];

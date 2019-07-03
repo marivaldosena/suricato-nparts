@@ -1,7 +1,7 @@
 <template>
     <div>
         <Title/>
-        <p>Área do usuário vendedor</p>
+        <p>Área do usuario comprador</p>
     </div>
 </template>
 

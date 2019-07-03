@@ -44021,33 +44021,30 @@ var routes = [{
         }]
       }
     }]
-  }] // {
-  //     path: '/customer',
-  //     component: () => import(/* webpackChunkName: "customer" */ './../views/customer/Customer'),
-  //     children: [
-  //         {
-  //             path: 'natural',
-  //             name: 'customer.natural',
-  //             component: () => import(/* webpackChunkName: "customer.natural" */ './../views/customer/natural/Natural'),
-  //             meta: {
-  //                 auth: {
-  //                     roles: 'buyer',
-  //                 },
-  //             },
-  //         },
-  //         {
-  //             path: 'legal',
-  //             name: 'customer.legal',
-  //             component: () => import(/* webpackChunkName: "customer.legal" */ './../views/customer/legal/Legal'),
-  //             meta: {
-  //                 auth: {
-  //                     roles: 'seller',
-  //                 },
-  //             },
-  //         }
-  //     ]
-  // },
-
+  }]
+}, {
+  path: '/buyer',
+  component: function component() {
+    return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(4), __webpack_require__.e(7)]).then(__webpack_require__.bind(null, /*! ./../views/buyer/Buyer */ "./resources/js/views/buyer/Buyer.vue"));
+  },
+  meta: {
+    auth: {
+      roles: 'buyer'
+    }
+  },
+  children: [{
+    path: '',
+    name: 'buyer.index',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./../views/buyer/Index */ "./resources/js/views/buyer/Index.vue"));
+    },
+    meta: {
+      title: 'My area',
+      breadcrumb: [{
+        name: 'My area'
+      }]
+    }
+  }]
 }];
 
 /***/ }),

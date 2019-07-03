@@ -28,7 +28,16 @@
             </nav>
         </div>
         <!--todo criar componente para menu, pois ele muda por tipo de usuario-->
-        <div class="nav-scroller py-1 mb-2 d-flex justify-content-between" v-else>
+        <div class="nav-scroller py-1 mb-2 d-flex justify-content-between" v-else-if="$auth.check() && $auth.user().type === 'admin'">
+            <nav class="nav">
+                <router-link class="p-2 text-muted" to="/">Home</router-link>
+            </nav>
+            <nav class="nav">
+                <router-link class="p-2 text-muted" to="/admin">Admin</router-link>
+                <router-link class="p-2 text-muted" to="/admin/profile">Meu perfil</router-link>
+            </nav>
+        </div>
+        <div class="nav-scroller py-1 mb-2 d-flex justify-content-between" v-else-if="$auth.check() && $auth.user().type === 'seller'">
             <nav class="nav">
                 <router-link class="p-2 text-muted" to="/">Home</router-link>
             </nav>
@@ -36,6 +45,15 @@
                 <router-link class="p-2 text-muted" to="/seller">Minha área</router-link>
                 <router-link class="p-2 text-muted" to="/seller/announcements">Meus anúncios</router-link>
                 <router-link class="p-2 text-muted" to="/seller/profile">Meu perfil</router-link>
+            </nav>
+        </div>
+        <div class="nav-scroller py-1 mb-2 d-flex justify-content-between" v-else-if="$auth.check() && $auth.user().type === 'buyer'">
+            <nav class="nav">
+                <router-link class="p-2 text-muted" to="/">Home</router-link>
+            </nav>
+            <nav class="nav">
+                <router-link class="p-2 text-muted" to="/buyer">Minha área</router-link>
+                <router-link class="p-2 text-muted" to="/buyer/profile">Meu perfil</router-link>
             </nav>
         </div>
     </div>
