@@ -1,23 +1,17 @@
 <template>
     <div>
-        <p>xxxx</p>
+        <Title/>
+        <p>o cara que vai vender tudo</p>
     </div>
 </template>
 
 <script>
     import Title from './../../components/Title';
-    import Breadcrumb from './../../components/Breadcrumb';
 
     export default {
         name: "Index",
         components: {
             Title,
-            Breadcrumb,
-        },
-        computed: {
-            route(){
-                return this.$route
-            }
         },
     }
 </script>

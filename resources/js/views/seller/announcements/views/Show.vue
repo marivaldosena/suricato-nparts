@@ -1,10 +1,10 @@
 <template>
-    <p>Legal customer pagessss</p>
+    <p>seller show</p>
 </template>
 
 <script>
     export default {
-        name: "Natural",
+        name: "Show"
     }
 </script>
 

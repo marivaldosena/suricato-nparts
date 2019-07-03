@@ -3,7 +3,7 @@
         <div class="col-6">
             <div class="row justify-content-end">
                 <!--<img class="login-logo" src="svg/login-logo.svg" alt="">-->
-                <h1 class="logo logo-alfred">Suricato</h1>
+                <h1 class="logo logo-alfred">nparts</h1>
             </div>
         </div>
         <div class="col-6">
@@ -94,9 +94,9 @@
                 if(type === "admin"){
                     this.$router.push('admin');
                 }else if(type === "buyer"){
-                    this.$router.push('customer/natural');
+                    this.$router.push('buyer');
                 }else if (type === "seller"){
-                    this.$router.push('customer/legal');
+                    this.$router.push('seller');
                 }
             }
         },

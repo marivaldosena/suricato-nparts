@@ -187,9 +187,9 @@ __webpack_require__.r(__webpack_exports__);
       if (type === "admin") {
         this.$router.push('admin');
       } else if (type === "buyer") {
-        this.$router.push('customer/natural');
+        this.$router.push('buyer');
       } else if (type === "seller") {
-        this.$router.push('customer/legal');
+        this.$router.push('seller');
       }
     }
   },
@@ -454,7 +454,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-6" }, [
       _c("div", { staticClass: "row justify-content-end" }, [
-        _c("h1", { staticClass: "logo logo-alfred" }, [_vm._v("Suricato")])
+        _c("h1", { staticClass: "logo logo-alfred" }, [_vm._v("nparts")])
       ])
     ])
   }

@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "js/components/" + ({"admin.index":"admin.index","customer.legal":"customer.legal","customer.natural":"customer.natural","customers.legal":"customers.legal","customers.legal.create~customers.legal.index~customers.legal.update":"customers.legal.create~customers.legal.index~customers.legal.update","customers.legal.index":"customers.legal.index","customers.natural.create~customers.natural.index~customers.natural.update":"customers.natural.create~customers.natural.index~customers.natural.update","customers.natural.index":"customers.natural.index","reset~users.create~users.index~users.update":"reset~users.create~users.index~users.update","users.index":"users.index","users":"users","vendors~admin~customer~home~register~register.buyer~register.seller~reset":"vendors~admin~customer~home~register~register.buyer~register.seller~reset","admin~customer~home~register~register.buyer~register.seller~reset":"admin~customer~home~register~register.buyer~register.seller~reset","admin":"admin","customer":"customer","home":"home","register":"register","register.seller":"register.seller","vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~7c33ed4f":"vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~7c33ed4f","login":"login","users.create":"users.create","users.update":"users.update","register.buyer":"register.buyer","reset":"reset","vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~ad8f03c9":"vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~ad8f03c9","customers.legal.create":"customers.legal.create","customers.legal.update":"customers.legal.update","customers.natural.create":"customers.natural.create","customers.natural.update":"customers.natural.update"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "js/components/" + ({"admin":"admin","home":"home","register":"register","register.seller":"register.seller","admin.index":"admin.index","customers.legal":"customers.legal","customers.legal.create~customers.legal.index~customers.legal.update":"customers.legal.create~customers.legal.index~customers.legal.update","customers.legal.index":"customers.legal.index","customers.natural.create~customers.natural.index~customers.natural.update":"customers.natural.create~customers.natural.index~customers.natural.update","customers.natural.index":"customers.natural.index","reset~users.create~users.index~users.update":"reset~users.create~users.index~users.update","users.index":"users.index","seller.announcements":"seller.announcements","seller.announcements.create":"seller.announcements.create","seller.announcements.index":"seller.announcements.index","seller.announcements.update":"seller.announcements.update","users":"users","vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~7c33ed4f":"vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~7c33ed4f","register.buyer":"register.buyer","reset":"reset","login":"login","users.create":"users.create","users.update":"users.update","vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~ad8f03c9":"vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~ad8f03c9","customers.legal.create":"customers.legal.create","customers.legal.update":"customers.legal.update","customers.natural.create":"customers.natural.create","customers.natural.update":"customers.natural.update"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -2990,6 +2990,27 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -21855,14 +21876,81 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "main",
-    { staticClass: "container h-100", attrs: { id: "app" } },
-    [_c("router-view")],
-    1
-  )
+  return _c("div", [
+    _c(
+      "main",
+      { staticClass: "container h-100", attrs: { id: "app" } },
+      [_c("router-view")],
+      1
+    ),
+    _vm._v(" "),
+    _vm._m(0)
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "modal", attrs: { tabindex: "-1", role: "dialog" } },
+      [
+        _c(
+          "div",
+          { staticClass: "modal-dialog", attrs: { role: "document" } },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _c("div", { staticClass: "modal-header" }, [
+                _c("h5", { staticClass: "modal-title" }, [
+                  _vm._v("Modal title")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "close",
+                    attrs: {
+                      type: "button",
+                      "data-dismiss": "modal",
+                      "aria-label": "Close"
+                    }
+                  },
+                  [
+                    _c("span", { attrs: { "aria-hidden": "true" } }, [
+                      _vm._v("×")
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c("p", [_vm._v("Modal body text goes here.")])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-footer" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-secondary",
+                    attrs: { type: "button", "data-dismiss": "modal" }
+                  },
+                  [_vm._v("Close")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  { staticClass: "btn btn-primary", attrs: { type: "button" } },
+                  [_vm._v("Save changes")]
+                )
+              ])
+            ])
+          ]
+        )
+      ]
+    )
+  }
+]
 render._withStripped = true
 
 
@@ -43649,7 +43737,7 @@ var routes = [{
   path: '/',
   name: 'home',
   component: function component() {
-    return Promise.all(/*! import() | home */[__webpack_require__.e("vendors~admin~customer~home~register~register.buyer~register.seller~reset"), __webpack_require__.e("admin~customer~home~register~register.buyer~register.seller~reset"), __webpack_require__.e("home")]).then(__webpack_require__.bind(null, /*! ./../views/Home */ "./resources/js/views/Home.vue"));
+    return Promise.all(/*! import() | home */[__webpack_require__.e(1), __webpack_require__.e(0), __webpack_require__.e("home")]).then(__webpack_require__.bind(null, /*! ./../views/Home */ "./resources/js/views/Home.vue"));
   }
 }, {
   path: '/login',
@@ -43661,37 +43749,37 @@ var routes = [{
   path: '/register',
   name: 'register',
   component: function component() {
-    return Promise.all(/*! import() | register */[__webpack_require__.e("vendors~admin~customer~home~register~register.buyer~register.seller~reset"), __webpack_require__.e("admin~customer~home~register~register.buyer~register.seller~reset"), __webpack_require__.e("register")]).then(__webpack_require__.bind(null, /*! ../views/Register/Register */ "./resources/js/views/Register/Register.vue"));
+    return Promise.all(/*! import() | register */[__webpack_require__.e(1), __webpack_require__.e(0), __webpack_require__.e("register")]).then(__webpack_require__.bind(null, /*! ../views/Register/Register */ "./resources/js/views/Register/Register.vue"));
   }
 }, {
   path: '/register/buyer',
   name: 'register.buyer',
   component: function component() {
-    return Promise.all(/*! import() | register.buyer */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~7c33ed4f"), __webpack_require__.e("vendors~admin~customer~home~register~register.buyer~register.seller~reset"), __webpack_require__.e("admin~customer~home~register~register.buyer~register.seller~reset"), __webpack_require__.e("register.buyer")]).then(__webpack_require__.bind(null, /*! ../views/Register/views/BuyerRegister */ "./resources/js/views/Register/views/BuyerRegister.vue"));
+    return Promise.all(/*! import() | register.buyer */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~7c33ed4f"), __webpack_require__.e(1), __webpack_require__.e(0), __webpack_require__.e("register.buyer")]).then(__webpack_require__.bind(null, /*! ../views/Register/views/BuyerRegister */ "./resources/js/views/Register/views/BuyerRegister.vue"));
   }
 }, {
   path: '/register/seller',
   name: 'register.seller',
   component: function component() {
-    return Promise.all(/*! import() | register.seller */[__webpack_require__.e("vendors~admin~customer~home~register~register.buyer~register.seller~reset"), __webpack_require__.e("admin~customer~home~register~register.buyer~register.seller~reset"), __webpack_require__.e("register.seller")]).then(__webpack_require__.bind(null, /*! ../views/Register/views/SellerRegister */ "./resources/js/views/Register/views/SellerRegister.vue"));
+    return Promise.all(/*! import() | register.seller */[__webpack_require__.e(1), __webpack_require__.e(0), __webpack_require__.e("register.seller")]).then(__webpack_require__.bind(null, /*! ../views/Register/views/SellerRegister */ "./resources/js/views/Register/views/SellerRegister.vue"));
   }
 }, // todo - adicionar prefixo nessa rota: password
 {
   path: '/reset/:token?',
   name: 'reset',
   component: function component() {
-    return Promise.all(/*! import() | reset */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~7c33ed4f"), __webpack_require__.e("vendors~admin~customer~home~register~register.buyer~register.seller~reset"), __webpack_require__.e("admin~customer~home~register~register.buyer~register.seller~reset"), __webpack_require__.e("reset~users.create~users.index~users.update"), __webpack_require__.e("reset")]).then(__webpack_require__.bind(null, /*! ../views/ResetPassword/ResetPassword */ "./resources/js/views/ResetPassword/ResetPassword.vue"));
+    return Promise.all(/*! import() | reset */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~7c33ed4f"), __webpack_require__.e(1), __webpack_require__.e(0), __webpack_require__.e("reset~users.create~users.index~users.update"), __webpack_require__.e("reset")]).then(__webpack_require__.bind(null, /*! ../views/ResetPassword/ResetPassword */ "./resources/js/views/ResetPassword/ResetPassword.vue"));
   }
 }, {
   path: '/password/create/:token',
   name: 'create.password',
   component: function component() {
-    return Promise.all(/*! import() | reset */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~7c33ed4f"), __webpack_require__.e("vendors~admin~customer~home~register~register.buyer~register.seller~reset"), __webpack_require__.e("admin~customer~home~register~register.buyer~register.seller~reset"), __webpack_require__.e("reset~users.create~users.index~users.update"), __webpack_require__.e("reset")]).then(__webpack_require__.bind(null, /*! ../views/CreatePassword */ "./resources/js/views/CreatePassword.vue"));
+    return Promise.all(/*! import() | reset */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~7c33ed4f"), __webpack_require__.e(1), __webpack_require__.e(0), __webpack_require__.e("reset~users.create~users.index~users.update"), __webpack_require__.e("reset")]).then(__webpack_require__.bind(null, /*! ../views/CreatePassword */ "./resources/js/views/CreatePassword.vue"));
   }
 }, {
   path: '/admin',
   component: function component() {
-    return Promise.all(/*! import() | admin */[__webpack_require__.e("vendors~admin~customer~home~register~register.buyer~register.seller~reset"), __webpack_require__.e("admin~customer~home~register~register.buyer~register.seller~reset"), __webpack_require__.e("admin")]).then(__webpack_require__.bind(null, /*! ./../views/admin/Admin */ "./resources/js/views/admin/Admin.vue"));
+    return Promise.all(/*! import() | admin */[__webpack_require__.e(1), __webpack_require__.e(0), __webpack_require__.e("admin")]).then(__webpack_require__.bind(null, /*! ./../views/admin/Admin */ "./resources/js/views/admin/Admin.vue"));
   },
   meta: {
     auth: {
@@ -43929,33 +44017,125 @@ var routes = [{
     }]
   }]
 }, {
-  path: '/customer',
+  path: '/seller',
   component: function component() {
-    return Promise.all(/*! import() | customer */[__webpack_require__.e("vendors~admin~customer~home~register~register.buyer~register.seller~reset"), __webpack_require__.e("admin~customer~home~register~register.buyer~register.seller~reset"), __webpack_require__.e("customer")]).then(__webpack_require__.bind(null, /*! ./../views/customer/Customer */ "./resources/js/views/customer/Customer.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(0), __webpack_require__.e(2)]).then(__webpack_require__.bind(null, /*! ./../views/seller/Seller */ "./resources/js/views/seller/Seller.vue"));
+  },
+  meta: {
+    auth: {
+      roles: 'seller'
+    }
   },
   children: [{
-    path: 'natural',
-    name: 'customer.natural',
+    path: '',
+    name: 'seller.index',
     component: function component() {
-      return __webpack_require__.e(/*! import() | customer.natural */ "customer.natural").then(__webpack_require__.bind(null, /*! ./../views/customer/natural/Natural */ "./resources/js/views/customer/natural/Natural.vue"));
+      return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./../views/seller/Index */ "./resources/js/views/seller/Index.vue"));
     },
     meta: {
-      auth: {
-        roles: 'buyer'
-      }
+      title: 'My area',
+      breadcrumb: [{
+        name: 'My area'
+      }]
     }
   }, {
-    path: 'legal',
-    name: 'customer.legal',
+    path: 'announcements',
     component: function component() {
-      return __webpack_require__.e(/*! import() | customer.legal */ "customer.legal").then(__webpack_require__.bind(null, /*! ./../views/customer/legal/Legal */ "./resources/js/views/customer/legal/Legal.vue"));
+      return __webpack_require__.e(/*! import() | seller.announcements */ "seller.announcements").then(__webpack_require__.bind(null, /*! ./../views/seller/announcements/Announcements */ "./resources/js/views/seller/announcements/Announcements.vue"));
     },
     meta: {
-      auth: {
-        roles: 'seller'
+      title: 'Announcements',
+      breadcrumb: [{
+        name: 'Announcements'
+      }]
+    },
+    children: [{
+      path: '',
+      name: 'announcements',
+      component: function component() {
+        return __webpack_require__.e(/*! import() | seller.announcements.index */ "seller.announcements.index").then(__webpack_require__.bind(null, /*! ./../views/seller/announcements/views/Index */ "./resources/js/views/seller/announcements/views/Index.vue"));
+      },
+      meta: {
+        title: 'Announcements',
+        breadcrumb: [// the parent
+        {
+          name: 'My area',
+          path: '/seller'
+        }, // the current route, so there's not have a path
+        {
+          name: 'Announcements'
+        }]
       }
-    }
-  }]
+    }, {
+      path: 'create',
+      name: 'seller.announcements.create',
+      component: function component() {
+        return __webpack_require__.e(/*! import() | seller.announcements.create */ "seller.announcements.create").then(__webpack_require__.bind(null, /*! ./../views/seller/announcements/views/Create */ "./resources/js/views/seller/announcements/views/Create.vue"));
+      },
+      meta: {
+        title: 'Create Announcement',
+        breadcrumb: [// the parent
+        {
+          name: 'My area',
+          path: '/seller'
+        }, // the parent, Alfred
+        {
+          name: 'Announcements',
+          path: '/seller/announcements'
+        }, // the current route, so there's not have a path
+        {
+          name: 'Create Announcement'
+        }]
+      }
+    }, {
+      path: ':id',
+      name: 'seller.announcements.update',
+      component: function component() {
+        return __webpack_require__.e(/*! import() | seller.announcements.update */ "seller.announcements.update").then(__webpack_require__.bind(null, /*! ./../views/seller/announcements/views/Edit */ "./resources/js/views/seller/announcements/views/Edit.vue"));
+      },
+      meta: {
+        title: 'Edit Announcement',
+        breadcrumb: [// the parent
+        {
+          name: 'My area',
+          path: '/seller'
+        }, // the parent, Alfred
+        {
+          name: 'Announcements',
+          path: '/seller/announcements'
+        }, // the current route, so there's not have a path
+        {
+          name: 'Edit Announcement'
+        }]
+      }
+    }]
+  }] // {
+  //     path: '/customer',
+  //     component: () => import(/* webpackChunkName: "customer" */ './../views/customer/Customer'),
+  //     children: [
+  //         {
+  //             path: 'natural',
+  //             name: 'customer.natural',
+  //             component: () => import(/* webpackChunkName: "customer.natural" */ './../views/customer/natural/Natural'),
+  //             meta: {
+  //                 auth: {
+  //                     roles: 'buyer',
+  //                 },
+  //             },
+  //         },
+  //         {
+  //             path: 'legal',
+  //             name: 'customer.legal',
+  //             component: () => import(/* webpackChunkName: "customer.legal" */ './../views/customer/legal/Legal'),
+  //             meta: {
+  //                 auth: {
+  //                     roles: 'seller',
+  //                 },
+  //             },
+  //         }
+  //     ]
+  // },
+
 }];
 
 /***/ }),
@@ -44184,6 +44364,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _user__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./user */ "./resources/js/store/user/index.js");
 /* harmony import */ var _alert__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./alert */ "./resources/js/store/alert/index.js");
+/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modal */ "./resources/js/store/modal/index.js");
+
 
 
 
@@ -44192,9 +44374,101 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   modules: {
     user: _user__WEBPACK_IMPORTED_MODULE_2__["user"],
-    alert: _alert__WEBPACK_IMPORTED_MODULE_3__["alert"]
+    alert: _alert__WEBPACK_IMPORTED_MODULE_3__["alert"],
+    modal: _modal__WEBPACK_IMPORTED_MODULE_4__["modal"]
   }
 }));
+
+/***/ }),
+
+/***/ "./resources/js/store/modal/actions.js":
+/*!*********************************************!*\
+  !*** ./resources/js/store/modal/actions.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  toggleModal: function toggleModal(_ref, payload) {
+    var commit = _ref.commit,
+        state = _ref.state;
+    commit('TOGGLE_MODAL', payload);
+  },
+  openModal: function openModal(_ref2) {
+    var commit = _ref2.commit,
+        state = _ref2.state;
+    commit('OPEN_MODAL');
+  },
+  closeModal: function closeModal(_ref3) {
+    var commit = _ref3.commit,
+        state = _ref3.state;
+    commit('CLOSE_MODAL');
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modal/index.js":
+/*!*******************************************!*\
+  !*** ./resources/js/store/modal/index.js ***!
+  \*******************************************/
+/*! exports provided: modal */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "modal", function() { return modal; });
+/* harmony import */ var _state__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./state */ "./resources/js/store/modal/state.js");
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./actions */ "./resources/js/store/modal/actions.js");
+/* harmony import */ var _mutations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./mutations */ "./resources/js/store/modal/mutations.js");
+
+
+
+var modal = {
+  state: _state__WEBPACK_IMPORTED_MODULE_0__["default"],
+  actions: _actions__WEBPACK_IMPORTED_MODULE_1__["default"],
+  mutations: _mutations__WEBPACK_IMPORTED_MODULE_2__["default"]
+};
+
+/***/ }),
+
+/***/ "./resources/js/store/modal/mutations.js":
+/*!***********************************************!*\
+  !*** ./resources/js/store/modal/mutations.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  TOGGLE_MODAL: function TOGGLE_MODAL(state, payload) {
+    state.show = !state.show;
+  },
+  OPEN_MODAL: function OPEN_MODAL(state, payload) {
+    state.show = true;
+  },
+  CLOSE_MODAL: function CLOSE_MODAL(state, payload) {
+    state.show = false;
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modal/state.js":
+/*!*******************************************!*\
+  !*** ./resources/js/store/modal/state.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  show: false
+});
 
 /***/ }),
 

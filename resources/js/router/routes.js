@@ -307,29 +307,134 @@ export const routes = [
         ]
     },
     {
-        path: '/customer',
-        component: () => import(/* webpackChunkName: "customer" */ './../views/customer/Customer'),
+        path: '/seller',
+        component: () => import(/* webpackChunkName "seller" */ './../views/seller/Seller'),
+        meta: {
+            auth: {
+                roles: 'seller',
+            },
+        },
         children: [
             {
-                path: 'natural',
-                name: 'customer.natural',
-                component: () => import(/* webpackChunkName: "customer.natural" */ './../views/customer/natural/Natural'),
+                path: '',
+                name: 'seller.index',
+                component: () => import(/* webpackChunkName "seller.index" */ './../views/seller/Index'),
                 meta: {
-                    auth: {
-                        roles: 'buyer',
-                    },
+                    title: 'My area',
+                    breadcrumb: [
+                        {
+                            name: 'My area'
+                        }
+                    ]
                 },
             },
             {
-                path: 'legal',
-                name: 'customer.legal',
-                component: () => import(/* webpackChunkName: "customer.legal" */ './../views/customer/legal/Legal'),
+                path: 'announcements',
+                component: () => import(/* webpackChunkName: "seller.announcements" */ './../views/seller/announcements/Announcements'),
                 meta: {
-                    auth: {
-                        roles: 'seller',
-                    },
+                    title: 'Announcements',
+                    breadcrumb: [
+                        {
+                            name: 'Announcements'
+                        }
+                    ]
                 },
-            }
+                children: [
+                    {
+                        path: '',
+                        name: 'announcements',
+                        component: () => import(/* webpackChunkName: "seller.announcements.index" */ './../views/seller/announcements/views/Index'),
+                        meta: {
+                            title: 'Announcements',
+                            breadcrumb: [
+                                // the parent
+                                {
+                                    name: 'My area',
+                                    path: '/seller',
+                                },
+                                // the current route, so there's not have a path
+                                {
+                                    name: 'Announcements',
+                                }
+                            ]
+                        },
+                    },
+                    {
+                        path: 'create',
+                        name: 'seller.announcements.create',
+                        component: () => import(/* webpackChunkName: "seller.announcements.create" */ './../views/seller/announcements/views/Create'),
+                        meta: {
+                            title: 'Create Announcement',
+                            breadcrumb: [
+                                // the parent
+                                {
+                                    name: 'My area',
+                                    path: '/seller',
+                                },
+                                // the parent, Alfred
+                                {
+                                    name: 'Announcements',
+                                    path: '/seller/announcements',
+                                },
+                                // the current route, so there's not have a path
+                                {
+                                    name: 'Create Announcement',
+                                }
+                            ]
+                        },
+                    },
+                    {
+                        path: ':id',
+                        name: 'seller.announcements.update',
+                        component: () => import(/* webpackChunkName: "seller.announcements.update" */ './../views/seller/announcements/views/Edit'),
+                        meta: {
+                            title: 'Edit Announcement',
+                            breadcrumb: [
+                                // the parent
+                                {
+                                    name: 'My area',
+                                    path: '/seller',
+                                },
+                                // the parent, Alfred
+                                {
+                                    name: 'Announcements',
+                                    path: '/seller/announcements',
+                                },
+                                // the current route, so there's not have a path
+                                {
+                                    name: 'Edit Announcement',
+                                }
+                            ]
+                        },
+                    },
+                ]
+            },
         ]
-    },
+    }
+    // {
+    //     path: '/customer',
+    //     component: () => import(/* webpackChunkName: "customer" */ './../views/customer/Customer'),
+    //     children: [
+    //         {
+    //             path: 'natural',
+    //             name: 'customer.natural',
+    //             component: () => import(/* webpackChunkName: "customer.natural" */ './../views/customer/natural/Natural'),
+    //             meta: {
+    //                 auth: {
+    //                     roles: 'buyer',
+    //                 },
+    //             },
+    //         },
+    //         {
+    //             path: 'legal',
+    //             name: 'customer.legal',
+    //             component: () => import(/* webpackChunkName: "customer.legal" */ './../views/customer/legal/Legal'),
+    //             meta: {
+    //                 auth: {
+    //                     roles: 'seller',
+    //                 },
+    //             },
+    //         }
+    //     ]
+    // },
 ];

@@ -6,7 +6,7 @@
                     <a class="text-muted" href="#"> </a>
                 </div>
                 <div class="col-4 text-center">
-                    <a class="header-logo text-dark" href="/">Nparts</a>
+                    <a class="header-logo text-dark" href="/">nparts</a>
                 </div>
                 <div class="col-4 d-flex justify-content-end align-items-center">
                     <a class="text-muted" href="#">
@@ -21,10 +21,21 @@
                 </div>
             </div>
         </header>
-        <div class="nav-scroller py-1 mb-2">
+        <div class="nav-scroller py-1 mb-2" v-if="!$auth.check()">
             <nav class="nav d-flex">
                 <router-link class="p-2 text-muted" to="/">Home</router-link>
                 <router-link class="p-2 text-muted" to="/register">Cadastro</router-link>
+            </nav>
+        </div>
+        <!--todo criar componente para menu, pois ele muda por tipo de usuario-->
+        <div class="nav-scroller py-1 mb-2 d-flex justify-content-between" v-else>
+            <nav class="nav">
+                <router-link class="p-2 text-muted" to="/">Home</router-link>
+            </nav>
+            <nav class="nav">
+                <router-link class="p-2 text-muted" to="/seller">Minha área</router-link>
+                <router-link class="p-2 text-muted" to="/seller/announcements">Meus anúncios</router-link>
+                <router-link class="p-2 text-muted" to="/seller/profile">Meu perfil</router-link>
             </nav>
         </div>
     </div>
