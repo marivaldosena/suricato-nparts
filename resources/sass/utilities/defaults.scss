@@ -100,7 +100,10 @@ form{
       }
     }
   }
+  .form-group--title{
+    border-bottom: 1px solid #ccc;
+  }
   .loading {
-    margin-left: 20px;
+    //margin-left: 20px;
   }
 }

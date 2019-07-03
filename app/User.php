@@ -21,7 +21,7 @@ class User extends Authenticatable implements JWTSubject, MustVerifyEmail
     ];
 
     protected $visible = [
-        'name', 'email', 'type', 'status', 'created_at', 'updated_at',
+        'id', 'name', 'email', 'type', 'status', 'created_at', 'updated_at',
     ];
 
     /**
@@ -64,11 +64,6 @@ class User extends Authenticatable implements JWTSubject, MustVerifyEmail
 
     public function address(){
         return $this->hasOne('App\\Address');
-    }
-
-    public function getTypeAttribute($value)
-    {
-        return (int) $value;
     }
 
     public function getStatusAttribute($value)

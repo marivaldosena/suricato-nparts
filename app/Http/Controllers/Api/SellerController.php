@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Buyer;
-use App\Http\Resources\BuyerResource;
 use App\Http\Resources\SellerResource;
 use App\Mail\CreatePasswordMail;
 use App\Seller;
@@ -114,7 +112,15 @@ class SellerController extends Controller
      */
     public function show($id)
     {
-        return new SellerResource(Seller::with('user')->findOrFail($id));
+        $seller = Seller::with('user')
+            ->where('user_id', $id)
+            ->first();
+
+        if($seller){
+            return new SellerResource($seller);
+        }
+
+        return response(null, 404);
     }
 
     /**
@@ -177,5 +183,19 @@ class SellerController extends Controller
         $user->delete();
 
         return response('', 204);
+    }
+
+    // todo - esse metodo pode ficar em uma classe abstrata
+    public function status(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+
+        $user->update([
+            'status' => $request->status,
+        ]);
+
+        $user->save();
+
+        return response(null, 204);
     }
 }

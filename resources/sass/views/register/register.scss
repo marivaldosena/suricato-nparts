@@ -1,0 +1,11 @@
+.button-container{
+  .btn{
+    img{
+      width: 30px;
+      margin: 20px;
+    }
+  }
+  &:first-child{
+    margin-right: 10px;
+  }
+}

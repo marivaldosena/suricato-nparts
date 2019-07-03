@@ -32,6 +32,6 @@ class ResetPasswordMail extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.recovery-password');
+        return $this->view('emails.reset-password');
     }
 }

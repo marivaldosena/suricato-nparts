@@ -11,4 +11,10 @@ export default class UsersService extends ApiService {
             .put(`${this.resource}/status/${this.getId(record)}`, record)
             .then(this.constructor.then);
     }
+
+    createPassword(record){
+        return this.http
+            .put(`${this.resource}/create-password/${this.getId(record)}`, record)
+            .then(this.constructor.then);
+    }
 }

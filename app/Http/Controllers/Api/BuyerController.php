@@ -59,6 +59,7 @@ class BuyerController extends Controller
             $password = bcrypt(Str::random(15));
             $verifyToken = Str::random(60);
 
+            // todo - se o usuario ja existe, nao devemos deixar cadastrar... ?
             $user = User::firstOrCreate(['email' => $request->email,],[
                 'name' => $request->name,
                 'password' => $password,
@@ -93,7 +94,15 @@ class BuyerController extends Controller
      */
     public function show($id)
     {
-        return new BuyerResource(Buyer::with('user')->findOrFail($id));
+        $buyer = Buyer::with('user')
+            ->where('user_id', $id)
+            ->first();
+
+        if($buyer){
+            return new BuyerResource($buyer);
+        }
+
+        return response(null, 404);
     }
 
     /**
@@ -145,5 +154,19 @@ class BuyerController extends Controller
         $user->delete();
 
         return response('', 204);
+    }
+
+    // todo - esse metodo pode ficar em uma classe abstrata
+    public function status(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+
+        $user->update([
+            'status' => $request->status,
+        ]);
+
+        $user->save();
+
+        return response(null, 204);
     }
 }

@@ -3,7 +3,7 @@
         <div class="col-6">
             <div class="row justify-content-end">
                 <!--<img class="login-logo" src="svg/login-logo.svg" alt="">-->
-                <h1 class="logo logo-alfred">Suricato</h1>
+                <h1 class="logo logo-alfred">nparts</h1>
             </div>
         </div>
         <div class="col-6">
@@ -27,8 +27,12 @@
                         <div class="error-msg" v-if="!$v.password.required">Senha requerida</div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary" :disabled="submitted">Login</button>
-                <span class="loading" v-if="submitted">Aguarde...</span>
+                <button type="submit" class="btn btn-primary btn-block mb-4" :disabled="submitted">Login</button>
+                <p class="loading" v-if="this.submitted">Aguarde...</p>
+                <div class="form-group">
+                    <p>Não possui cadastro? <router-link to="/register">Cadastre-se aqui.</router-link></p>
+                    <router-link to="/reset">Esqueceu sua senha?</router-link>
+                </div>
             </form>
         </div>
     </div>
@@ -87,12 +91,12 @@
                 }
             },
             redirectByType(type){
-                if(type === 1){
+                if(type === "admin"){
                     this.$router.push('admin');
-                }else if(type === 2){
-                    this.$router.push('customer/natural');
-                }else if (type === 3){
-                    this.$router.push('customer/legal');
+                }else if(type === "buyer"){
+                    this.$router.push('buyer');
+                }else if (type === "seller"){
+                    this.$router.push('seller');
                 }
             }
         },

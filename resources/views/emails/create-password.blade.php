@@ -11,7 +11,8 @@
 </body>
 <h2>Welcome to the {{config('app.name')}}, {{$user['name']}}.</h2>
 <br>
-You have been registered with email {{$user['email']}}. Please click on the below link to create a new password.
+You have been registered with email {{$user['email']}}.<br>
+Please click on the below link to create a new password.
 <br/>
-<a href="{{url('users/create-password', $user['email_verify_token'])}}">Verify Email</a>
+<a href="{{url('password/create', $user['email_verify_token'])}}">Verify Email</a>
 </html>

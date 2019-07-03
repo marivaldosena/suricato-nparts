@@ -127,6 +127,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Header",
@@ -290,6 +291,27 @@ var render = function() {
           )
         ]
       )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "nav-scroller py-1 mb-2" }, [
+      _c(
+        "nav",
+        { staticClass: "nav d-flex" },
+        [
+          _c(
+            "router-link",
+            { staticClass: "p-2 text-muted", attrs: { to: "/" } },
+            [_vm._v("Home")]
+          ),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            { staticClass: "p-2 text-muted", attrs: { to: "/register" } },
+            [_vm._v("Cadastro")]
+          )
+        ],
+        1
+      )
     ])
   ])
 }
@@ -307,7 +329,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-4 text-center" }, [
-      _c("a", { staticClass: "header-logo text-dark", attrs: { href: "#" } }, [
+      _c("a", { staticClass: "header-logo text-dark", attrs: { href: "/" } }, [
         _vm._v("Nparts")
       ])
     ])
