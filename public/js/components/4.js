@@ -139,6 +139,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Header",
@@ -325,7 +343,51 @@ var render = function() {
             1
           )
         ])
-      : _c(
+      : _vm.$auth.check() && _vm.$auth.user().type === "admin"
+      ? _c(
+          "div",
+          {
+            staticClass: "nav-scroller py-1 mb-2 d-flex justify-content-between"
+          },
+          [
+            _c(
+              "nav",
+              { staticClass: "nav" },
+              [
+                _c(
+                  "router-link",
+                  { staticClass: "p-2 text-muted", attrs: { to: "/" } },
+                  [_vm._v("Home")]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "nav",
+              { staticClass: "nav" },
+              [
+                _c(
+                  "router-link",
+                  { staticClass: "p-2 text-muted", attrs: { to: "/admin" } },
+                  [_vm._v("Admin")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "p-2 text-muted",
+                    attrs: { to: "/admin/profile" }
+                  },
+                  [_vm._v("Meu perfil")]
+                )
+              ],
+              1
+            )
+          ]
+        )
+      : _vm.$auth.check() && _vm.$auth.user().type === "seller"
+      ? _c(
           "div",
           {
             staticClass: "nav-scroller py-1 mb-2 d-flex justify-content-between"
@@ -376,6 +438,50 @@ var render = function() {
             )
           ]
         )
+      : _vm.$auth.check() && _vm.$auth.user().type === "buyer"
+      ? _c(
+          "div",
+          {
+            staticClass: "nav-scroller py-1 mb-2 d-flex justify-content-between"
+          },
+          [
+            _c(
+              "nav",
+              { staticClass: "nav" },
+              [
+                _c(
+                  "router-link",
+                  { staticClass: "p-2 text-muted", attrs: { to: "/" } },
+                  [_vm._v("Home")]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "nav",
+              { staticClass: "nav" },
+              [
+                _c(
+                  "router-link",
+                  { staticClass: "p-2 text-muted", attrs: { to: "/buyer" } },
+                  [_vm._v("Minha área")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "p-2 text-muted",
+                    attrs: { to: "/buyer/profile" }
+                  },
+                  [_vm._v("Meu perfil")]
+                )
+              ],
+              1
+            )
+          ]
+        )
+      : _vm._e()
   ])
 }
 var staticRenderFns = [
