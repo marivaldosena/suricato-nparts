@@ -141,67 +141,67 @@ export const routes = [
                 ]
             },
             {
-                path: 'customers/natural',
-                component: () => import(/* webpackChunkName: "customers.natural" */ './../views/admin/customers/Customers'),
+                path: 'buyers',
+                component: () => import(/* webpackChunkName: "buyers" */ './../views/admin/buyers/Buyers'),
                 meta: {
                     icon: 'customers',
-                    title: 'Clientes Pessoa Física',
+                    title: 'Buyers',
                     breadcrumb: [
                         {
-                            name: 'Clientes Pessoa Física'
+                            name: 'Buyers'
                         }
                     ]
                 },
                 children: [
                     {
                         path: '',
-                        name: 'customers.natural',
-                        component: () => import(/* webpackChunkName: "customers.natural.index" */ '../views/admin/customers/natural/views/Index'),
+                        name: 'buyers.index',
+                        component: () => import(/* webpackChunkName: "buyers.index" */ '../views/admin/buyers/views/Index'),
                         meta: {
-                            title: 'Natural Person Customer',
+                            title: 'Buyers',
                             breadcrumb: [
-                                // the parent, Alfred
+                                // the parent
                                 {
                                     name: 'Admin',
                                     path: '/admin',
                                 },
                                 // the current route, so there's not have a path
                                 {
-                                    name: 'Natural Person Customer',
+                                    name: 'Buyers',
                                 }
                             ]
                         },
                     },
                     {
                         path: 'create',
-                        name: 'customers.natural.create',
-                        component: () => import(/* webpackChunkName: "customers.natural.create" */ '../views/admin/customers/natural/views/Create'),
+                        name: 'buyers.create',
+                        component: () => import(/* webpackChunkName: "buyers.create" */ '../views/admin/buyers/views/Create'),
                         meta: {
-                            title: 'Create Natural Person Customer',
+                            title: 'Create Buyer',
                             breadcrumb: [
-                                // the parent, Alfred
+                                // the parent
                                 {
                                     name: 'Admin',
                                     path: '/admin',
                                 },
                                 // the parent, Alfred
                                 {
-                                    name: 'Natural Person Customers',
-                                    path: '/admin/customers/natural',
+                                    name: 'Buyers',
+                                    path: '/admin/buyers',
                                 },
                                 // the current route, so there's not have a path
                                 {
-                                    name: 'Create Natural Person Customer',
+                                    name: 'Create Buyer',
                                 }
                             ]
                         },
                     },
                     {
                         path: ':id',
-                        name: 'customers.natural.update',
-                        component: () => import(/* webpackChunkName: "customers.natural.update" */ '../views/admin/customers/natural/views/Edit'),
+                        name: 'buyers.update',
+                        component: () => import(/* webpackChunkName: "buyers.update" */ '../views/admin/buyers/views/Edit'),
                         meta: {
-                            title: 'Edit Natural Person Customer',
+                            title: 'Edit Buyer',
                             breadcrumb: [
                                 // the parent, Alfred
                                 {
@@ -210,12 +210,12 @@ export const routes = [
                                 },
                                 // the parent, Alfred
                                 {
-                                    name: 'Natural Person Customers',
-                                    path: '/admin/customers/natural',
+                                    name: 'Buyers',
+                                    path: '/admin/buyers',
                                 },
                                 // the current route, so there's not have a path
                                 {
-                                    name: 'Edit Natural Person Customer',
+                                    name: 'Edit Buyer',
                                 }
                             ]
                         },
@@ -223,67 +223,67 @@ export const routes = [
                 ]
             },
             {
-                path: 'customers/legal',
-                component: () => import(/* webpackChunkName: "customers.legal" */ './../views/admin/customers/Customers'),
+                path: 'sellers',
+                component: () => import(/* webpackChunkName: "sellers" */ './../views/admin/sellers/Sellers'),
                 meta: {
                     icon: 'customers',
-                    title: 'Clientes Pessoa Jurídica',
+                    title: 'Sellers',
                     breadcrumb: [
                         {
-                            name: 'Clientes Pessoa Jurídica'
+                            name: 'Sellers'
                         }
                     ]
                 },
                 children: [
                     {
                         path: '',
-                        name: 'customers.legal',
-                        component: () => import(/* webpackChunkName: "customers.legal.index" */ '../views/admin/customers/legal/views/Index'),
+                        name: 'sellers.index',
+                        component: () => import(/* webpackChunkName: "sellers.index" */ '../views/admin/sellers/views/Index'),
                         meta: {
-                            title: 'Legal Person Customer',
+                            title: 'Sellers',
                             breadcrumb: [
-                                // the parent, Alfred
+                                // the parent
                                 {
                                     name: 'Admin',
                                     path: '/admin',
                                 },
                                 // the current route, so there's not have a path
                                 {
-                                    name: 'Legal Person Customer',
+                                    name: 'Sellers',
                                 }
                             ]
                         },
                     },
                     {
                         path: 'create',
-                        name: 'customers.legal.create',
-                        component: () => import(/* webpackChunkName: "customers.legal.create" */ '../views/admin/customers/legal/views/Create'),
+                        name: 'sellers.create',
+                        component: () => import(/* webpackChunkName: "sellers.create" */ '../views/admin/sellers/views/Create'),
                         meta: {
-                            title: 'Create Legal Person Customer',
+                            title: 'Create Seller',
                             breadcrumb: [
-                                // the parent, Alfred
+                                // the parent
                                 {
                                     name: 'Admin',
                                     path: '/admin',
                                 },
-                                // the parent, Alfred
+                                // the parent
                                 {
-                                    name: 'Legal Person Customers',
-                                    path: '/admin/customers/legal',
+                                    name: 'Sellers',
+                                    path: '/admin/sellers',
                                 },
                                 // the current route, so there's not have a path
                                 {
-                                    name: 'Create Legal Person Customer',
+                                    name: 'Create Seller',
                                 }
                             ]
                         },
                     },
                     {
                         path: ':id',
-                        name: 'customers.legal.update',
-                        component: () => import(/* webpackChunkName: "customers.legal.update" */ '../views/admin/customers/legal/views/Edit'),
+                        name: 'sellers.update',
+                        component: () => import(/* webpackChunkName: "sellers.update" */ '../views/admin/sellers/views/Edit'),
                         meta: {
-                            title: 'Edit Legal Person Customer',
+                            title: 'Edit Seller',
                             breadcrumb: [
                                 // the parent, Alfred
                                 {
@@ -292,12 +292,12 @@ export const routes = [
                                 },
                                 // the parent, Alfred
                                 {
-                                    name: 'Legal Person Customers',
-                                    path: '/admin/customers/legal',
+                                    name: 'Sellers',
+                                    path: '/admin/sellers',
                                 },
                                 // the current route, so there's not have a path
                                 {
-                                    name: 'Edit Legal Person Customer',
+                                    name: 'Edit Seller',
                                 }
                             ]
                         },

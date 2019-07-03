@@ -75,6 +75,12 @@ export default class ApiService {
             .then(this.constructor.then)
     }
 
+    status(record){
+        return this.http
+            .put(`${this.resource}/status/${this.getId(record)}`, record)
+            .then(this.constructor.then);
+    }
+
     /**
      * @param {Object} response
      * @returns {Object}

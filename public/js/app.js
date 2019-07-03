@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "js/components/" + ({"admin":"admin","home":"home","register":"register","register.seller":"register.seller","admin.index":"admin.index","customers.legal":"customers.legal","customers.legal.create~customers.legal.index~customers.legal.update":"customers.legal.create~customers.legal.index~customers.legal.update","customers.legal.index":"customers.legal.index","customers.natural.create~customers.natural.index~customers.natural.update":"customers.natural.create~customers.natural.index~customers.natural.update","customers.natural.index":"customers.natural.index","reset~users.create~users.index~users.update":"reset~users.create~users.index~users.update","users.index":"users.index","seller.announcements":"seller.announcements","seller.announcements.create":"seller.announcements.create","seller.announcements.index":"seller.announcements.index","seller.announcements.update":"seller.announcements.update","users":"users","vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~7c33ed4f":"vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~7c33ed4f","register.buyer":"register.buyer","reset":"reset","login":"login","users.create":"users.create","users.update":"users.update","vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~ad8f03c9":"vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~ad8f03c9","customers.legal.create":"customers.legal.create","customers.legal.update":"customers.legal.update","customers.natural.create":"customers.natural.create","customers.natural.update":"customers.natural.update"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "js/components/" + ({"0":"buyers.create","admin":"admin","home":"home","register":"register","register.seller":"register.seller","admin.index":"admin.index","buyers":"buyers","buyers.create~buyers.index~buyers.update~register.buyer~reset~sellers.create~sellers.index~sellers.u~e742b705":"buyers.create~buyers.index~buyers.update~register.buyer~reset~sellers.create~sellers.index~sellers.u~e742b705","buyers.index":"buyers.index","sellers.index":"sellers.index","users.index":"users.index","seller.announcements":"seller.announcements","seller.announcements.create":"seller.announcements.create","seller.announcements.index":"seller.announcements.index","seller.announcements.update":"seller.announcements.update","sellers":"sellers","users":"users","vendors~buyers.create~buyers.update~login~register.buyer~reset~sellers.create~sellers.update~users.c~922e76c5":"vendors~buyers.create~buyers.update~login~register.buyer~reset~sellers.create~sellers.update~users.c~922e76c5","register.buyer":"register.buyer","reset":"reset","buyers.update":"buyers.update","sellers.create":"sellers.create","sellers.update":"sellers.update","users.create":"users.create","users.update":"users.update","login":"login"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -43649,49 +43649,49 @@ var routes = [{
   path: '/',
   name: 'home',
   component: function component() {
-    return Promise.all(/*! import() | home */[__webpack_require__.e(1), __webpack_require__.e(0), __webpack_require__.e("home")]).then(__webpack_require__.bind(null, /*! ./../views/Home */ "./resources/js/views/Home.vue"));
+    return Promise.all(/*! import() | home */[__webpack_require__.e(1), __webpack_require__.e(4), __webpack_require__.e("home")]).then(__webpack_require__.bind(null, /*! ./../views/Home */ "./resources/js/views/Home.vue"));
   }
 }, {
   path: '/login',
   name: 'login',
   component: function component() {
-    return Promise.all(/*! import() | login */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~7c33ed4f"), __webpack_require__.e("login")]).then(__webpack_require__.bind(null, /*! ./../views/Login */ "./resources/js/views/Login.vue"));
+    return Promise.all(/*! import() | login */[__webpack_require__.e("vendors~buyers.create~buyers.update~login~register.buyer~reset~sellers.create~sellers.update~users.c~922e76c5"), __webpack_require__.e("login")]).then(__webpack_require__.bind(null, /*! ./../views/Login */ "./resources/js/views/Login.vue"));
   }
 }, {
   path: '/register',
   name: 'register',
   component: function component() {
-    return Promise.all(/*! import() | register */[__webpack_require__.e(1), __webpack_require__.e(0), __webpack_require__.e("register")]).then(__webpack_require__.bind(null, /*! ../views/Register/Register */ "./resources/js/views/Register/Register.vue"));
+    return Promise.all(/*! import() | register */[__webpack_require__.e(1), __webpack_require__.e(4), __webpack_require__.e("register")]).then(__webpack_require__.bind(null, /*! ../views/Register/Register */ "./resources/js/views/Register/Register.vue"));
   }
 }, {
   path: '/register/buyer',
   name: 'register.buyer',
   component: function component() {
-    return Promise.all(/*! import() | register.buyer */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~7c33ed4f"), __webpack_require__.e(1), __webpack_require__.e(0), __webpack_require__.e("register.buyer")]).then(__webpack_require__.bind(null, /*! ../views/Register/views/BuyerRegister */ "./resources/js/views/Register/views/BuyerRegister.vue"));
+    return Promise.all(/*! import() | register.buyer */[__webpack_require__.e("vendors~buyers.create~buyers.update~login~register.buyer~reset~sellers.create~sellers.update~users.c~922e76c5"), __webpack_require__.e(1), __webpack_require__.e("buyers.create~buyers.index~buyers.update~register.buyer~reset~sellers.create~sellers.index~sellers.u~e742b705"), __webpack_require__.e(4), __webpack_require__.e("register.buyer")]).then(__webpack_require__.bind(null, /*! ../views/Register/views/BuyerRegister */ "./resources/js/views/Register/views/BuyerRegister.vue"));
   }
 }, {
   path: '/register/seller',
   name: 'register.seller',
   component: function component() {
-    return Promise.all(/*! import() | register.seller */[__webpack_require__.e(1), __webpack_require__.e(0), __webpack_require__.e("register.seller")]).then(__webpack_require__.bind(null, /*! ../views/Register/views/SellerRegister */ "./resources/js/views/Register/views/SellerRegister.vue"));
+    return Promise.all(/*! import() | register.seller */[__webpack_require__.e(1), __webpack_require__.e(4), __webpack_require__.e("register.seller")]).then(__webpack_require__.bind(null, /*! ../views/Register/views/SellerRegister */ "./resources/js/views/Register/views/SellerRegister.vue"));
   }
 }, // todo - adicionar prefixo nessa rota: password
 {
   path: '/reset/:token?',
   name: 'reset',
   component: function component() {
-    return Promise.all(/*! import() | reset */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~7c33ed4f"), __webpack_require__.e(1), __webpack_require__.e(0), __webpack_require__.e("reset~users.create~users.index~users.update"), __webpack_require__.e("reset")]).then(__webpack_require__.bind(null, /*! ../views/ResetPassword/ResetPassword */ "./resources/js/views/ResetPassword/ResetPassword.vue"));
+    return Promise.all(/*! import() | reset */[__webpack_require__.e("vendors~buyers.create~buyers.update~login~register.buyer~reset~sellers.create~sellers.update~users.c~922e76c5"), __webpack_require__.e(1), __webpack_require__.e("buyers.create~buyers.index~buyers.update~register.buyer~reset~sellers.create~sellers.index~sellers.u~e742b705"), __webpack_require__.e(4), __webpack_require__.e("reset")]).then(__webpack_require__.bind(null, /*! ../views/ResetPassword/ResetPassword */ "./resources/js/views/ResetPassword/ResetPassword.vue"));
   }
 }, {
   path: '/password/create/:token',
   name: 'create.password',
   component: function component() {
-    return Promise.all(/*! import() | reset */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~7c33ed4f"), __webpack_require__.e(1), __webpack_require__.e(0), __webpack_require__.e("reset~users.create~users.index~users.update"), __webpack_require__.e("reset")]).then(__webpack_require__.bind(null, /*! ../views/CreatePassword */ "./resources/js/views/CreatePassword.vue"));
+    return Promise.all(/*! import() | reset */[__webpack_require__.e("vendors~buyers.create~buyers.update~login~register.buyer~reset~sellers.create~sellers.update~users.c~922e76c5"), __webpack_require__.e(1), __webpack_require__.e("buyers.create~buyers.index~buyers.update~register.buyer~reset~sellers.create~sellers.index~sellers.u~e742b705"), __webpack_require__.e(4), __webpack_require__.e("reset")]).then(__webpack_require__.bind(null, /*! ../views/CreatePassword */ "./resources/js/views/CreatePassword.vue"));
   }
 }, {
   path: '/admin',
   component: function component() {
-    return Promise.all(/*! import() | admin */[__webpack_require__.e(1), __webpack_require__.e(0), __webpack_require__.e("admin")]).then(__webpack_require__.bind(null, /*! ./../views/admin/Admin */ "./resources/js/views/admin/Admin.vue"));
+    return Promise.all(/*! import() | admin */[__webpack_require__.e(1), __webpack_require__.e(4), __webpack_require__.e("admin")]).then(__webpack_require__.bind(null, /*! ./../views/admin/Admin */ "./resources/js/views/admin/Admin.vue"));
   },
   meta: {
     auth: {
@@ -43727,7 +43727,7 @@ var routes = [{
       path: '',
       name: 'users',
       component: function component() {
-        return Promise.all(/*! import() | users.index */[__webpack_require__.e("reset~users.create~users.index~users.update"), __webpack_require__.e("users.index")]).then(__webpack_require__.bind(null, /*! ./../views/admin/users/views/Index */ "./resources/js/views/admin/users/views/Index.vue"));
+        return Promise.all(/*! import() | users.index */[__webpack_require__.e("buyers.create~buyers.index~buyers.update~register.buyer~reset~sellers.create~sellers.index~sellers.u~e742b705"), __webpack_require__.e("users.index")]).then(__webpack_require__.bind(null, /*! ./../views/admin/users/views/Index */ "./resources/js/views/admin/users/views/Index.vue"));
       },
       meta: {
         title: 'Users',
@@ -43744,7 +43744,7 @@ var routes = [{
       path: 'create',
       name: 'users.create',
       component: function component() {
-        return Promise.all(/*! import() | users.create */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~7c33ed4f"), __webpack_require__.e("reset~users.create~users.index~users.update"), __webpack_require__.e("users.create")]).then(__webpack_require__.bind(null, /*! ./../views/admin/users/views/Create */ "./resources/js/views/admin/users/views/Create.vue"));
+        return Promise.all(/*! import() | users.create */[__webpack_require__.e("vendors~buyers.create~buyers.update~login~register.buyer~reset~sellers.create~sellers.update~users.c~922e76c5"), __webpack_require__.e("buyers.create~buyers.index~buyers.update~register.buyer~reset~sellers.create~sellers.index~sellers.u~e742b705"), __webpack_require__.e("users.create")]).then(__webpack_require__.bind(null, /*! ./../views/admin/users/views/Create */ "./resources/js/views/admin/users/views/Create.vue"));
       },
       meta: {
         title: 'Create User',
@@ -43765,7 +43765,7 @@ var routes = [{
       path: ':id',
       name: 'users.update',
       component: function component() {
-        return Promise.all(/*! import() | users.update */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~7c33ed4f"), __webpack_require__.e("reset~users.create~users.index~users.update"), __webpack_require__.e("users.update")]).then(__webpack_require__.bind(null, /*! ./../views/admin/users/views/Edit */ "./resources/js/views/admin/users/views/Edit.vue"));
+        return Promise.all(/*! import() | users.update */[__webpack_require__.e("vendors~buyers.create~buyers.update~login~register.buyer~reset~sellers.create~sellers.update~users.c~922e76c5"), __webpack_require__.e("buyers.create~buyers.index~buyers.update~register.buyer~reset~sellers.create~sellers.index~sellers.u~e742b705"), __webpack_require__.e("users.update")]).then(__webpack_require__.bind(null, /*! ./../views/admin/users/views/Edit */ "./resources/js/views/admin/users/views/Edit.vue"));
       },
       meta: {
         title: 'Edit User',
@@ -43784,146 +43784,146 @@ var routes = [{
       }
     }]
   }, {
-    path: 'customers/natural',
+    path: 'buyers',
     component: function component() {
-      return __webpack_require__.e(/*! import() | customers.natural */ "customers.legal").then(__webpack_require__.bind(null, /*! ./../views/admin/customers/Customers */ "./resources/js/views/admin/customers/Customers.vue"));
+      return __webpack_require__.e(/*! import() | buyers */ "buyers").then(__webpack_require__.bind(null, /*! ./../views/admin/buyers/Buyers */ "./resources/js/views/admin/buyers/Buyers.vue"));
     },
     meta: {
       icon: 'customers',
-      title: 'Clientes Pessoa Física',
+      title: 'Buyers',
       breadcrumb: [{
-        name: 'Clientes Pessoa Física'
+        name: 'Buyers'
       }]
     },
     children: [{
       path: '',
-      name: 'customers.natural',
+      name: 'buyers.index',
       component: function component() {
-        return Promise.all(/*! import() | customers.natural.index */[__webpack_require__.e("customers.natural.create~customers.natural.index~customers.natural.update"), __webpack_require__.e("customers.natural.index")]).then(__webpack_require__.bind(null, /*! ../views/admin/customers/natural/views/Index */ "./resources/js/views/admin/customers/natural/views/Index.vue"));
+        return Promise.all(/*! import() | buyers.index */[__webpack_require__.e("buyers.create~buyers.index~buyers.update~register.buyer~reset~sellers.create~sellers.index~sellers.u~e742b705"), __webpack_require__.e("buyers.index")]).then(__webpack_require__.bind(null, /*! ../views/admin/buyers/views/Index */ "./resources/js/views/admin/buyers/views/Index.vue"));
       },
       meta: {
-        title: 'Natural Person Customer',
-        breadcrumb: [// the parent, Alfred
+        title: 'Buyers',
+        breadcrumb: [// the parent
         {
           name: 'Admin',
           path: '/admin'
         }, // the current route, so there's not have a path
         {
-          name: 'Natural Person Customer'
+          name: 'Buyers'
         }]
       }
     }, {
       path: 'create',
-      name: 'customers.natural.create',
+      name: 'buyers.create',
       component: function component() {
-        return Promise.all(/*! import() | customers.natural.create */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~7c33ed4f"), __webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~ad8f03c9"), __webpack_require__.e("customers.natural.create~customers.natural.index~customers.natural.update"), __webpack_require__.e("customers.natural.create")]).then(__webpack_require__.bind(null, /*! ../views/admin/customers/natural/views/Create */ "./resources/js/views/admin/customers/natural/views/Create.vue"));
+        return Promise.all(/*! import() | buyers.create */[__webpack_require__.e("vendors~buyers.create~buyers.update~login~register.buyer~reset~sellers.create~sellers.update~users.c~922e76c5"), __webpack_require__.e("buyers.create~buyers.index~buyers.update~register.buyer~reset~sellers.create~sellers.index~sellers.u~e742b705"), __webpack_require__.e(0)]).then(__webpack_require__.bind(null, /*! ../views/admin/buyers/views/Create */ "./resources/js/views/admin/buyers/views/Create.vue"));
       },
       meta: {
-        title: 'Create Natural Person Customer',
-        breadcrumb: [// the parent, Alfred
+        title: 'Create Buyer',
+        breadcrumb: [// the parent
         {
           name: 'Admin',
           path: '/admin'
         }, // the parent, Alfred
         {
-          name: 'Natural Person Customers',
-          path: '/admin/customers/natural'
+          name: 'Buyers',
+          path: '/admin/buyers'
         }, // the current route, so there's not have a path
         {
-          name: 'Create Natural Person Customer'
+          name: 'Create Buyer'
         }]
       }
     }, {
       path: ':id',
-      name: 'customers.natural.update',
+      name: 'buyers.update',
       component: function component() {
-        return Promise.all(/*! import() | customers.natural.update */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~7c33ed4f"), __webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~ad8f03c9"), __webpack_require__.e("customers.natural.create~customers.natural.index~customers.natural.update"), __webpack_require__.e("customers.natural.update")]).then(__webpack_require__.bind(null, /*! ../views/admin/customers/natural/views/Edit */ "./resources/js/views/admin/customers/natural/views/Edit.vue"));
+        return Promise.all(/*! import() | buyers.update */[__webpack_require__.e("vendors~buyers.create~buyers.update~login~register.buyer~reset~sellers.create~sellers.update~users.c~922e76c5"), __webpack_require__.e("buyers.create~buyers.index~buyers.update~register.buyer~reset~sellers.create~sellers.index~sellers.u~e742b705"), __webpack_require__.e("buyers.update")]).then(__webpack_require__.bind(null, /*! ../views/admin/buyers/views/Edit */ "./resources/js/views/admin/buyers/views/Edit.vue"));
       },
       meta: {
-        title: 'Edit Natural Person Customer',
+        title: 'Edit Buyer',
         breadcrumb: [// the parent, Alfred
         {
           name: 'Admin',
           path: '/admin'
         }, // the parent, Alfred
         {
-          name: 'Natural Person Customers',
-          path: '/admin/customers/natural'
+          name: 'Buyers',
+          path: '/admin/buyers'
         }, // the current route, so there's not have a path
         {
-          name: 'Edit Natural Person Customer'
+          name: 'Edit Buyer'
         }]
       }
     }]
   }, {
-    path: 'customers/legal',
+    path: 'sellers',
     component: function component() {
-      return __webpack_require__.e(/*! import() | customers.legal */ "customers.legal").then(__webpack_require__.bind(null, /*! ./../views/admin/customers/Customers */ "./resources/js/views/admin/customers/Customers.vue"));
+      return __webpack_require__.e(/*! import() | sellers */ "sellers").then(__webpack_require__.bind(null, /*! ./../views/admin/sellers/Sellers */ "./resources/js/views/admin/sellers/Sellers.vue"));
     },
     meta: {
       icon: 'customers',
-      title: 'Clientes Pessoa Jurídica',
+      title: 'Sellers',
       breadcrumb: [{
-        name: 'Clientes Pessoa Jurídica'
+        name: 'Sellers'
       }]
     },
     children: [{
       path: '',
-      name: 'customers.legal',
+      name: 'sellers.index',
       component: function component() {
-        return Promise.all(/*! import() | customers.legal.index */[__webpack_require__.e("customers.legal.create~customers.legal.index~customers.legal.update"), __webpack_require__.e("customers.legal.index")]).then(__webpack_require__.bind(null, /*! ../views/admin/customers/legal/views/Index */ "./resources/js/views/admin/customers/legal/views/Index.vue"));
+        return Promise.all(/*! import() | sellers.index */[__webpack_require__.e("buyers.create~buyers.index~buyers.update~register.buyer~reset~sellers.create~sellers.index~sellers.u~e742b705"), __webpack_require__.e("sellers.index")]).then(__webpack_require__.bind(null, /*! ../views/admin/sellers/views/Index */ "./resources/js/views/admin/sellers/views/Index.vue"));
       },
       meta: {
-        title: 'Legal Person Customer',
-        breadcrumb: [// the parent, Alfred
+        title: 'Sellers',
+        breadcrumb: [// the parent
         {
           name: 'Admin',
           path: '/admin'
         }, // the current route, so there's not have a path
         {
-          name: 'Legal Person Customer'
+          name: 'Sellers'
         }]
       }
     }, {
       path: 'create',
-      name: 'customers.legal.create',
+      name: 'sellers.create',
       component: function component() {
-        return Promise.all(/*! import() | customers.legal.create */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~7c33ed4f"), __webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~ad8f03c9"), __webpack_require__.e("customers.legal.create~customers.legal.index~customers.legal.update"), __webpack_require__.e("customers.legal.create")]).then(__webpack_require__.bind(null, /*! ../views/admin/customers/legal/views/Create */ "./resources/js/views/admin/customers/legal/views/Create.vue"));
+        return Promise.all(/*! import() | sellers.create */[__webpack_require__.e("vendors~buyers.create~buyers.update~login~register.buyer~reset~sellers.create~sellers.update~users.c~922e76c5"), __webpack_require__.e("buyers.create~buyers.index~buyers.update~register.buyer~reset~sellers.create~sellers.index~sellers.u~e742b705"), __webpack_require__.e("sellers.create")]).then(__webpack_require__.bind(null, /*! ../views/admin/sellers/views/Create */ "./resources/js/views/admin/sellers/views/Create.vue"));
       },
       meta: {
-        title: 'Create Legal Person Customer',
-        breadcrumb: [// the parent, Alfred
+        title: 'Create Seller',
+        breadcrumb: [// the parent
         {
           name: 'Admin',
           path: '/admin'
-        }, // the parent, Alfred
+        }, // the parent
         {
-          name: 'Legal Person Customers',
-          path: '/admin/customers/legal'
+          name: 'Sellers',
+          path: '/admin/sellers'
         }, // the current route, so there's not have a path
         {
-          name: 'Create Legal Person Customer'
+          name: 'Create Seller'
         }]
       }
     }, {
       path: ':id',
-      name: 'customers.legal.update',
+      name: 'sellers.update',
       component: function component() {
-        return Promise.all(/*! import() | customers.legal.update */[__webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~7c33ed4f"), __webpack_require__.e("vendors~customers.legal.create~customers.legal.update~customers.natural.create~customers.natural.upd~ad8f03c9"), __webpack_require__.e("customers.legal.create~customers.legal.index~customers.legal.update"), __webpack_require__.e("customers.legal.update")]).then(__webpack_require__.bind(null, /*! ../views/admin/customers/legal/views/Edit */ "./resources/js/views/admin/customers/legal/views/Edit.vue"));
+        return Promise.all(/*! import() | sellers.update */[__webpack_require__.e("vendors~buyers.create~buyers.update~login~register.buyer~reset~sellers.create~sellers.update~users.c~922e76c5"), __webpack_require__.e("buyers.create~buyers.index~buyers.update~register.buyer~reset~sellers.create~sellers.index~sellers.u~e742b705"), __webpack_require__.e("sellers.update")]).then(__webpack_require__.bind(null, /*! ../views/admin/sellers/views/Edit */ "./resources/js/views/admin/sellers/views/Edit.vue"));
       },
       meta: {
-        title: 'Edit Legal Person Customer',
+        title: 'Edit Seller',
         breadcrumb: [// the parent, Alfred
         {
           name: 'Admin',
           path: '/admin'
         }, // the parent, Alfred
         {
-          name: 'Legal Person Customers',
-          path: '/admin/customers/legal'
+          name: 'Sellers',
+          path: '/admin/sellers'
         }, // the current route, so there's not have a path
         {
-          name: 'Edit Legal Person Customer'
+          name: 'Edit Seller'
         }]
       }
     }]
@@ -43931,7 +43931,7 @@ var routes = [{
 }, {
   path: '/seller',
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(0), __webpack_require__.e(2)]).then(__webpack_require__.bind(null, /*! ./../views/seller/Seller */ "./resources/js/views/seller/Seller.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(4), __webpack_require__.e(2)]).then(__webpack_require__.bind(null, /*! ./../views/seller/Seller */ "./resources/js/views/seller/Seller.vue"));
   },
   meta: {
     auth: {

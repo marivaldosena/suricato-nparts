@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Resources\UserResource;
+use App\Mail\CreatePasswordMail;
 use App\Mail\VerifyMail;
 use App\User;
 use Illuminate\Support\Facades\Mail;
@@ -12,13 +13,14 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
+// todo - esse endpoint só é acessível por um admin
 class UserController extends Controller
 {
     private $rules = [
         'name' => 'required|min:3',
         'email' => 'required|email',
-        'password' => 'required|min:6|confirmed|regex:/^[a-z.]*(?=.{3,})(?=.{1,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%@]).*$/',
-        'type' => 'required|regex:/^[2-3]{1}$/'
+//        'password' => 'required|min:6|confirmed|regex:/^[a-z.]*(?=.{3,})(?=.{1,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%@]).*$/',
+//        'type' => 'required|regex:/^(admin)$/'
     ];
 
     /**
@@ -38,7 +40,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        return UserResource::collection(User::where('id', '<>', auth()->user()->id)->paginate(10));
+        $users = User::where('id', '<>', auth()->user()->id)
+            ->where('type', 'admin')
+            ->paginate(10);
+
+        return UserResource::collection($users);
     }
 
     /**
@@ -50,10 +56,6 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        if(auth()->user() && auth()->user()->type == 1){
-            $this->rules['type'] = 'required|regex:/^[1-3]{1}$/';
-        }
-
         $this->validate($request, $this->rules);
 
         $exists = User::where('email', $request->email)->first();
@@ -62,17 +64,22 @@ class UserController extends Controller
             return response()->json(['message' => 'This email is already registered.'], 409);
         }
 
-        $user = new User;
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = bcrypt($request->password);
-        $user->type = $request->type;
-        $user->email_verify_token = Str::random(60);
-        $user->status = '0';
+        $password = bcrypt(Str::random(15));
+        $verifyToken = Str::random(60);
+
+        // todo - se o usuario ja existe, nao devemos deixar cadastrar... ?
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $password,
+            'type' => 'admin',
+            'email_verify_token' => $verifyToken,
+            'status' => '0',
+        ]);
 
         $user->save();
 
-        Mail::to($user)->queue(new VerifyMail($user));
+        Mail::to($user)->queue(new CreatePasswordMail($user));
 
         return response(null, 201);
     }
@@ -108,7 +115,6 @@ class UserController extends Controller
         $user->update([
             'name' => $request->name,
             'email' => $request->email,
-            'type' => $request->type,
         ]);
 
         $user->save();

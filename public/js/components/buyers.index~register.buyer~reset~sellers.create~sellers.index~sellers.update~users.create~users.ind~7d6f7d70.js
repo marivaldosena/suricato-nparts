@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["customers.natural.create~customers.natural.update"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["buyers.index~register.buyer~reset~sellers.create~sellers.index~sellers.update~users.create~users.ind~7d6f7d70"],{
 
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Alert/Alert.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************************************************************************************************!*\
@@ -361,6 +361,11 @@ function () {
     value: function destroy(record) {
       return this.http["delete"]("".concat(this.resource, "/").concat(this.getId(record))).then(this.constructor.then);
     }
+  }, {
+    key: "status",
+    value: function status(record) {
+      return this.http.put("".concat(this.resource, "/status/").concat(this.getId(record)), record).then(this.constructor.then);
+    }
     /**
      * @param {Object} response
      * @returns {Object}
@@ -397,81 +402,6 @@ function () {
 
   return ApiService;
 }();
-
-
-
-/***/ }),
-
-/***/ "./resources/js/services/natural_customer.js":
-/*!***************************************************!*\
-  !*** ./resources/js/services/natural_customer.js ***!
-  \***************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return NaturalCustomerService; });
-/* harmony import */ var _base_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./base/base */ "./resources/js/services/base/base.js");
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-
-
-var NaturalCustomerService =
-/*#__PURE__*/
-function (_ApiService) {
-  _inherits(NaturalCustomerService, _ApiService);
-
-  function NaturalCustomerService() {
-    _classCallCheck(this, NaturalCustomerService);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(NaturalCustomerService).apply(this, arguments));
-  }
-
-  _createClass(NaturalCustomerService, [{
-    key: "status",
-    //todo - esse método deve pertencer a uma unica classe, ou mixim
-    value: function status(record) {
-      return this.http.put("customers/status/".concat(this.getId(record)), record).then(this.constructor.then);
-    } //todo - esse método deve pertencer a uma unica classe, ou mixim
-
-  }, {
-    key: "unusedCustomerUsers",
-    value: function unusedCustomerUsers(type) {
-      var name = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
-      var url = "users/unused-users/".concat(type);
-
-      if (name) {
-        url = "users/unused-users/".concat(type, "/").concat(name);
-      }
-
-      return this.http.get(url).then(this.constructor.then);
-    }
-  }], [{
-    key: "init",
-    value: function init() {
-      return new this('customers/natural');
-    }
-  }]);
-
-  return NaturalCustomerService;
-}(_base_base__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 
 

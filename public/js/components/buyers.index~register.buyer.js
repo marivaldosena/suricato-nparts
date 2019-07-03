@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["customers.natural.create~customers.natural.update"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["buyers.index~register.buyer"],{
 
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Alert/Alert.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************************************************************************************************!*\
@@ -402,16 +402,16 @@ function () {
 
 /***/ }),
 
-/***/ "./resources/js/services/natural_customer.js":
-/*!***************************************************!*\
-  !*** ./resources/js/services/natural_customer.js ***!
-  \***************************************************/
+/***/ "./resources/js/services/buyers.js":
+/*!*****************************************!*\
+  !*** ./resources/js/services/buyers.js ***!
+  \*****************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return NaturalCustomerService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return BuyersService; });
 /* harmony import */ var _base_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./base/base */ "./resources/js/services/base/base.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -433,44 +433,25 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-var NaturalCustomerService =
+var BuyersService =
 /*#__PURE__*/
 function (_ApiService) {
-  _inherits(NaturalCustomerService, _ApiService);
+  _inherits(BuyersService, _ApiService);
 
-  function NaturalCustomerService() {
-    _classCallCheck(this, NaturalCustomerService);
+  function BuyersService() {
+    _classCallCheck(this, BuyersService);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(NaturalCustomerService).apply(this, arguments));
+    return _possibleConstructorReturn(this, _getPrototypeOf(BuyersService).apply(this, arguments));
   }
 
-  _createClass(NaturalCustomerService, [{
-    key: "status",
-    //todo - esse método deve pertencer a uma unica classe, ou mixim
-    value: function status(record) {
-      return this.http.put("customers/status/".concat(this.getId(record)), record).then(this.constructor.then);
-    } //todo - esse método deve pertencer a uma unica classe, ou mixim
-
-  }, {
-    key: "unusedCustomerUsers",
-    value: function unusedCustomerUsers(type) {
-      var name = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
-      var url = "users/unused-users/".concat(type);
-
-      if (name) {
-        url = "users/unused-users/".concat(type, "/").concat(name);
-      }
-
-      return this.http.get(url).then(this.constructor.then);
-    }
-  }], [{
+  _createClass(BuyersService, null, [{
     key: "init",
     value: function init() {
-      return new this('customers/natural');
+      return new this('buyers');
     }
   }]);
 
-  return NaturalCustomerService;
+  return BuyersService;
 }(_base_base__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 

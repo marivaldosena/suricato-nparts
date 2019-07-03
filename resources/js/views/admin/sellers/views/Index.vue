@@ -3,7 +3,7 @@
         <div class="col-12">
             <Alert/>
             <p>
-                <router-link class="btn btn-outline-secondary" to="/admin/customers/legal/create">Criar</router-link>
+                <router-link class="btn btn-outline-secondary" to="/admin/sellers/create">Criar</router-link>
             </p>
             <table class="col-12 table table-hover">
                 <thead>
@@ -17,21 +17,21 @@
                     <th scope="col"></th>
                 </tr>
                 </thead>
-                <tr v-for="customer in customers.data">
-                    <th scope="row">{{customer.id}}</th>
-                    <td scope="col">{{customer.legal_person_info.company_name}}</td>
-                    <td scope="col">{{customer.legal_person_info.trade_name}}</td>
-                    <td scope="col">{{customer.legal_person_info.cnpj}}</td>
-                    <td scope="col">{{customer.legal_person_info.state_registration ? customer.legal_person_info.state_registration : "--"}}</td>
-                    <td scope="col">{{getLiteralStatus(customer.status)}}</td>
+                <tr v-for="seller in sellers.data">
+                    <th scope="row">{{seller.user.id}}</th>
+                    <td scope="col">{{seller.company_name}}</td>
+                    <td scope="col">{{seller.trade_name}}</td>
+                    <td scope="col">{{seller.cnpj}}</td>
+                    <td scope="col">{{seller.state_registration ? seller.state_registration : "--"}}</td>
+                    <td scope="col">{{getLiteralStatus(seller.user.status)}}</td>
                     <td>
                         <button id="btnGroupDrop1" type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Ações
                         </button>
                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                            <router-link class="dropdown-item" :to="{path: `/admin/customers/legal/${customer.id}`}">Editar</router-link>
-                            <a class="dropdown-item" href="#" v-on:click.stop="handleDestroy(customer.id)">Remover</a>
-                            <a class="dropdown-item" href="#" v-on:click.stop="handleStatus(customer.id, customer.status)">{{customer.status ? 'Desativar' : 'Ativar'}}</a>
+                            <router-link class="dropdown-item" :to="{path: `/admin/sellers/${seller.user.id}`}">Editar</router-link>
+                            <a class="dropdown-item" href="#" v-on:click.stop="handleDestroy(seller.user.id)">Remover</a>
+                            <a class="dropdown-item" href="#" v-on:click.stop="handleStatus(seller.user.id, seller.user.status)">{{seller.user.status ? 'Desativar' : 'Ativar'}}</a>
                         </div>
                     </td>
                 </tr>
@@ -41,11 +41,11 @@
 </template>
 
 <script>
-    import Pagination from '../../../../../components/Pagination';
-    import Alert from '../../../../../components/Alert/Alert';
-    import LegalCustomerService from './../../../../../services/legal_customer';
+    import Pagination from '../../../../components/Pagination';
+    import Alert from '../../../../components/Alert/Alert';
+    import SellersService from './../../../../services/sellers';
 
-    const legalCustomerService = LegalCustomerService.init();
+    const sellersService = SellersService.init();
 
     export default {
         name: "Index",
@@ -55,7 +55,7 @@
         },
         data() {
             return {
-                customers: {
+                sellers: {
                     data: [],
                     meta: {
                         total: 0,
@@ -69,34 +69,34 @@
         },
         methods: {
             getCustomers(){
-                legalCustomerService.index(`?page=${this.customers.meta.current_page}`).then((res) => {
+                sellersService.index(`?page=${this.sellers.meta.current_page}`).then((res) => {
                     const { data, meta } = res;
-                    this.customers.data = data;
-                    this.customers.meta = meta;
+                    this.sellers.data = data;
+                    this.sellers.meta = meta;
                 })
             },
 
             //todo - criar modal para confirmar
             handleDestroy(id){
-                let c = confirm('Deseja remover esse cliente?');
+                let c = confirm('Deseja remover esse vendedor?');
 
                 if(c){
-                    legalCustomerService.destroy(id).then(() => {
-                        this.customers.data = [];
+                    sellersService.destroy(id).then(() => {
+                        this.sellers.data = [];
                         this.getCustomers();
                     })
                 }
             },
             //todo - criar modal para confirmar
             handleStatus(id, status){
-                let c = confirm('Deseja mudar o status desse cliente?');
+                let c = confirm('Deseja mudar o status desse vendedor?');
 
                 if(c){
-                    legalCustomerService.status({
+                    sellersService.status({
                         id,
                         status: status ? '0' : '1',
                     }).then(() => {
-                        this.customers.data = [];
+                        this.sellers.data = [];
                         this.getCustomers();
                     })
                 }

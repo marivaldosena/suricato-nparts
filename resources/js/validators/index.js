@@ -18,5 +18,5 @@ export const passwordRegex = value => {
 };
 
 export const checkType = value => {
-    return /^[1-3]{1}$/.test(value);
+    return /^(admin|buyer|seller)$/.test(value);
 };

@@ -21,7 +21,7 @@ class User extends Authenticatable implements JWTSubject, MustVerifyEmail
     ];
 
     protected $visible = [
-        'name', 'email', 'type', 'status', 'created_at', 'updated_at',
+        'id', 'name', 'email', 'type', 'status', 'created_at', 'updated_at',
     ];
 
     /**

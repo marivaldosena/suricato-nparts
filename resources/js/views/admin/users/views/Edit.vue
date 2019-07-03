@@ -21,20 +21,6 @@
                         <div class="error-msg" v-if="!$v.email.email">Email inválido</div>
                     </div>
                 </div>
-                <div class="form-row">
-                    <div class="form-group col-6" :class="{ 'form-group--error': $v.type.$error }">
-                        <label for="type">Selecione o tipo</label>
-                        <select id="type" class="form-control" v-model.trim="$v.type.$model">
-                            <option value="0">Selecione</option>
-                            <option value="1">Administrador</option>
-                            <option value="2">Pessoa Física</option>
-                            <option value="3">Pessoa Jurídica</option>
-                        </select>
-                        <div class="error" v-if="$v.type.$error">
-                            <div class="error-msg" v-if="!$v.type.checkType">Selecione o tipo</div>
-                        </div>
-                    </div>
-                </div>
                 <button type="submit" class="btn btn-primary" :disabled="submitted">Salvar</button>
             </form>
         </div>
@@ -42,19 +28,11 @@
 </template>
 
 <script>
-    import { required, email, integer, sameAs, helpers } from 'vuelidate/lib/validators'
+    import { required, email } from 'vuelidate/lib/validators'
     import Alert from '../../../../components/Alert/Alert';
     import UsersService from './../../../../services/users'
 
     const usersService = UsersService.init();
-
-    const passwordRegex = value => {
-        return /^[a-z.]*(?=.{3,})(?=.{1,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%@]).*$/.test(value);
-    };
-
-    const checkType = value => {
-        return /^[1-3]{1}$/.test(value);
-    };
 
     export default {
         name: "Edit",
@@ -66,7 +44,6 @@
                 id: 0,
                 name: '',
                 email: '',
-                type: 0,
                 submitted: false,
                 error: false,
             }
@@ -79,9 +56,6 @@
                 required,
                 email
             },
-            type: {
-                checkType
-            }
         },
         created(){
             let id = this.$route.params.id;
@@ -91,7 +65,6 @@
                 this.id = user.id;
                 this.name = user.name;
                 this.email = user.email;
-                this.type = user.type;
 
             }, (err) => {
 
@@ -107,7 +80,6 @@
                         id: this.id,
                         name: this.name,
                         email: this.email,
-                        type: this.type
                     }).then((res) => {
                         this.submitted = false;
 

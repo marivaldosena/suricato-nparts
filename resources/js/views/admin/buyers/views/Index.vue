@@ -3,7 +3,7 @@
         <div class="col-12">
             <Alert/>
             <p>
-                <router-link class="btn btn-outline-secondary" to="/admin/customers/natural/create">Criar</router-link>
+                <router-link class="btn btn-outline-secondary" to="/admin/buyers/create">Criar</router-link>
             </p>
             <table class="col-12 table table-hover">
                 <thead>
@@ -18,22 +18,22 @@
                     <th scope="col"></th>
                 </tr>
                 </thead>
-                <tr v-for="customer in customers.data">
-                    <th scope="row">{{customer.id}}</th>
-                    <td scope="col">{{customer.user.name}}</td>
-                    <td scope="col">{{customer.natural_person_info.cpf}}</td>
-                    <td scope="col">{{customer.natural_person_info.rg}}</td>
-                    <td scope="col">{{getLiteralStatus(customer.status)}}</td>
-                    <td scope="col">{{getLiteralGender(customer.natural_person_info.gender)}}</td>
-                    <td scope="col">{{literalBirthday(customer.natural_person_info.birthday)}}</td>
+                <tr v-for="buyer in buyers.data">
+                    <th scope="row">{{buyer.user.id}}</th>
+                    <td scope="col">{{buyer.user.name}}</td>
+                    <td scope="col">{{buyer.cpf}}</td>
+                    <td scope="col">{{buyer.rg}}</td>
+                    <td scope="col">{{getLiteralStatus(buyer.user.status)}}</td>
+                    <td scope="col">{{getLiteralGender(buyer.gender)}}</td>
+                    <td scope="col">{{literalBirthday(buyer.birthday)}}</td>
                     <td>
                         <button id="btnGroupDrop1" type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Ações
                         </button>
                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                            <router-link class="dropdown-item" :to="{path: `/admin/customers/natural/${customer.id}`}">Editar</router-link>
-                            <a class="dropdown-item" href="#" v-on:click.stop="handleDestroy(customer.id)">Remover</a>
-                            <a class="dropdown-item" href="#" v-on:click.stop="handleStatus(customer.id, customer.status)">{{customer.status ? 'Desativar' : 'Ativar'}}</a>
+                            <router-link class="dropdown-item" :to="{path: `/admin/buyers/${buyer.user.id}`}">Editar</router-link>
+                            <a class="dropdown-item" href="#" v-on:click.stop="handleDestroy(buyer.user.id)">Remover</a>
+                            <a class="dropdown-item" href="#" v-on:click.stop="handleStatus(buyer.user.id, buyer.user.status)">{{buyer.user.status ? 'Desativar' : 'Ativar'}}</a>
                         </div>
                     </td>
                 </tr>
@@ -43,11 +43,11 @@
 </template>
 
 <script>
-    import Pagination from '../../../../../components/Pagination';
-    import Alert from '../../../../../components/Alert/Alert';
-    import NaturalCustomerService from './../../../../../services/natural_customer';
+    import Pagination from '../../../../components/Pagination';
+    import Alert from '../../../../components/Alert/Alert';
+    import BuyersService from './../../../../services/buyers';
 
-    const naturalCustomerService = NaturalCustomerService.init();
+    const buyersService = BuyersService.init();
 
     export default {
         name: "Index",
@@ -57,7 +57,7 @@
         },
         data() {
             return {
-                customers: {
+                buyers: {
                     data: [],
                     meta: {
                         total: 0,
@@ -70,11 +70,11 @@
             }
         },
         methods: {
-            getCustomers(){
-                naturalCustomerService.index(`?page=${this.customers.meta.current_page}`).then((res) => {
+            getBuyers(){
+                buyersService.index(`?page=${this.buyers.meta.current_page}`).then((res) => {
                     const { data, meta } = res;
-                    this.customers.data = data;
-                    this.customers.meta = meta;
+                    this.buyers.data = data;
+                    this.buyers.meta = meta;
                 })
             },
             getLiteralGender(gender){
@@ -90,32 +90,32 @@
             },
             //todo - criar modal para confirmar
             handleDestroy(id){
-                let c = confirm('Deseja remover esse cliente?');
+                let c = confirm('Deseja remover esse comprador?');
 
                 if(c){
-                    naturalCustomerService.destroy(id).then(() => {
-                        this.customers.data = [];
-                        this.getCustomers();
+                    buyersService.destroy(id).then(() => {
+                        this.buyers.data = [];
+                        this.getBuyers();
                     })
                 }
             },
             //todo - criar modal para confirmar
             handleStatus(id, status){
-                let c = confirm('Deseja mudar o status desse cliente?');
+                let c = confirm('Deseja mudar o status desse comprador?');
 
                 if(c){
-                    naturalCustomerService.status({
+                    buyersService.status({
                         id,
                         status: status ? '0' : '1',
                     }).then(() => {
-                        this.customers.data = [];
-                        this.getCustomers();
+                        this.buyers.data = [];
+                        this.getBuyers();
                     })
                 }
             },
         },
         created(){
-            this.getCustomers();
+            this.getBuyers();
         }
     }
 </script>

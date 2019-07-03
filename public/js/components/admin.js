@@ -48,12 +48,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Menu",
@@ -79,12 +73,12 @@ __webpack_require__.r(__webpack_exports__);
       if (this.route.name === routeName) return 'router-link-exact-active';
     },
     literalUserType: function literalUserType(type) {
-      if (type === 1) {
+      if (type === 'admin') {
         return 'Administrador';
-      } else if (type === 2) {
-        return 'Pessoa Física';
+      } else if (type === 'buyer') {
+        return 'Comprador';
       } else {
-        return 'Pessoa Jurídica';
+        return 'Vendedor';
       }
     }
   }
@@ -196,57 +190,47 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("li", { staticClass: "sidebar-menu-item" }, [
-        _c(
-          "a",
-          { attrs: { href: "#" } },
-          [
-            _c("FeatherIcon", { attrs: { type: "settings" } }),
-            _vm._v("\n                Clientes\n            ")
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c("ul", [
+      _c(
+        "li",
+        { staticClass: "sidebar-menu-item" },
+        [
           _c(
-            "li",
+            "router-link",
+            {
+              staticClass: "d-flex align-items-center",
+              class: _vm.setActiveClass("buyers"),
+              attrs: { to: "/admin/buyers" }
+            },
             [
-              _c(
-                "router-link",
-                {
-                  staticClass: "d-flex align-items-center",
-                  attrs: { to: "/admin/customers/natural" }
-                },
-                [
-                  _vm._v(
-                    "\n                        Pessoa Física\n                    "
-                  )
-                ]
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "li",
-            [
-              _c(
-                "router-link",
-                {
-                  staticClass: "d-flex align-items-center",
-                  attrs: { to: "/admin/customers/legal" }
-                },
-                [
-                  _vm._v(
-                    "\n                        Pessoa Jurídica\n                    "
-                  )
-                ]
-              )
+              _c("FeatherIcon", { attrs: { type: "users" } }),
+              _vm._v("\n                Compradores\n            ")
             ],
             1
           )
-        ])
-      ])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "li",
+        { staticClass: "sidebar-menu-item" },
+        [
+          _c(
+            "router-link",
+            {
+              staticClass: "d-flex align-items-center",
+              class: _vm.setActiveClass("sellers"),
+              attrs: { to: "/admin/sellers" }
+            },
+            [
+              _c("FeatherIcon", { attrs: { type: "users" } }),
+              _vm._v("\n                Vendedores\n            ")
+            ],
+            1
+          )
+        ],
+        1
+      )
     ])
   ])
 }

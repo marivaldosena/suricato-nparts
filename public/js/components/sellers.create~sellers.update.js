@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["customers.natural.create~customers.natural.update"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["sellers.create~sellers.update"],{
 
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Alert/Alert.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************************************************************************************************!*\
@@ -402,10 +402,10 @@ function () {
 
 /***/ }),
 
-/***/ "./resources/js/services/natural_customer.js":
-/*!***************************************************!*\
-  !*** ./resources/js/services/natural_customer.js ***!
-  \***************************************************/
+/***/ "./resources/js/services/legal_customer.js":
+/*!*************************************************!*\
+  !*** ./resources/js/services/legal_customer.js ***!
+  \*************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -466,7 +466,7 @@ function (_ApiService) {
   }], [{
     key: "init",
     value: function init() {
-      return new this('customers/natural');
+      return new this('customers/legal');
     }
   }]);
 

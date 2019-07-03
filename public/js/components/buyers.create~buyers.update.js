@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["customers.natural.create~customers.natural.update"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["buyers.create~buyers.update"],{
 
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Alert/Alert.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************************************************************************************************!*\

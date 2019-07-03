@@ -11,7 +11,7 @@
     import Breadcrumb from './../../../components/Breadcrumb';
 
     export default {
-        name: "Customers",
+        name: "Buyers",
         components: {
             Title,
             Breadcrumb

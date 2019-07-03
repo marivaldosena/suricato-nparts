@@ -21,22 +21,16 @@
                 </router-link>
             </li>
             <li class="sidebar-menu-item">
-                <a href="#">
-                    <FeatherIcon type="settings"/>
-                    Clientes
-                </a>
-                <ul>
-                    <li>
-                        <router-link class="d-flex align-items-center" to="/admin/customers/natural">
-                            Pessoa Física
-                        </router-link>
-                    </li>
-                    <li>
-                        <router-link class="d-flex align-items-center" to="/admin/customers/legal">
-                            Pessoa Jurídica
-                        </router-link>
-                    </li>
-                </ul>
+                <router-link class="d-flex align-items-center" :class="setActiveClass('buyers')" to="/admin/buyers">
+                    <FeatherIcon type="users"/>
+                    Compradores
+                </router-link>
+            </li>
+            <li class="sidebar-menu-item">
+                <router-link class="d-flex align-items-center" :class="setActiveClass('sellers')" to="/admin/sellers">
+                    <FeatherIcon type="users"/>
+                    Vendedores
+                </router-link>
             </li>
         </ul>
     </nav>
@@ -72,12 +66,12 @@
             },
             literalUserType(type){
 
-                if(type === 1){
+                if(type === 'admin'){
                     return 'Administrador';
-                }else if (type === 2){
-                    return 'Pessoa Física'
+                }else if (type === 'buyer'){
+                    return 'Comprador'
                 }else{
-                    return 'Pessoa Jurídica'
+                    return 'Vendedor'
                 }
             }
         },

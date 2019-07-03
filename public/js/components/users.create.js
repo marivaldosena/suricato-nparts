@@ -42,48 +42,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
 var usersService = _services_users__WEBPACK_IMPORTED_MODULE_2__["default"].init();
-
-var passwordRegex = function passwordRegex(value) {
-  return /^[a-z.]*(?=.{3,})(?=.{1,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%@]).*$/.test(value);
-};
-
-var checkType = function checkType(value) {
-  return /^[1-3]{1}$/.test(value);
-};
-
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Create",
   components: {
@@ -93,9 +55,6 @@ var checkType = function checkType(value) {
     return {
       name: '',
       email: '',
-      password: '',
-      password_confirmation: '',
-      type: 0,
       submitted: false,
       error: false
     };
@@ -107,16 +66,6 @@ var checkType = function checkType(value) {
     email: {
       required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"],
       email: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["email"]
-    },
-    password: {
-      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"],
-      passwordRegex: passwordRegex
-    },
-    password_confirmation: {
-      sameAsPassword: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["sameAs"])('password')
-    },
-    type: {
-      checkType: checkType
     }
   },
   methods: {
@@ -129,10 +78,7 @@ var checkType = function checkType(value) {
       if (!this.$v.$invalid) {
         usersService.store({
           name: this.name,
-          email: this.email,
-          password: this.password,
-          password_confirmation: this.password_confirmation,
-          type: this.type
+          email: this.email
         }).then(function (res) {
           _this.submitted = false;
 
@@ -287,204 +233,6 @@ var render = function() {
           ),
           _vm._v(" "),
           _c(
-            "div",
-            {
-              staticClass: "form-group",
-              class: { "form-group--error": _vm.$v.password.$error }
-            },
-            [
-              _c("label", { attrs: { for: "password" } }, [_vm._v("Senha")]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model.trim",
-                    value: _vm.$v.password.$model,
-                    expression: "$v.password.$model",
-                    modifiers: { trim: true }
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  type: "password",
-                  id: "password",
-                  placeholder: "Senha"
-                },
-                domProps: { value: _vm.$v.password.$model },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(
-                      _vm.$v.password,
-                      "$model",
-                      $event.target.value.trim()
-                    )
-                  },
-                  blur: function($event) {
-                    return _vm.$forceUpdate()
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _vm.$v.password.$error
-                ? _c("div", { staticClass: "error" }, [
-                    !_vm.$v.password.required
-                      ? _c("div", { staticClass: "error-msg" }, [
-                          _vm._v("Senha requerida")
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    !_vm.$v.password.passwordRegex
-                      ? _c("div", { staticClass: "error-msg" }, [
-                          _vm._v("Senha em formato incorreto")
-                        ])
-                      : _vm._e()
-                  ])
-                : _vm._e()
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "form-group",
-              class: {
-                "form-group--error": _vm.$v.password_confirmation.$error
-              }
-            },
-            [
-              _c("label", { attrs: { for: "password_confirmation" } }, [
-                _vm._v("Confirme a Senha")
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model.trim",
-                    value: _vm.$v.password_confirmation.$model,
-                    expression: "$v.password_confirmation.$model",
-                    modifiers: { trim: true }
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  type: "password",
-                  id: "password_confirmation",
-                  placeholder: "Confirme a Senha"
-                },
-                domProps: { value: _vm.$v.password_confirmation.$model },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(
-                      _vm.$v.password_confirmation,
-                      "$model",
-                      $event.target.value.trim()
-                    )
-                  },
-                  blur: function($event) {
-                    return _vm.$forceUpdate()
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _vm.$v.password_confirmation.$error
-                ? _c("div", { staticClass: "error" }, [
-                    !_vm.$v.password_confirmation.sameAsPassword
-                      ? _c("div", { staticClass: "error-msg" }, [
-                          _vm._v("A senha deve ser igual")
-                        ])
-                      : _vm._e()
-                  ])
-                : _vm._e()
-            ]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-row" }, [
-            _c(
-              "div",
-              {
-                staticClass: "form-group col-6",
-                class: { "form-group--error": _vm.$v.type.$error }
-              },
-              [
-                _c("label", { attrs: { for: "type" } }, [
-                  _vm._v("Selecione o tipo")
-                ]),
-                _vm._v(" "),
-                _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model.trim",
-                        value: _vm.$v.type.$model,
-                        expression: "$v.type.$model",
-                        modifiers: { trim: true }
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { id: "type" },
-                    on: {
-                      change: function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.$set(
-                          _vm.$v.type,
-                          "$model",
-                          $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        )
-                      }
-                    }
-                  },
-                  [
-                    _c("option", { attrs: { value: "0" } }, [
-                      _vm._v("Selecione")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1" } }, [
-                      _vm._v("Administrador")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "2" } }, [
-                      _vm._v("Pessoa Física")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "3" } }, [
-                      _vm._v("Pessoa Jurídica")
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _vm.$v.type.$error
-                  ? _c("div", { staticClass: "error" }, [
-                      !_vm.$v.type.checkType
-                        ? _c("div", { staticClass: "error-msg" }, [
-                            _vm._v("Selecione o tipo")
-                          ])
-                        : _vm._e()
-                    ])
-                  : _vm._e()
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c(
             "button",
             {
               staticClass: "btn btn-primary",
@@ -500,6 +248,72 @@ var render = function() {
 }
 var staticRenderFns = []
 render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./resources/js/services/users.js":
+/*!****************************************!*\
+  !*** ./resources/js/services/users.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return UsersService; });
+/* harmony import */ var _base_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./base/base */ "./resources/js/services/base/base.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+var UsersService =
+/*#__PURE__*/
+function (_ApiService) {
+  _inherits(UsersService, _ApiService);
+
+  function UsersService() {
+    _classCallCheck(this, UsersService);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(UsersService).apply(this, arguments));
+  }
+
+  _createClass(UsersService, [{
+    key: "status",
+    value: function status(record) {
+      return this.http.put("".concat(this.resource, "/status/").concat(this.getId(record)), record).then(this.constructor.then);
+    }
+  }, {
+    key: "createPassword",
+    value: function createPassword(record) {
+      return this.http.put("".concat(this.resource, "/create-password/").concat(this.getId(record)), record).then(this.constructor.then);
+    }
+  }], [{
+    key: "init",
+    value: function init() {
+      return new this('users');
+    }
+  }]);
+
+  return UsersService;
+}(_base_base__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 
 
