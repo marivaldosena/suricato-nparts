@@ -493,7 +493,9 @@ var render = function() {
                         _vm._v(" "),
                         !_vm.$v.password.passwordRegex
                           ? _c("div", { staticClass: "error-msg" }, [
-                              _vm._v("Senha em formato incorreto")
+                              _vm._v(
+                                "Senha em formato incorreto. Ela deve conter ao menos 6 dígitos com letras, números e caracteres especiais"
+                              )
                             ])
                           : _vm._e()
                       ])
@@ -715,7 +717,9 @@ var render = function() {
                       _vm._v(" "),
                       !_vm.$v.password.passwordRegex
                         ? _c("div", { staticClass: "error-msg" }, [
-                            _vm._v("Senha em formato incorreto")
+                            _vm._v(
+                              "Senha em formato incorreto. Ela deve conter ao menos 6 dígitos com letras, números e caracteres especiais"
+                            )
                           ])
                         : _vm._e()
                     ])

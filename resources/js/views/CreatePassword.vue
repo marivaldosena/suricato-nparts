@@ -18,7 +18,7 @@
                     <input type="password" class="form-control" v-model.trim="$v.password.$model" id="password" placeholder="Senha">
                     <div class="error" v-if="$v.password.$error">
                         <div class="error-msg" v-if="!$v.password.required">Senha requerida</div>
-                        <div class="error-msg" v-if="!$v.password.passwordRegex">Senha em formato incorreto</div>
+                        <div class="error-msg" v-if="!$v.password.passwordRegex">Senha em formato incorreto. Ela deve conter ao menos 6 dígitos com letras, números e caracteres especiais</div>
                     </div>
                 </div>
                 <div class="form-group" :class="{ 'form-group--error': $v.password_confirmation.$error }">
