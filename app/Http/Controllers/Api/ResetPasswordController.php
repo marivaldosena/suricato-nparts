@@ -83,12 +83,12 @@ class ResetPasswordController extends Controller
             'password' => 'required|min:6|confirmed|regex:/^[a-z.]*(?=.{3,})(?=.{1,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%@]).*$/',
         ]);
 
-        $passwordReset = PasswordReset::where('token', $token)->firstOrFail();
+        $passwordReset = PasswordReset::where('token', $token)->first();
 
         DB::beginTransaction();
         try{
             $user = User::where('email', $passwordReset->email)
-                ->where('status', '1')->firstOrFail();
+                ->where('status', '1')->first();
 
             $user->update([
                 'password' => bcrypt($request->password)
