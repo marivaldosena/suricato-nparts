@@ -106,7 +106,7 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $rules = $this->rules;
-        unset($rules['password']);
+//        unset($rules['password']);
 
         $this->validate($request, $rules);
 
@@ -173,7 +173,7 @@ class UserController extends Controller
     public function createPassword(Request $request, $token)
     {
         $rules = [
-            'password' => $this->rules['password'],
+            'password' => 'required|min:6|confirmed|regex:/^[a-z.]*(?=.{3,})(?=.{1,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%@]).*$/',
         ];
         $this->validate($request, $rules);
 
