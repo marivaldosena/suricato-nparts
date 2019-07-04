@@ -45,6 +45,19 @@ export const routes = [
         },
         children: [
             {
+                path: 'profile',
+                name: 'profile',
+                component: () => import(/* webpackChunkName: "profile.admin" */ './../views/Profile'),
+                meta: {
+                    title: 'My profile',
+                    breadcrumb: [
+                        {
+                            name: 'My profile'
+                        }
+                    ]
+                }
+            },
+            {
                 path: '',
                 name: 'admin',
                 component: () => import(/* webpackChunkName: "admin.index" */ './../views/admin/Index'),
@@ -316,6 +329,19 @@ export const routes = [
         },
         children: [
             {
+                path: 'profile',
+                name: 'profile',
+                component: () => import(/* webpackChunkName: "profile.admin" */ './../views/Profile'),
+                meta: {
+                    title: 'My profile',
+                    breadcrumb: [
+                        {
+                            name: 'My profile'
+                        }
+                    ]
+                }
+            },
+            {
                 path: '',
                 name: 'seller.index',
                 component: () => import(/* webpackChunkName "seller.index" */ './../views/seller/Index'),
@@ -420,6 +446,19 @@ export const routes = [
             },
         },
         children: [
+            {
+                path: 'profile',
+                name: 'profile',
+                component: () => import(/* webpackChunkName: "profile.admin" */ './../views/Profile'),
+                meta: {
+                    title: 'My profile',
+                    breadcrumb: [
+                        {
+                            name: 'My profile'
+                        }
+                    ]
+                }
+            },
             {
                 path: '',
                 name: 'buyer.index',

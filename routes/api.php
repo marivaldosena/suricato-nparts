@@ -46,4 +46,8 @@ Route::group([
         Route::put('status/{id}', 'Api\\UserController@status');
         Route::get('unused-users/{type}/{name?}', 'Api\UserController@unusedUsers');
     });
+
+    Route::group(['prefix' => 'profile'], function(){
+        Route::put('change-password/{id}', 'Api\ProfileController@changePassword');
+    });
 });

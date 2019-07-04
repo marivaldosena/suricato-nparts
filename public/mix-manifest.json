@@ -38,5 +38,8 @@
     "/js/components/vendors~buyers.create~sellers.create~sellers.update.js": "/js/components/vendors~buyers.create~sellers.create~sellers.update.js",
     "/js/components/vendors~sellers.create~sellers.update.js": "/js/components/vendors~sellers.create~sellers.update.js",
     "/js/components/vendors~sellers.create.js": "/js/components/vendors~sellers.create.js",
-    "/js/components/buyers.create~sellers.create.js": "/js/components/buyers.create~sellers.create.js"
+    "/js/components/buyers.create~sellers.create.js": "/js/components/buyers.create~sellers.create.js",
+    "/js/components/profile.admin.js": "/js/components/profile.admin.js",
+    "/js/components/vendors~buyers.create~buyers.update~login~profile.admin~register.buyer~reset~sellers.create~sellers.~6e506e80.js": "/js/components/vendors~buyers.create~buyers.update~login~profile.admin~register.buyer~reset~sellers.create~sellers.~6e506e80.js",
+    "/js/components/buyers.create~buyers.index~buyers.update~profile.admin~register.buyer~reset~sellers.create~sellers.i~9413e2ce.js": "/js/components/buyers.create~buyers.index~buyers.update~profile.admin~register.buyer~reset~sellers.create~sellers.i~9413e2ce.js"
 }

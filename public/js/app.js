@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "js/components/" + ({"0":"buyers.create","admin":"admin","home":"home","register":"register","register.seller":"register.seller","admin.index":"admin.index","buyers":"buyers","buyers.create~buyers.index~buyers.update~register.buyer~reset~sellers.create~sellers.index~sellers.u~e742b705":"buyers.create~buyers.index~buyers.update~register.buyer~reset~sellers.create~sellers.index~sellers.u~e742b705","buyers.index":"buyers.index","sellers.index":"sellers.index","users.index":"users.index","seller.announcements":"seller.announcements","seller.announcements.create":"seller.announcements.create","seller.announcements.index":"seller.announcements.index","seller.announcements.update":"seller.announcements.update","sellers":"sellers","users":"users","vendors~buyers.create~buyers.update~login~register.buyer~reset~sellers.create~sellers.update~users.c~922e76c5":"vendors~buyers.create~buyers.update~login~register.buyer~reset~sellers.create~sellers.update~users.c~922e76c5","register.buyer":"register.buyer","reset":"reset","buyers.update":"buyers.update","sellers.create":"sellers.create","sellers.update":"sellers.update","users.create":"users.create","users.update":"users.update","login":"login"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "js/components/" + ({"0":"buyers.create","1":"vendors~buyers.create~buyers.update~login~profile.admin~register.buyer~reset~sellers.create~sellers.~6e506e80","4":"profile.admin","buyers.create~buyers.index~buyers.update~profile.admin~register.buyer~reset~sellers.create~sellers.i~9413e2ce":"buyers.create~buyers.index~buyers.update~profile.admin~register.buyer~reset~sellers.create~sellers.i~9413e2ce","register.buyer":"register.buyer","reset":"reset","buyers.update":"buyers.update","sellers.create":"sellers.create","sellers.update":"sellers.update","users.create":"users.create","users.update":"users.update","login":"login","admin":"admin","home":"home","register":"register","register.seller":"register.seller","admin.index":"admin.index","buyers":"buyers","buyers.index":"buyers.index","sellers.index":"sellers.index","users.index":"users.index","seller.announcements":"seller.announcements","seller.announcements.create":"seller.announcements.create","seller.announcements.index":"seller.announcements.index","seller.announcements.update":"seller.announcements.update","sellers":"sellers","users":"users"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -43649,49 +43649,49 @@ var routes = [{
   path: '/',
   name: 'home',
   component: function component() {
-    return Promise.all(/*! import() | home */[__webpack_require__.e(1), __webpack_require__.e(4), __webpack_require__.e("home")]).then(__webpack_require__.bind(null, /*! ./../views/Home */ "./resources/js/views/Home.vue"));
+    return Promise.all(/*! import() | home */[__webpack_require__.e(8), __webpack_require__.e(9), __webpack_require__.e("home")]).then(__webpack_require__.bind(null, /*! ./../views/Home */ "./resources/js/views/Home.vue"));
   }
 }, {
   path: '/login',
   name: 'login',
   component: function component() {
-    return Promise.all(/*! import() | login */[__webpack_require__.e("vendors~buyers.create~buyers.update~login~register.buyer~reset~sellers.create~sellers.update~users.c~922e76c5"), __webpack_require__.e("login")]).then(__webpack_require__.bind(null, /*! ./../views/Login */ "./resources/js/views/Login.vue"));
+    return Promise.all(/*! import() | login */[__webpack_require__.e(1), __webpack_require__.e("login")]).then(__webpack_require__.bind(null, /*! ./../views/Login */ "./resources/js/views/Login.vue"));
   }
 }, {
   path: '/register',
   name: 'register',
   component: function component() {
-    return Promise.all(/*! import() | register */[__webpack_require__.e(1), __webpack_require__.e(4), __webpack_require__.e("register")]).then(__webpack_require__.bind(null, /*! ../views/Register/Register */ "./resources/js/views/Register/Register.vue"));
+    return Promise.all(/*! import() | register */[__webpack_require__.e(8), __webpack_require__.e(9), __webpack_require__.e("register")]).then(__webpack_require__.bind(null, /*! ../views/Register/Register */ "./resources/js/views/Register/Register.vue"));
   }
 }, {
   path: '/register/buyer',
   name: 'register.buyer',
   component: function component() {
-    return Promise.all(/*! import() | register.buyer */[__webpack_require__.e("vendors~buyers.create~buyers.update~login~register.buyer~reset~sellers.create~sellers.update~users.c~922e76c5"), __webpack_require__.e(1), __webpack_require__.e("buyers.create~buyers.index~buyers.update~register.buyer~reset~sellers.create~sellers.index~sellers.u~e742b705"), __webpack_require__.e(4), __webpack_require__.e("register.buyer")]).then(__webpack_require__.bind(null, /*! ../views/Register/views/BuyerRegister */ "./resources/js/views/Register/views/BuyerRegister.vue"));
+    return Promise.all(/*! import() | register.buyer */[__webpack_require__.e(1), __webpack_require__.e(8), __webpack_require__.e("buyers.create~buyers.index~buyers.update~profile.admin~register.buyer~reset~sellers.create~sellers.i~9413e2ce"), __webpack_require__.e(9), __webpack_require__.e("register.buyer")]).then(__webpack_require__.bind(null, /*! ../views/Register/views/BuyerRegister */ "./resources/js/views/Register/views/BuyerRegister.vue"));
   }
 }, {
   path: '/register/seller',
   name: 'register.seller',
   component: function component() {
-    return Promise.all(/*! import() | register.seller */[__webpack_require__.e(1), __webpack_require__.e(4), __webpack_require__.e("register.seller")]).then(__webpack_require__.bind(null, /*! ../views/Register/views/SellerRegister */ "./resources/js/views/Register/views/SellerRegister.vue"));
+    return Promise.all(/*! import() | register.seller */[__webpack_require__.e(8), __webpack_require__.e(9), __webpack_require__.e("register.seller")]).then(__webpack_require__.bind(null, /*! ../views/Register/views/SellerRegister */ "./resources/js/views/Register/views/SellerRegister.vue"));
   }
 }, // todo - adicionar prefixo nessa rota: password
 {
   path: '/reset/:token?',
   name: 'reset',
   component: function component() {
-    return Promise.all(/*! import() | reset */[__webpack_require__.e("vendors~buyers.create~buyers.update~login~register.buyer~reset~sellers.create~sellers.update~users.c~922e76c5"), __webpack_require__.e(1), __webpack_require__.e("buyers.create~buyers.index~buyers.update~register.buyer~reset~sellers.create~sellers.index~sellers.u~e742b705"), __webpack_require__.e(4), __webpack_require__.e("reset")]).then(__webpack_require__.bind(null, /*! ../views/ResetPassword/ResetPassword */ "./resources/js/views/ResetPassword/ResetPassword.vue"));
+    return Promise.all(/*! import() | reset */[__webpack_require__.e(1), __webpack_require__.e(8), __webpack_require__.e("buyers.create~buyers.index~buyers.update~profile.admin~register.buyer~reset~sellers.create~sellers.i~9413e2ce"), __webpack_require__.e(9), __webpack_require__.e("reset")]).then(__webpack_require__.bind(null, /*! ../views/ResetPassword/ResetPassword */ "./resources/js/views/ResetPassword/ResetPassword.vue"));
   }
 }, {
   path: '/password/create/:token',
   name: 'create.password',
   component: function component() {
-    return Promise.all(/*! import() | reset */[__webpack_require__.e("vendors~buyers.create~buyers.update~login~register.buyer~reset~sellers.create~sellers.update~users.c~922e76c5"), __webpack_require__.e(1), __webpack_require__.e("buyers.create~buyers.index~buyers.update~register.buyer~reset~sellers.create~sellers.index~sellers.u~e742b705"), __webpack_require__.e(4), __webpack_require__.e("reset")]).then(__webpack_require__.bind(null, /*! ../views/CreatePassword */ "./resources/js/views/CreatePassword.vue"));
+    return Promise.all(/*! import() | reset */[__webpack_require__.e(1), __webpack_require__.e(8), __webpack_require__.e("buyers.create~buyers.index~buyers.update~profile.admin~register.buyer~reset~sellers.create~sellers.i~9413e2ce"), __webpack_require__.e(9), __webpack_require__.e("reset")]).then(__webpack_require__.bind(null, /*! ../views/CreatePassword */ "./resources/js/views/CreatePassword.vue"));
   }
 }, {
   path: '/admin',
   component: function component() {
-    return Promise.all(/*! import() | admin */[__webpack_require__.e(1), __webpack_require__.e(4), __webpack_require__.e("admin")]).then(__webpack_require__.bind(null, /*! ./../views/admin/Admin */ "./resources/js/views/admin/Admin.vue"));
+    return Promise.all(/*! import() | admin */[__webpack_require__.e(8), __webpack_require__.e(9), __webpack_require__.e("admin")]).then(__webpack_require__.bind(null, /*! ./../views/admin/Admin */ "./resources/js/views/admin/Admin.vue"));
   },
   meta: {
     auth: {
@@ -43699,6 +43699,18 @@ var routes = [{
     }
   },
   children: [{
+    path: 'profile',
+    name: 'profile',
+    component: function component() {
+      return Promise.all(/*! import() | profile.admin */[__webpack_require__.e(1), __webpack_require__.e("buyers.create~buyers.index~buyers.update~profile.admin~register.buyer~reset~sellers.create~sellers.i~9413e2ce"), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, /*! ./../views/Profile */ "./resources/js/views/Profile.vue"));
+    },
+    meta: {
+      title: 'My profile',
+      breadcrumb: [{
+        name: 'My profile'
+      }]
+    }
+  }, {
     path: '',
     name: 'admin',
     component: function component() {
@@ -43727,7 +43739,7 @@ var routes = [{
       path: '',
       name: 'users',
       component: function component() {
-        return Promise.all(/*! import() | users.index */[__webpack_require__.e("buyers.create~buyers.index~buyers.update~register.buyer~reset~sellers.create~sellers.index~sellers.u~e742b705"), __webpack_require__.e("users.index")]).then(__webpack_require__.bind(null, /*! ./../views/admin/users/views/Index */ "./resources/js/views/admin/users/views/Index.vue"));
+        return Promise.all(/*! import() | users.index */[__webpack_require__.e("buyers.create~buyers.index~buyers.update~profile.admin~register.buyer~reset~sellers.create~sellers.i~9413e2ce"), __webpack_require__.e("users.index")]).then(__webpack_require__.bind(null, /*! ./../views/admin/users/views/Index */ "./resources/js/views/admin/users/views/Index.vue"));
       },
       meta: {
         title: 'Users',
@@ -43744,7 +43756,7 @@ var routes = [{
       path: 'create',
       name: 'users.create',
       component: function component() {
-        return Promise.all(/*! import() | users.create */[__webpack_require__.e("vendors~buyers.create~buyers.update~login~register.buyer~reset~sellers.create~sellers.update~users.c~922e76c5"), __webpack_require__.e("buyers.create~buyers.index~buyers.update~register.buyer~reset~sellers.create~sellers.index~sellers.u~e742b705"), __webpack_require__.e("users.create")]).then(__webpack_require__.bind(null, /*! ./../views/admin/users/views/Create */ "./resources/js/views/admin/users/views/Create.vue"));
+        return Promise.all(/*! import() | users.create */[__webpack_require__.e(1), __webpack_require__.e("buyers.create~buyers.index~buyers.update~profile.admin~register.buyer~reset~sellers.create~sellers.i~9413e2ce"), __webpack_require__.e("users.create")]).then(__webpack_require__.bind(null, /*! ./../views/admin/users/views/Create */ "./resources/js/views/admin/users/views/Create.vue"));
       },
       meta: {
         title: 'Create User',
@@ -43765,7 +43777,7 @@ var routes = [{
       path: ':id',
       name: 'users.update',
       component: function component() {
-        return Promise.all(/*! import() | users.update */[__webpack_require__.e("vendors~buyers.create~buyers.update~login~register.buyer~reset~sellers.create~sellers.update~users.c~922e76c5"), __webpack_require__.e("buyers.create~buyers.index~buyers.update~register.buyer~reset~sellers.create~sellers.index~sellers.u~e742b705"), __webpack_require__.e("users.update")]).then(__webpack_require__.bind(null, /*! ./../views/admin/users/views/Edit */ "./resources/js/views/admin/users/views/Edit.vue"));
+        return Promise.all(/*! import() | users.update */[__webpack_require__.e(1), __webpack_require__.e("buyers.create~buyers.index~buyers.update~profile.admin~register.buyer~reset~sellers.create~sellers.i~9413e2ce"), __webpack_require__.e("users.update")]).then(__webpack_require__.bind(null, /*! ./../views/admin/users/views/Edit */ "./resources/js/views/admin/users/views/Edit.vue"));
       },
       meta: {
         title: 'Edit User',
@@ -43799,7 +43811,7 @@ var routes = [{
       path: '',
       name: 'buyers.index',
       component: function component() {
-        return Promise.all(/*! import() | buyers.index */[__webpack_require__.e("buyers.create~buyers.index~buyers.update~register.buyer~reset~sellers.create~sellers.index~sellers.u~e742b705"), __webpack_require__.e("buyers.index")]).then(__webpack_require__.bind(null, /*! ../views/admin/buyers/views/Index */ "./resources/js/views/admin/buyers/views/Index.vue"));
+        return Promise.all(/*! import() | buyers.index */[__webpack_require__.e("buyers.create~buyers.index~buyers.update~profile.admin~register.buyer~reset~sellers.create~sellers.i~9413e2ce"), __webpack_require__.e("buyers.index")]).then(__webpack_require__.bind(null, /*! ../views/admin/buyers/views/Index */ "./resources/js/views/admin/buyers/views/Index.vue"));
       },
       meta: {
         title: 'Buyers',
@@ -43816,7 +43828,7 @@ var routes = [{
       path: 'create',
       name: 'buyers.create',
       component: function component() {
-        return Promise.all(/*! import() | buyers.create */[__webpack_require__.e("vendors~buyers.create~buyers.update~login~register.buyer~reset~sellers.create~sellers.update~users.c~922e76c5"), __webpack_require__.e("buyers.create~buyers.index~buyers.update~register.buyer~reset~sellers.create~sellers.index~sellers.u~e742b705"), __webpack_require__.e(0)]).then(__webpack_require__.bind(null, /*! ../views/admin/buyers/views/Create */ "./resources/js/views/admin/buyers/views/Create.vue"));
+        return Promise.all(/*! import() | buyers.create */[__webpack_require__.e(1), __webpack_require__.e("buyers.create~buyers.index~buyers.update~profile.admin~register.buyer~reset~sellers.create~sellers.i~9413e2ce"), __webpack_require__.e(0)]).then(__webpack_require__.bind(null, /*! ../views/admin/buyers/views/Create */ "./resources/js/views/admin/buyers/views/Create.vue"));
       },
       meta: {
         title: 'Create Buyer',
@@ -43837,7 +43849,7 @@ var routes = [{
       path: ':id',
       name: 'buyers.update',
       component: function component() {
-        return Promise.all(/*! import() | buyers.update */[__webpack_require__.e("vendors~buyers.create~buyers.update~login~register.buyer~reset~sellers.create~sellers.update~users.c~922e76c5"), __webpack_require__.e("buyers.create~buyers.index~buyers.update~register.buyer~reset~sellers.create~sellers.index~sellers.u~e742b705"), __webpack_require__.e("buyers.update")]).then(__webpack_require__.bind(null, /*! ../views/admin/buyers/views/Edit */ "./resources/js/views/admin/buyers/views/Edit.vue"));
+        return Promise.all(/*! import() | buyers.update */[__webpack_require__.e(1), __webpack_require__.e("buyers.create~buyers.index~buyers.update~profile.admin~register.buyer~reset~sellers.create~sellers.i~9413e2ce"), __webpack_require__.e("buyers.update")]).then(__webpack_require__.bind(null, /*! ../views/admin/buyers/views/Edit */ "./resources/js/views/admin/buyers/views/Edit.vue"));
       },
       meta: {
         title: 'Edit Buyer',
@@ -43871,7 +43883,7 @@ var routes = [{
       path: '',
       name: 'sellers.index',
       component: function component() {
-        return Promise.all(/*! import() | sellers.index */[__webpack_require__.e("buyers.create~buyers.index~buyers.update~register.buyer~reset~sellers.create~sellers.index~sellers.u~e742b705"), __webpack_require__.e("sellers.index")]).then(__webpack_require__.bind(null, /*! ../views/admin/sellers/views/Index */ "./resources/js/views/admin/sellers/views/Index.vue"));
+        return Promise.all(/*! import() | sellers.index */[__webpack_require__.e("buyers.create~buyers.index~buyers.update~profile.admin~register.buyer~reset~sellers.create~sellers.i~9413e2ce"), __webpack_require__.e("sellers.index")]).then(__webpack_require__.bind(null, /*! ../views/admin/sellers/views/Index */ "./resources/js/views/admin/sellers/views/Index.vue"));
       },
       meta: {
         title: 'Sellers',
@@ -43888,7 +43900,7 @@ var routes = [{
       path: 'create',
       name: 'sellers.create',
       component: function component() {
-        return Promise.all(/*! import() | sellers.create */[__webpack_require__.e("vendors~buyers.create~buyers.update~login~register.buyer~reset~sellers.create~sellers.update~users.c~922e76c5"), __webpack_require__.e("buyers.create~buyers.index~buyers.update~register.buyer~reset~sellers.create~sellers.index~sellers.u~e742b705"), __webpack_require__.e("sellers.create")]).then(__webpack_require__.bind(null, /*! ../views/admin/sellers/views/Create */ "./resources/js/views/admin/sellers/views/Create.vue"));
+        return Promise.all(/*! import() | sellers.create */[__webpack_require__.e(1), __webpack_require__.e("buyers.create~buyers.index~buyers.update~profile.admin~register.buyer~reset~sellers.create~sellers.i~9413e2ce"), __webpack_require__.e("sellers.create")]).then(__webpack_require__.bind(null, /*! ../views/admin/sellers/views/Create */ "./resources/js/views/admin/sellers/views/Create.vue"));
       },
       meta: {
         title: 'Create Seller',
@@ -43909,7 +43921,7 @@ var routes = [{
       path: ':id',
       name: 'sellers.update',
       component: function component() {
-        return Promise.all(/*! import() | sellers.update */[__webpack_require__.e("vendors~buyers.create~buyers.update~login~register.buyer~reset~sellers.create~sellers.update~users.c~922e76c5"), __webpack_require__.e("buyers.create~buyers.index~buyers.update~register.buyer~reset~sellers.create~sellers.index~sellers.u~e742b705"), __webpack_require__.e("sellers.update")]).then(__webpack_require__.bind(null, /*! ../views/admin/sellers/views/Edit */ "./resources/js/views/admin/sellers/views/Edit.vue"));
+        return Promise.all(/*! import() | sellers.update */[__webpack_require__.e(1), __webpack_require__.e("buyers.create~buyers.index~buyers.update~profile.admin~register.buyer~reset~sellers.create~sellers.i~9413e2ce"), __webpack_require__.e("sellers.update")]).then(__webpack_require__.bind(null, /*! ../views/admin/sellers/views/Edit */ "./resources/js/views/admin/sellers/views/Edit.vue"));
       },
       meta: {
         title: 'Edit Seller',
@@ -43931,7 +43943,7 @@ var routes = [{
 }, {
   path: '/seller',
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(4), __webpack_require__.e(2)]).then(__webpack_require__.bind(null, /*! ./../views/seller/Seller */ "./resources/js/views/seller/Seller.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(8), __webpack_require__.e(9), __webpack_require__.e(2)]).then(__webpack_require__.bind(null, /*! ./../views/seller/Seller */ "./resources/js/views/seller/Seller.vue"));
   },
   meta: {
     auth: {
@@ -43939,6 +43951,18 @@ var routes = [{
     }
   },
   children: [{
+    path: 'profile',
+    name: 'profile',
+    component: function component() {
+      return Promise.all(/*! import() | profile.admin */[__webpack_require__.e(1), __webpack_require__.e("buyers.create~buyers.index~buyers.update~profile.admin~register.buyer~reset~sellers.create~sellers.i~9413e2ce"), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, /*! ./../views/Profile */ "./resources/js/views/Profile.vue"));
+    },
+    meta: {
+      title: 'My profile',
+      breadcrumb: [{
+        name: 'My profile'
+      }]
+    }
+  }, {
     path: '',
     name: 'seller.index',
     component: function component() {
@@ -44025,7 +44049,7 @@ var routes = [{
 }, {
   path: '/buyer',
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(4), __webpack_require__.e(7)]).then(__webpack_require__.bind(null, /*! ./../views/buyer/Buyer */ "./resources/js/views/buyer/Buyer.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(8), __webpack_require__.e(9), __webpack_require__.e(7)]).then(__webpack_require__.bind(null, /*! ./../views/buyer/Buyer */ "./resources/js/views/buyer/Buyer.vue"));
   },
   meta: {
     auth: {
@@ -44033,6 +44057,18 @@ var routes = [{
     }
   },
   children: [{
+    path: 'profile',
+    name: 'profile',
+    component: function component() {
+      return Promise.all(/*! import() | profile.admin */[__webpack_require__.e(1), __webpack_require__.e("buyers.create~buyers.index~buyers.update~profile.admin~register.buyer~reset~sellers.create~sellers.i~9413e2ce"), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, /*! ./../views/Profile */ "./resources/js/views/Profile.vue"));
+    },
+    meta: {
+      title: 'My profile',
+      breadcrumb: [{
+        name: 'My profile'
+      }]
+    }
+  }, {
     path: '',
     name: 'buyer.index',
     component: function component() {

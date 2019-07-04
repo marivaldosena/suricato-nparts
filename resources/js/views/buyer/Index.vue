@@ -1,17 +1,20 @@
 <template>
     <div>
         <Title/>
+        <Alert/>
         <p>Área do usuario comprador</p>
     </div>
 </template>
 
 <script>
     import Title from './../../components/Title';
+    import Alert from './../../components/Alert/Alert';
 
     export default {
         name: "Index",
         components: {
             Title,
+            Alert,
         },
     }
 </script>
